@@ -44,7 +44,19 @@ func movement():
 	return moveDir
 	
 func _physics_process(delta):
-	move_and_collide(movement() * delta * movementSpeed)
+	move_and_slide(movement() * movementSpeed)
+	if(get_slide_count() > 0):
+		var collision = get_slide_collision(0)
+		if(collision):
+			#print("Player collided with: ", collision.collider)
+			var tileMap: TileMap = collision.collider as TileMap
+			if(tileMap):
+				var tilePos = tileMap.world_to_map(position)
+				tilePos -= collision.normal
+				var tileId = tileMap.get_cellv(tilePos)
+				var tileName = tileMap.tile_set.tile_get_name(tileId)
+				#print(tileName)
+			
 	
 func _process(delta):
 	#self.position += movement() * delta * movementSpeed
