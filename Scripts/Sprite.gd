@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 export var movementSpeed = 100
 
@@ -10,12 +10,16 @@ func movement():
 	var moveDir = Vector2(0,0)
 	if(Input.is_action_pressed("ui_down")):
 		moveDir += Vector2(0,1)
+		animation = "Walk_Down"
 	if(Input.is_action_pressed("ui_up")):
 		moveDir += Vector2(0,-1)
+		animation = "Walk_Up"
 	if(Input.is_action_pressed("ui_left")):
 		moveDir += Vector2(-1, 0)
+		animation = "Walk_Left"
 	if(Input.is_action_pressed("ui_right")):
 		moveDir += Vector2(1, 0)
+		animation = "Walk_Right"
 	return moveDir
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
