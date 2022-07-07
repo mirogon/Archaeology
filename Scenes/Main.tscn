@@ -122,4 +122,5 @@ current = true
 scale = Vector2( 2, 2 )
 frames = SubResource( 26 )
 animation = "Walk_Left"
+frame = 2
 playing = true
