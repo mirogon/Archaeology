@@ -1,9 +1,11 @@
-extends AnimatedSprite
+extends KinematicBody2D
 
 export var movementSpeed = 100
 
+var animatedSprite: AnimatedSprite
+
 func _ready():
-	pass
+	animatedSprite = $AnimatedSprite
 
 func get_movedir():
 	var moveDir: Vector2 = Vector2(0,0)
@@ -19,21 +21,21 @@ func get_movedir():
 	return moveDir
 	
 func set_anim(moveDir: Vector2):
-	playing = true
+	animatedSprite.playing = true
 	if(moveDir.x == 0 && moveDir.y == 0):
-		playing = false
-		frame = 0
+		animatedSprite.playing = false
+		animatedSprite.frame = 0
 	if(moveDir.x > 0):
-		animation = "Walk_Right"
+		animatedSprite.animation = "Walk_Right"
 		return
 	elif(moveDir.x < 0):
-		animation = "Walk_Left"
+		animatedSprite.animation = "Walk_Left"
 		return
 	if(moveDir.y > 0):
-		animation = "Walk_Down"
+		animatedSprite.animation = "Walk_Down"
 		return
 	elif(moveDir.y < 0):
-		animation = "Walk_Up"
+		animatedSprite.animation = "Walk_Up"
 		return
 
 func movement():
@@ -41,6 +43,9 @@ func movement():
 	set_anim(moveDir)
 	return moveDir
 	
+func _physics_process(delta):
+	move_and_collide(movement() * delta * movementSpeed)
+	
 func _process(delta):
-	self.position += movement() * delta * movementSpeed
+	#self.position += movement() * delta * movementSpeed
 	pass
