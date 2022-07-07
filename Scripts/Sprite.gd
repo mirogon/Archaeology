@@ -23,17 +23,17 @@ func set_anim(moveDir: Vector2):
 	if(moveDir.x == 0 && moveDir.y == 0):
 		playing = false
 		frame = 0
-	if(moveDir.y > 0):
-		animation = "Walk_Down"
-		return
-	elif(moveDir.y < 0):
-		animation = "Walk_Up"
-		return
 	if(moveDir.x > 0):
 		animation = "Walk_Right"
 		return
 	elif(moveDir.x < 0):
 		animation = "Walk_Left"
+		return
+	if(moveDir.y > 0):
+		animation = "Walk_Down"
+		return
+	elif(moveDir.y < 0):
+		animation = "Walk_Up"
 		return
 
 func movement():
@@ -41,7 +41,6 @@ func movement():
 	set_anim(moveDir)
 	return moveDir
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self.position += movement() * delta * movementSpeed
 	pass
