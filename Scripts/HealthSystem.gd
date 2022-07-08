@@ -16,4 +16,4 @@ func take_damage(damage: int):
 	if(current_health < 0):
 		current_health = 0
 		emit_signal("died")
-	emit_signal("took damage", current_health)
+	emit_signal("took_damage", current_health)
