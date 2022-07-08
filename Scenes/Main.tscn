@@ -165,43 +165,7 @@ points = PoolVector2Array( 0, 0, 4, 0, 4, 48, 0, 48 )
 3/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 12, 29.5 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 16, 32 )
+extents = Vector2( 6, 14.5 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 3 )
@@ -239,18 +203,44 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 3 )
 region = Rect2( 64, 96, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 32 )
+
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
-"loop": true,
-"name": "Walk_Up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "Walk_Right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Walk_Down",
@@ -259,6 +249,16 @@ animations = [ {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "Walk_Left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "Walk_Right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "Walk_Up",
 "speed": 5.0
 } ]
 
@@ -281,16 +281,16 @@ format = 1
 tile_data = PoolIntArray( -393254, 0, 0, -393253, 0, 0, -393252, 0, 0, -393251, 0, 0, -393250, 0, 0, -393249, 0, 0, -393248, 0, 0, -393247, 0, 0, -393246, 0, 0, -393245, 0, 0, -393244, 0, 0, -393243, 0, 0, -393242, 0, 0, -393241, 0, 0, -393240, 1, 0, -327719, 2, 0, -196644, 3, 0, -131108, 3, 0, 262134, 6, 0, 262135, 8, 0, 327662, 5, 0, 327663, 5, 0, 393200, 5, 0, 393201, 5, 0, 458733, 5, 0, 458734, 5, 0, 458735, 5, 0, 458736, 5, 0, 458737, 5, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( -482, -44 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
 position = Vector2( 0, -0.5 )
 shape = SubResource( 21 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 current = true
+zoom = Vector2( 0.5, 0.5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 26 )
