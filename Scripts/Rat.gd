@@ -18,6 +18,8 @@ func _physics_process(delta):
 			$AnimatedSprite.flip_h = true
 	else:
 		$AnimatedSprite.animation = "Rat_Atk"
+		var player_health_system = player.get_node("HealthSystem") as HealthSystem
+		player_health_system.take_damage(100)
 
 func _process(delta):
 	pass

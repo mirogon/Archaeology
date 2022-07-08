@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 export var movementSpeed = 100
 
 var animatedSprite: AnimatedSprite
@@ -60,4 +62,9 @@ func _physics_process(delta):
 	
 func _process(delta):
 	#self.position += movement() * delta * movementSpeed
+	pass
+
+
+func _on_HealthSystem_died():
+	#print("PLAYER DIED!")
 	pass
