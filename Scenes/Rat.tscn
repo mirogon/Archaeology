@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Asstes/Enemies/Rat_Atk.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Enemies/Rat.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Rat.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 2 )
@@ -64,11 +65,12 @@ animations = [ {
 extents = Vector2( 7, 6 )
 
 [node name="Rat" type="KinematicBody2D"]
+script = ExtResource( 3 )
+speed = 65
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "Rat_Walk"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
