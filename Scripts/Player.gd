@@ -54,7 +54,7 @@ func _physics_process(delta):
 				var tilePos = tileMap.world_to_map(position)
 				tilePos -= collision.normal
 				var tileId = tileMap.get_cellv(tilePos)
-				var tileName = tileMap.tile_set.tile_get_name(tileId)
+				#var tileName = tileMap.tile_set.tile_get_name(tileId)
 				#print(tileName)
 			
 	
