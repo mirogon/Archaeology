@@ -1,10 +1,12 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Asstes/Character/Character_WalkC.png" type="Texture" id=3]
 [ext_resource path="res://Asstes/Environment/Autotile_cave2.png" type="Texture" id=4]
 [ext_resource path="res://Asstes/Environment/Cave_2.png" type="Texture" id=5]
+[ext_resource path="res://Asstes/Enemies/Rat_Atk.png" type="Texture" id=6]
+[ext_resource path="res://Asstes/Enemies/Rat.png" type="Texture" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=48]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -16,13 +18,13 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=51]
-points = PoolVector2Array( 16, 16, 0, 16, 0, 12, 16, 12 )
+points = PoolVector2Array( 16, 16, 0, 16, 0, 8, 16, 8 )
 
 [sub_resource type="ConvexPolygonShape2D" id=53]
-points = PoolVector2Array( 4, 0, 4, 12, 16, 12, 16, 16, 0, 16, 0, 0, 0, 0 )
+points = PoolVector2Array( 8, 0, 8, 8, 16, 8, 16, 16, 0, 16, 0, 0, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
-points = PoolVector2Array( 0, 12, 0, 12, 12, 12, 12, 0, 16, 0, 16, 16, 0, 16 )
+points = PoolVector2Array( 0, 8, 0, 8, 8, 8, 8, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=46]
 0/name = "Autotile_cave2.png 0"
@@ -86,11 +88,14 @@ points = PoolVector2Array( 0, 12, 0, 12, 12, 12, 12, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 0/z_index = 0
 
+[sub_resource type="ConvexPolygonShape2D" id=55]
+points = PoolVector2Array( 16, 4, 0, 4, 0, 0, 16, 0 )
+
 [sub_resource type="ConvexPolygonShape2D" id=52]
-points = PoolVector2Array( 16, 48, 12, 48, 12, 0, 16, 0 )
+points = PoolVector2Array( 16, 48, 8, 48, 8, 0, 16, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
-points = PoolVector2Array( 0, 0, 4, 0, 4, 48, 0, 48 )
+points = PoolVector2Array( 0, 0, 8, 0, 8, 48, 0, 48 )
 
 [sub_resource type="TileSet" id=45]
 0/name = "Cave_2.png 0"
@@ -103,9 +108,16 @@ points = PoolVector2Array( 0, 0, 4, 0, 4, 48, 0, 48 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 55 )
 0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 55 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 1/name = "Cave_2.png 1"
 1/texture = ExtResource( 5 )
@@ -262,6 +274,63 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 6 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=67]
+animations = [ {
+"frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
+"loop": true,
+"name": "Rat_Atk",
+"speed": 11.0
+}, {
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
+"loop": true,
+"name": "Rat_Walk",
+"speed": 10.0
+} ]
+
 [node name="Main" type="Node2D"]
 
 [node name="TestMap" parent="." instance=ExtResource( 2 )]
@@ -297,3 +366,13 @@ frames = SubResource( 26 )
 animation = "Walk_Left"
 frame = 1
 playing = true
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 67 )
+animation = "Rat_Atk"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
