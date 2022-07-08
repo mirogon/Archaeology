@@ -1,32 +1,33 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Asstes/Character/Character_WalkC.png" type="Texture" id=3]
-[ext_resource path="res://Asstes/Environment/Cave_1.2.png" type="Texture" id=4]
+[ext_resource path="res://Asstes/Environment/Autotile_cave2.png" type="Texture" id=4]
+[ext_resource path="res://Asstes/Environment/Cave_2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 12, 29.5 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 16, 32 )
+region = Rect2( 0, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 64, 16, 32 )
+region = Rect2( 16, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 3 )
-region = Rect2( 32, 64, 16, 32 )
+region = Rect2( 32, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=39]
+[sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 3 )
-region = Rect2( 48, 64, 16, 32 )
+region = Rect2( 48, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=40]
+[sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 16, 32 )
+region = Rect2( 64, 96, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 3 )
@@ -60,31 +61,31 @@ region = Rect2( 32, 32, 16, 32 )
 atlas = ExtResource( 3 )
 region = Rect2( 48, 32, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 96, 16, 32 )
+region = Rect2( 0, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 96, 16, 32 )
+region = Rect2( 16, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 3 )
-region = Rect2( 32, 96, 16, 32 )
+region = Rect2( 32, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 3 )
-region = Rect2( 48, 96, 16, 32 )
+region = Rect2( 48, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 96, 16, 32 )
+region = Rect2( 64, 64, 16, 32 )
 
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
-"name": "Walk_Right",
+"name": "Walk_Left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
@@ -97,18 +98,18 @@ animations = [ {
 "name": "Walk_Down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
-"name": "Walk_Left",
+"name": "Walk_Right",
 "speed": 5.0
 } ]
 
 [sub_resource type="TileSet" id=45]
-0/name = "Cave_1.2.png 0"
-0/texture = ExtResource( 4 )
+0/name = "Cave_2.png 0"
+0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 32, 0, 32, 96 )
+0/region = Rect2( 0, 128, 32, 96 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
@@ -118,11 +119,11 @@ animations = [ {
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "Cave_1.2.png 1"
-1/texture = ExtResource( 4 )
+1/name = "Cave_2.png 1"
+1/texture = ExtResource( 5 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 96 )
+1/region = Rect2( 64, 128, 32, 96 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
@@ -132,11 +133,11 @@ animations = [ {
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
-2/name = "Cave_1.2.png 2"
-2/texture = ExtResource( 4 )
+2/name = "Cave_2.png 2"
+2/texture = ExtResource( 5 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 32, 96, 32, 32 )
+2/region = Rect2( 32, 32, 32, 96 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
@@ -146,11 +147,11 @@ animations = [ {
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
-3/name = "Cave_1.2.png 3"
-3/texture = ExtResource( 4 )
+3/name = "Cave_2.png 3"
+3/texture = ExtResource( 5 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 32, 0, 64, 96 )
+3/region = Rect2( 64, 32, 32, 96 )
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
@@ -160,11 +161,11 @@ animations = [ {
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
-4/name = "Cave_1.2.png 4"
-4/texture = ExtResource( 4 )
+4/name = "Cave_2.png 4"
+4/texture = ExtResource( 5 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 96, 32, 32 )
+4/region = Rect2( 0, 32, 32, 96 )
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
@@ -174,11 +175,11 @@ animations = [ {
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
-5/name = "Cave_1.2.png 5"
-5/texture = ExtResource( 4 )
+5/name = "Cave_2.png 5"
+5/texture = ExtResource( 5 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 64, 96, 32, 32 )
+5/region = Rect2( 32, 96, 32, 32 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
@@ -188,48 +189,31 @@ animations = [ {
 5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
-6/name = "Cave_1.2.png 6"
-6/texture = ExtResource( 4 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 32, 128, 32, 96 )
-6/tile_mode = 0
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape_one_way = false
-6/shape_one_way_margin = 0.0
-6/shapes = [  ]
-6/z_index = 0
-7/name = "Cave_1.2.png 7"
-7/texture = ExtResource( 4 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 0, 128, 32, 96 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "Cave_1.2.png 8"
-8/texture = ExtResource( 4 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 64, 128, 32, 96 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
+
+[sub_resource type="TileSet" id=46]
+0/name = "Autotile_cave2.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 288, 128 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 176, Vector2( 0, 1 ), 50, Vector2( 0, 2 ), 255, Vector2( 0, 3 ), 507, Vector2( 1, 0 ), 152, Vector2( 1, 1 ), 26, Vector2( 1, 2 ), 447, Vector2( 1, 3 ), 510, Vector2( 2, 0 ), 56, Vector2( 2, 1 ), 146, Vector2( 2, 2 ), 191, Vector2( 2, 3 ), 251, Vector2( 3, 0 ), 184, Vector2( 3, 1 ), 178, Vector2( 3, 2 ), 506, Vector2( 3, 3 ), 446, Vector2( 4, 0 ), 58, Vector2( 4, 1 ), 154, Vector2( 4, 2 ), 438, Vector2( 4, 3 ), 504, Vector2( 5, 0 ), 24, Vector2( 5, 1 ), 144, Vector2( 5, 2 ), 219, Vector2( 6, 0 ), 18, Vector2( 6, 1 ), 54, Vector2( 6, 3 ), 63, Vector2( 7, 0 ), 432, Vector2( 7, 2 ), 186, Vector2( 7, 3 ), 511, Vector2( 8, 0 ), 216, Vector2( 8, 2 ), 54, Vector2( 8, 3 ), 27 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Main" type="Node2D"]
 
@@ -251,10 +235,17 @@ current = true
 scale = Vector2( 2, 2 )
 frames = SubResource( 26 )
 animation = "Walk_Left"
+frame = 3
 playing = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Tiles" type="TileMap" parent="."]
 tile_set = SubResource( 45 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -65552, 1, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 3, 0, 131056, 4, 0, 131057, 2, 0, 131058, 2, 0, 131059, 2, 0, 131060, 2, 0, 131061, 2, 0, 131062, 2, 0, 131063, 5, 0, 196592, 4, 0, 196593, 2, 0, 196594, 2, 0, 196595, 2, 0, 196596, 2, 0, 196597, 2, 0, 196598, 2, 0, 196599, 5, 0, 262128, 7, 0, 262129, 6, 0, 262130, 6, 0, 262131, 6, 0, 262132, 6, 0, 262133, 6, 0, 262134, 6, 0, 262135, 8, 0 )
+tile_data = PoolIntArray( 131052, 4, 0, 131053, 2, 0, 131054, 2, 0, 131055, 2, 0, 131056, 2, 0, 131057, 2, 0, 131058, 3, 0, 262128, 7, 0, 262134, 6, 0, 262135, 8, 0, 327660, 0, 0, 327661, 5, 0, 327662, 5, 0, 327663, 5, 0, 327664, 5, 0, 327665, 5, 0, 327666, 1, 0, 393197, 5, 0, 393198, 5, 0, 393199, 5, 0, 393200, 5, 0, 393201, 5, 0, 458733, 5, 0, 458734, 5, 0, 458735, 5, 0, 458736, 5, 0, 458737, 5, 0 )
+
+[node name="Autotile" type="TileMap" parent="."]
+tile_set = SubResource( 46 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -524316, 1, 7, -524315, 1, 196612, -524314, 1, 196612, -524313, 1, 196612, -524312, 1, 196612, -524311, 1, 8, -458780, 1, 131076, -458779, 1, 131078, -458778, 1, 131078, -458777, 1, 131078, -458776, 1, 131078, -458775, 1, 131077, -393244, 1, 65543, -393243, 1, 196613, -393242, 1, 196613, -393241, 1, 196613, -393240, 1, 196613, -393239, 1, 65544, 65516, 0, 7, 65517, 0, 196612, 65518, 0, 196612, 65519, 0, 196612, 65520, 0, 196612, 65521, 0, 196612, 65522, 0, 8, 131052, 0, 131076, 131053, 0, 196615, 131054, 0, 196615, 131055, 0, 196615, 131056, 0, 196615, 131057, 0, 196615, 131058, 0, 131077, 196588, 0, 131076, 196589, 0, 196615, 196590, 0, 196615, 196591, 0, 196615, 196592, 0, 196615, 196593, 0, 196615, 196594, 0, 131077, 262124, 0, 131080, 262125, 0, 196614, 262126, 0, 196614, 262127, 0, 196614, 262128, 0, 196614, 262129, 0, 196614, 262130, 0, 196616 )
