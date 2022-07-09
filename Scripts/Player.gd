@@ -8,6 +8,7 @@ var animatedSprite: AnimatedSprite
 
 func _ready():
 	animatedSprite = $AnimatedSprite
+	$ProgressBar.hide()
 
 func get_movedir():
 	var moveDir: Vector2 = Vector2(0,0)
@@ -67,3 +68,7 @@ func _process(delta):
 
 func _on_HealthSystem_died():
 	print("PLAYER DIED!")
+
+
+func _on_HealthSystem_took_damage(new_health):
+	$ProgressBar.show()
