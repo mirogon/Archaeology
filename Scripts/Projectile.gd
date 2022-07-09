@@ -2,8 +2,8 @@ extends Area2D
 
 class_name Projectile
 
-export var hitDamage = 100;
-export var moveSpeed = 150;
+export var hitDamage = 100
+export var moveSpeed = 150
 
 var moveDir: Vector2
 
