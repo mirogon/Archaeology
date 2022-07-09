@@ -9,3 +9,4 @@ func _ready():
 
 func _on_HealthSystem_died():
 	print("Snake ded")
+	queue_free()

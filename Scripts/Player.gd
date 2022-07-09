@@ -3,12 +3,17 @@ extends KinematicBody2D
 class_name Player
 
 export var movementSpeed = 100
+export var projectileScene: PackedScene
 
 var animatedSprite: AnimatedSprite
+
+var time
+var lastTimeThrownProjectile: float
 
 func _ready():
 	animatedSprite = $AnimatedSprite
 	$ProgressBar.hide()
+	time = 0
 
 func get_movedir():
 	var moveDir: Vector2 = Vector2(0,0)
@@ -60,15 +65,22 @@ func _physics_process(delta):
 				#var tileName = tileMap.tile_set.tile_get_name(tileId)
 				#print(tileName)
 			
+func throw_projectile():
+	if Input.is_mouse_button_pressed(1) && (time - lastTimeThrownProjectile) > 1:
+		var new_projectile = projectileScene.instance() as Projectile
+		new_projectile.position = position
+		var dir = get_global_mouse_position() - position
+		dir = dir.normalized()
+		new_projectile.moveDir = dir 
+		get_parent().add_child(new_projectile)
+		lastTimeThrownProjectile = time
 	
 func _process(delta):
-	#self.position += movement() * delta * movementSpeed
-	pass
-
+	throw_projectile()
+	time += delta
 
 func _on_HealthSystem_died():
 	print("PLAYER DIED!")
-
 
 func _on_HealthSystem_took_damage(new_health):
 	$ProgressBar.show()

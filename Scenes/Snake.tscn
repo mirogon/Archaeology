@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Asstes/Enemies/Snake_idle.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Enemies/Snake_Atk.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Snake.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Snake.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/HealthSystem.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -101,13 +101,13 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 9.5, 12 )
 
-[node name="Snake" type="KinematicBody2D"]
+[node name="Snake" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
 animation = "Snake_Atk"
-frame = 2
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

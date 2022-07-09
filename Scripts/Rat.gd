@@ -26,3 +26,4 @@ func _process(delta):
 
 func _on_HealthSystem_died():
 	print("Rat died")
+	queue_free()

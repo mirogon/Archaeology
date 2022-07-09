@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "Area2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Scripts/Projectile.gd"
 } ]
 _global_script_class_icons={
 "HealthSystem": "",
-"Player": ""
+"Player": "",
+"Projectile": ""
 }
 
 [application]
