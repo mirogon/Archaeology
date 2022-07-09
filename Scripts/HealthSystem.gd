@@ -12,8 +12,10 @@ func _ready():
 	current_health = max_health
 
 func take_damage(damage: int):
+	if(current_health == 0):
+		return
 	current_health -= damage
-	if(current_health < 0):
+	if(current_health <= 0):
 		current_health = 0
 		emit_signal("died")
 	emit_signal("took_damage", current_health)

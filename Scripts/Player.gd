@@ -66,5 +66,4 @@ func _process(delta):
 
 
 func _on_HealthSystem_died():
-	#print("PLAYER DIED!")
-	pass
+	print("PLAYER DIED!")
