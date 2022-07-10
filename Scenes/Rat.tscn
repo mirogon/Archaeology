@@ -72,7 +72,7 @@ speed = 65
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 67 )
 animation = "Rat_Walk"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
