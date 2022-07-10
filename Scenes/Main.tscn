@@ -17,4 +17,4 @@ projectileScene = ExtResource( 2 )
 position = Vector2( -386, -62 )
 
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
-position = Vector2( -434, -103 )
+position = Vector2( -615, -122 )

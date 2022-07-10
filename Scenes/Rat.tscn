@@ -63,20 +63,21 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=68]
-extents = Vector2( 7, 6 )
+extents = Vector2( 7, 5.5 )
 
 [node name="Rat" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 3 )
 speed = 65
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
 frames = SubResource( 67 )
 animation = "Rat_Walk"
 frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 0, -5.5 )
 shape = SubResource( 68 )
 
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]
