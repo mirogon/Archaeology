@@ -18,9 +18,8 @@ func _ready():
 	if(navigation2D):
 		active = true
 		
-	destination_reached = false
+	destination_reached = true
 	current_path_index = 0
-	set_new_destination(Vector2(0,270))
 
 func set_new_destination(dest: Vector2):
 	current_destination = dest
@@ -38,7 +37,6 @@ func increment_path_index():
 	if(current_path_index >= current_path.size()):
 		destination_reached = true
 		current_path_index -= 1
-		
 
 func get_current_path_point_destination():
 	var distance_vector = current_path[current_path_index] - get_parent().position
@@ -71,4 +69,3 @@ func _process(delta):
 	
 	var current_path_point_destination = get_current_path_point_destination()
 	move_closer_to(current_path_point_destination, moveSpeed * delta)
-	

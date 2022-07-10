@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Asstes/Character/Character_Army.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/NavigationMovement.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Soldier.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/HealthSystem.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 6, 15 )
@@ -103,6 +105,7 @@ animations = [ {
 } ]
 
 [node name="Soldier" type="Area2D"]
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -15 )
@@ -112,7 +115,7 @@ shape = SubResource( 20 )
 position = Vector2( 0, -16 )
 frames = SubResource( 19 )
 animation = "Army_walk_down"
-frame = 1
+frame = 3
 playing = true
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]
@@ -121,3 +124,8 @@ mouse_debug_mode = true
 [node name="ProgressBar" parent="." instance=ExtResource( 3 )]
 margin_top = -37.0
 margin_bottom = -35.0
+
+[node name="HealthSystem" parent="." instance=ExtResource( 5 )]
+
+[connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
+[connection signal="took_damage" from="HealthSystem" to="ProgressBar" method="_on_HealthSystem_took_damage"]
