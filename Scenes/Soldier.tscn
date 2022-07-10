@@ -105,9 +105,11 @@ animations = [ {
 [node name="Soldier" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -15 )
 shape = SubResource( 20 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16 )
 frames = SubResource( 19 )
 animation = "Army_walk_down"
 frame = 1
@@ -117,5 +119,5 @@ playing = true
 mouse_debug_mode = true
 
 [node name="ProgressBar" parent="." instance=ExtResource( 3 )]
-margin_top = -21.0
-margin_bottom = -19.0
+margin_top = -37.0
+margin_bottom = -35.0

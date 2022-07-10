@@ -7,7 +7,6 @@ export var mouse_debug_mode = false
 var navigation2D: Navigation2D
 
 var current_destination: Vector2
-var new_destination: bool = false
 var current_path: PoolVector2Array
 var current_path_index: int
 var destination_reached: bool
@@ -25,23 +24,27 @@ func _ready():
 
 func set_new_destination(dest: Vector2):
 	current_destination = dest
-	new_destination = true
+	destination_reached = false
+	get_new_path()
 
 func get_new_path():
 	current_path = navigation2D.get_simple_path(get_parent().position, current_destination)
+	current_path.remove(0)
 	current_path_index = 0
 
 func increment_path_index():
 	current_path_index += 1
+	print("increment")
 	if(current_path_index >= current_path.size()):
 		destination_reached = true
 		current_path_index -= 1
+		
 
 func get_current_path_point_destination():
 	var distance_vector = current_path[current_path_index] - get_parent().position
 	var distance_value = abs(distance_vector.length())
 	
-	if(distance_value < 10):
+	if(distance_value < 2):
 		increment_path_index()
 		
 	return current_path[current_path_index]
@@ -62,9 +65,10 @@ func _process(delta):
 		
 	if(mouse_debug_mode):
 		mouse_debug_mode_set_position()
-		
-	if(new_destination):
-		get_new_path()
+	
+	if(destination_reached):
+		return
+	
 	var current_path_point_destination = get_current_path_point_destination()
 	move_closer_to(current_path_point_destination, moveSpeed * delta)
 	
