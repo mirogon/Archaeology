@@ -7,6 +7,7 @@ export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
 
 var heal_resources = 0
+var treasure_found = 0
 
 var animatedSprite: AnimatedSprite
 
@@ -80,6 +81,8 @@ func throw_projectile():
 		lastTimeThrownProjectile = time
 	
 func throw_healing_projectile():
+	if(heal_resources < 25):
+		return
 	if Input.is_mouse_button_pressed(2) && (time - last_time_thrown_heal > 1):
 		var healing_projectile = healing_projectile_scene.instance()
 		healing_projectile.position = position
@@ -88,6 +91,7 @@ func throw_healing_projectile():
 		healing_projectile.move_dir = dir 
 		get_parent().add_child(healing_projectile)
 		last_time_thrown_heal = time
+		heal_resources -= 25
 	
 func _process(delta):
 	throw_projectile()
@@ -108,3 +112,9 @@ func _on_Area2D_area_entered(area):
 		heal_resources += health_pickup.health_value
 		print("Heal Resources: ", heal_resources)
 		area.queue_free()
+	elif area.is_in_group("TreasurePickup"):
+		var treasure = area as TreasurePickup
+		treasure_found += treasure.treasure_value
+		print("Treasure found: ", treasure_found)
+		area.queue_free()
+		

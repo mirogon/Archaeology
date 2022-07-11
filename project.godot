@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "Soldier",
 "language": "GDScript",
 "path": "res://Scripts/Soldier.gd"
+}, {
+"base": "Area2D",
+"class": "TreasurePickup",
+"language": "GDScript",
+"path": "res://Scripts/TreasurePickup.gd"
 } ]
 _global_script_class_icons={
 "GunProjectile": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "HealthSystem": "",
 "Player": "",
 "Projectile": "",
-"Soldier": ""
+"Soldier": "",
+"TreasurePickup": ""
 }
 
 [application]
