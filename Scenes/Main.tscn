@@ -25,7 +25,6 @@ position = Vector2( -493, -3 )
 
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
 position = Vector2( -369, 1 )
-shoot_interval = 10
 
 [node name="Medikit" parent="." instance=ExtResource( 2 )]
 position = Vector2( -608, -82 )
@@ -43,3 +42,6 @@ position = Vector2( -442, 113 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
+
+[node name="Rat" parent="." instance=ExtResource( 4 )]
+position = Vector2( -125, -77 )

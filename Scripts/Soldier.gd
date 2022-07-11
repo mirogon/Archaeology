@@ -3,31 +3,51 @@ extends Area2D
 class_name Soldier
 
 export var projectile_scene: PackedScene
-export var shoot_interval = 1
+export var attack_interval = 1.5
 
 var enemies: Array
-var time_since_last_shot
+var focused_enemy
+
+var time = 0
+var last_time_destination_updated = 0
+
+var currently_attacking = false
+var last_time_attacked = 0
+
 
 func _ready():
-	time_since_last_shot = 0
+	pass
 
 func _process(delta):
-	find_enemies()
-	if(enemies.size() > 0):
-		var nearest_enemy = find_nearest_enemy()
-		if time_since_last_shot >= shoot_interval:
-			time_since_last_shot = 0
-			shoot_at_enemy(nearest_enemy)
-	time_since_last_shot += delta
-				
-func shoot_at_enemy(enemy):
-	var direction: Vector2 = enemy.position - position
-	direction = direction.normalized()
-	var projectile = projectile_scene.instance()
-	projectile.position = position
-	projectile.moveDir = direction
-	get_tree().get_root().add_child(projectile)
-				
+	var focused_enemy = null
+	if time - last_time_destination_updated > 0.5:
+		last_time_destination_updated = time
+		find_enemies()
+		if(enemies.size() > 0):
+			focused_enemy = find_nearest_enemy()
+			if !currently_attacking:
+				$NavigationMovement.set_new_destination(focused_enemy.position)
+			
+		if focused_enemy:
+			if position.distance_to(focused_enemy.position) < 10:
+				$NavigationMovement.active = false
+				currently_attacking = true
+				if time - last_time_attacked > attack_interval:
+					if (focused_enemy.position - position).x > 0:
+						$AnimatedSprite.play("Army_ATK_Right")
+					else:
+						$AnimatedSprite.play("Army_ATK_Left")
+						
+					focused_enemy.get_node("HealthSystem").take_damage(25)
+					last_time_attacked = time
+					print("ATK")
+					
+			else:
+				$NavigationMovement.active = true
+				currently_attacking = false
+			
+	time += delta
+	
 func find_nearest_enemy():
 	if(!enemies || enemies.size() == 0):
 		return
@@ -48,7 +68,11 @@ func find_enemies():
 			var child_child = child.get_child(j)
 			if(child_child.is_in_group("Enemy")):
 				enemies.append(child_child)
-				
-func _on_HealthSystem_died():
-	print("Soldier died!")
 
+func _on_HealthSystem_died():
+	print("Soldier died")
+	pass
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "Army_ATK_Right" || $AnimatedSprite.animation == "Army_ATK_Left":
+		$AnimatedSprite.playing = false
