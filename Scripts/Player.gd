@@ -6,6 +6,8 @@ export var movementSpeed = 100
 export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
 
+var heal_resources = 0
+
 var animatedSprite: AnimatedSprite
 
 var time
@@ -97,3 +99,12 @@ func _on_HealthSystem_died():
 
 func _on_HealthSystem_health_update(new_health):
 	$ProgressBar.show()
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("HealthPickup"):
+		print("picked up HealthPickup")
+		var health_pickup = area as HealthPickup
+		heal_resources += health_pickup.health_value
+		print("Heal Resources: ", heal_resources)
+		area.queue_free()

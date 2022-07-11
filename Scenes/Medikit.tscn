@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Asstes/Items/Medikit.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HealthPickup.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3, 2 )
@@ -21,7 +22,8 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[node name="Medikit" type="Area2D"]
+[node name="Medikit" type="Area2D" groups=["HealthPickup"]]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -29,5 +31,4 @@ shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-frame = 1
 playing = true
