@@ -165,7 +165,6 @@ frame = 1
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]
 moveSpeed = 75
-mouse_debug_mode = true
 animation_name = "Army"
 
 [node name="ProgressBar" parent="." instance=ExtResource( 3 )]

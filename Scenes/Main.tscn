@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Medikit.tscn" type="PackedScene" id=2]
@@ -8,11 +8,17 @@
 [ext_resource path="res://Scenes/Bandage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ruby.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/TimerLabel.gd" type="Script" id=9]
+[ext_resource path="res://Asstes/Fonts/BitPotion.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -546, -176, -544, -144, -559, -144, -767, -145, -751, -176, -783, 128, -744, 126, -569, 125, -571, 136, -740, 136, -152, -48, -118, -49, -56, -29, -65, -16, -96, -17, -176, -22, -177, -47, -613, -39, -736, -112, -639, -120, -608, -120, -553, -40, -496, 16, -559, -128, -544, -129, -447, -80, -440, -56, -480, 16, -55, 55, -64, 17, -166, 219, -166, 295, -182, 295, -192, 289, -192, 272, -178, 214, -159, 214, -151, 213, -442, 21, -472, 42, -480, 32, -93, -65, -119, -70, -153, -86, -159, -58, -160, -80, -291, -177, -162, -178, -113, -142, -135, -87, -256, -128, -272, -144, -473, 61, -553, 48, -497, 31, -177, -81, -177, -58, -191, -64, -193, -80, -233, -72, -208, -80, -208, -64, -234, 96, -208, -48, -86, 55, -81, 17, -670, 0, -671, -13, -657, -11, -656, 0, -608, -144, -640, -143, -656, -33, -614, 48, -657, 25, -816, 112, -816, 96, -743, 105, -800, 128, -159, 192, -150, 155, -214, 158, -215, 136, -177, 192, -223, 192, -224, 176, -209, 272, -218, 266, -262, 158, -240, 176, -251, 171, -785, -144, -784, -128, -802, -129, -96, 0, -80, -1, -568, 105, -385, 96, -384, 112, -421, 188, -458, 185, -524, 153, -736, -128, -752, -128, -768, -128, -753, -112, -135, -72, -256, -106, -295, -72, -342, -87, -271, -105, -208, -23, -183, 331, -200, 330, -216, 310, -208, 290, -318, 95, -337, 94, -336, 82, -293, 95, -271, -127, -288, -144, -320, -145, -673, -32, -673, -17, -689, -17, -422, 41, -353, 82, -353, 96, -440, 60, -631, 105, -631, 89, -353, 118, -353, 101, -336, 101, -336, 112, -340, 137, -421, 201, -458, 201, -802, -111, -808, -87, -823, -87, -823, -111, -664, 88, -666, 104, -694, 104, -695, 74, -673, 26, -423, 0, -407, -1, -816, 80, -808, 31, -688, 7, -674, 7, -728, 74, -406, -34, -363, -35, -338, -144, -287, -123, -360, -86, -263, 137, -285, 135, -320, 112, -273, -122, -383, -81, -362, -73, -384, -72, -393, -56, -233, 264, -233, 219, -250, 217, -241, 192, -729, 103, -568, 152, -367, 119, -784, -112, -781, -127, -369, 113, -765, 169, -809, 168, -784, 144, -501, 184, -800, 144, -809, 137, -841, 137, -832, 113, -841, 100, -832, 96, -343, -53 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8, 9 ), PoolIntArray( 10, 11, 12, 13, 14, 15, 16 ), PoolIntArray( 17, 18, 19, 20, 21 ), PoolIntArray( 22, 21, 20, 23, 24, 25, 26, 27 ), PoolIntArray( 12, 28, 29, 13 ), PoolIntArray( 30, 31, 32, 33, 34, 35 ), PoolIntArray( 36, 37, 30 ), PoolIntArray( 38, 39, 40, 27, 26 ), PoolIntArray( 41, 12, 11, 42 ), PoolIntArray( 43, 10, 44, 45 ), PoolIntArray( 35, 36, 30 ), PoolIntArray( 46, 47, 48, 49, 43, 50, 51 ), PoolIntArray( 40, 39, 52, 53, 54 ), PoolIntArray( 48, 41, 42 ), PoolIntArray( 55, 56, 57, 58 ), PoolIntArray( 59, 60, 61, 62 ), PoolIntArray( 54, 53, 21, 22 ), PoolIntArray( 56, 44, 10, 16, 63 ), PoolIntArray( 29, 28, 64, 65 ), PoolIntArray( 66, 67, 68, 69 ), PoolIntArray( 23, 20, 70, 2 ), PoolIntArray( 3, 2, 70 ), PoolIntArray( 3, 70, 71 ), PoolIntArray( 68, 72, 17, 73, 69 ), PoolIntArray( 74, 69, 73 ), PoolIntArray( 75, 76, 77, 6, 5, 78 ), PoolIntArray( 37, 36, 79, 80 ), PoolIntArray( 81, 82, 80, 79, 83 ), PoolIntArray( 84, 85, 81, 83, 35, 34, 86, 87 ), PoolIntArray( 88, 81, 85, 89, 90 ), PoolIntArray( 91, 92, 93 ), PoolIntArray( 62, 94, 95, 65, 64, 80, 82 ), PoolIntArray( 7, 96, 53, 52, 97, 98, 99, 100, 101 ), PoolIntArray( 19, 18, 102, 71 ), PoolIntArray( 3, 71, 102, 103 ), PoolIntArray( 104, 3, 103, 105 ), PoolIntArray( 48, 42, 106, 49 ), PoolIntArray( 107, 50, 43 ), PoolIntArray( 108, 109, 110, 107, 43, 60 ), PoolIntArray( 57, 56, 63, 61 ), PoolIntArray( 62, 61, 63 ), PoolIntArray( 62, 63, 111 ), PoolIntArray( 33, 32, 112, 113, 114, 115 ), PoolIntArray( 115, 114, 87, 86 ), PoolIntArray( 116, 117, 118, 108, 119 ), PoolIntArray( 50, 120, 51 ), PoolIntArray( 46, 51, 121, 122 ), PoolIntArray( 18, 123, 124, 125, 105 ), PoolIntArray( 126, 127, 128, 97, 129 ), PoolIntArray( 96, 130, 131, 73, 53 ), PoolIntArray( 132, 133, 134, 135, 136 ), PoolIntArray( 99, 137, 138, 100 ), PoolIntArray( 139, 140, 141, 142, 93 ), PoolIntArray( 143, 144, 145, 146, 147, 74 ), PoolIntArray( 126, 148, 149 ), PoolIntArray( 150, 151, 152, 153, 147, 154, 76 ), PoolIntArray( 149, 155, 156 ), PoolIntArray( 15, 14, 94, 62, 111 ), PoolIntArray( 157, 122, 121, 158, 109, 159 ), PoolIntArray( 160, 161, 162, 116, 119, 62, 82 ), PoolIntArray( 163, 110, 109, 158 ), PoolIntArray( 164, 157, 159 ), PoolIntArray( 164, 159, 165, 166 ), PoolIntArray( 25, 164, 166, 167, 26 ), PoolIntArray( 87, 168, 169, 84 ), PoolIntArray( 169, 170, 90, 171 ), PoolIntArray( 154, 172, 77, 76 ), PoolIntArray( 101, 173, 8, 7 ), PoolIntArray( 171, 84, 169 ), PoolIntArray( 89, 171, 90 ), PoolIntArray( 88, 90, 161 ), PoolIntArray( 160, 88, 161 ), PoolIntArray( 162, 161, 136, 135 ), PoolIntArray( 132, 136, 99, 174 ), PoolIntArray( 108, 118, 127, 126, 149, 156 ), PoolIntArray( 175, 176, 104, 105, 125 ), PoolIntArray( 98, 177, 174, 99 ), PoolIntArray( 25, 24, 1 ), PoolIntArray( 0, 25, 1 ), PoolIntArray( 18, 17, 72, 123 ), PoolIntArray( 4, 3, 91 ), PoolIntArray( 142, 4, 91, 93 ), PoolIntArray( 151, 140, 139, 175, 125, 152 ), PoolIntArray( 9, 178, 179, 180 ), PoolIntArray( 100, 181, 101 ), PoolIntArray( 180, 5, 9 ), PoolIntArray( 182, 180, 179 ), PoolIntArray( 182, 179, 183, 78 ), PoolIntArray( 75, 78, 183, 184, 185 ), PoolIntArray( 185, 184, 186, 187 ), PoolIntArray( 187, 186, 150 ), PoolIntArray( 76, 187, 150 ), PoolIntArray( 146, 154, 147 ), PoolIntArray( 143, 74, 73, 131 ), PoolIntArray( 97, 52, 129 ), PoolIntArray( 108, 156, 188 ), PoolIntArray( 108, 188, 109 ), PoolIntArray( 43, 45, 55 ), PoolIntArray( 60, 59, 108 ), PoolIntArray( 60, 43, 55, 58 ) ]
 outlines = [ PoolVector2Array( -823, -111, -751, -176, -546, -176, -447, -80, -383, -81, -338, -144, -320, -145, -291, -177, -162, -178, -113, -142, -93, -65, -56, -29, -55, 55, -86, 55, -150, 155, -151, 213, -166, 219, -166, 295, -182, 295, -183, 331, -200, 330, -216, 310, -218, 266, -233, 264, -233, 219, -250, 217, -251, 171, -285, 135, -340, 137, -421, 188, -421, 201, -458, 201, -458, 185, -501, 184, -524, 153, -568, 152, -571, 136, -740, 136, -765, 169, -809, 168, -809, 137, -841, 137, -841, 100, -816, 80, -808, 31, -808, -87, -823, -87 ), PoolVector2Array( -613, -39, -614, 48, -553, 48, -553, -40 ), PoolVector2Array( -472, 42, -442, 21, -440, -56, -393, -56, -384, -72, -362, -73, -360, -86, -342, -87, -343, -53, -363, -35, -406, -34, -407, -1, -423, 0, -422, 41, -440, 60, -473, 61 ), PoolVector2Array( -752, -128, -753, -112, -736, -112, -736, -128 ), PoolVector2Array( -640, -143, -608, -144, -608, -120, -639, -120 ), PoolVector2Array( -656, -33, -673, -32, -673, -17, -689, -17, -688, 7, -674, 7, -673, 26, -657, 25, -656, 0, -670, 0, -671, -13, -657, -11 ), PoolVector2Array( -568, 105, -569, 125, -744, 126, -743, 105, -729, 103, -728, 74, -695, 74, -694, 104, -666, 104, -664, 88, -631, 89, -631, 105 ), PoolVector2Array( -496, 16, -480, 16, -480, 32, -497, 31 ), PoolVector2Array( -353, 96, -385, 96, -384, 112, -369, 113, -367, 119, -353, 118, -353, 101, -336, 101, -336, 112, -320, 112, -318, 95, -337, 94, -336, 82, -353, 82 ), PoolVector2Array( -263, 137, -262, 158, -214, 158, -215, 136 ), PoolVector2Array( -240, 176, -241, 192, -223, 192, -224, 176 ), PoolVector2Array( -177, 192, -178, 214, -159, 214, -159, 192 ), PoolVector2Array( -209, 272, -208, 290, -192, 289, -192, 272 ), PoolVector2Array( -96, -17, -65, -16, -64, 17, -81, 17, -80, -1, -96, 0 ), PoolVector2Array( -177, -47, -208, -48, -208, -23, -176, -22 ), PoolVector2Array( -177, -81, -177, -58, -159, -58, -160, -80 ), PoolVector2Array( -153, -86, -152, -48, -118, -49, -119, -70, -135, -72, -135, -87 ), PoolVector2Array( -256, -128, -271, -127, -272, -144, -288, -144, -287, -123, -273, -122, -271, -105, -256, -106 ), PoolVector2Array( -293, 95, -234, 96, -233, -72, -295, -72 ), PoolVector2Array( -800, 128, -800, 144, -784, 144, -783, 128 ), PoolVector2Array( -832, 96, -832, 113, -816, 112, -816, 96 ), PoolVector2Array( -785, -144, -784, -128, -802, -129, -802, -111, -784, -112, -781, -127, -768, -128, -767, -145 ), PoolVector2Array( -559, -144, -559, -128, -544, -129, -544, -144 ), PoolVector2Array( -208, -80, -208, -64, -191, -64, -193, -80 ) ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 10 )
 
 [node name="Main" type="Node2D"]
 
@@ -38,10 +44,27 @@ position = Vector2( -309, -61 )
 [node name="Coin" parent="." instance=ExtResource( 8 )]
 position = Vector2( -442, 113 )
 
+[node name="Rat" parent="." instance=ExtResource( 4 )]
+position = Vector2( -125, -77 )
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
 
-[node name="Rat" parent="." instance=ExtResource( 4 )]
-position = Vector2( -125, -77 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_top = 24.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "HELLO"
+align = 1
+script = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/TimerLabel" method="_on_Timer_timeout"]

@@ -71,18 +71,10 @@ func set_animation(dir: Vector2):
 		return
 	else:
 		animated_sprite.animation = animation_name + "_Walk_Up"
-
-func mouse_debug_mode_set_position():
-	if Input.is_mouse_button_pressed(1):
-		var parent = get_parent() as Node2D
-		set_new_destination(parent.get_global_mouse_position())
 		
 func _process(delta):
 	if(!active || !initialized):
 		return
-		
-	if(mouse_debug_mode):
-		mouse_debug_mode_set_position()
 	
 	if(destination_reached):
 		return
