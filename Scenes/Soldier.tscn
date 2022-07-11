@@ -10,22 +10,6 @@
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 6, 15 )
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 16, 32 )
-
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 16, 32 )
@@ -82,13 +66,24 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 32 )
+
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "Army_Walk_Down",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "Army_Walk_Up",
@@ -103,9 +98,15 @@ animations = [ {
 "loop": true,
 "name": "Army_Walk_Left",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Army_Walk_Down",
+"speed": 5.0
 } ]
 
 [node name="Soldier" type="Area2D" groups=["Soldier"]]
+position = Vector2( 0, -1 )
 script = ExtResource( 4 )
 projectile_scene = ExtResource( 6 )
 
@@ -116,8 +117,8 @@ shape = SubResource( 20 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -16 )
 frames = SubResource( 19 )
-animation = "Army_Walk_Up"
-frame = 3
+animation = "Army_Walk_Down"
+frame = 2
 playing = true
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]
