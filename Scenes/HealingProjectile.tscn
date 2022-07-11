@@ -1,21 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/HealingProjectile.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Asstes/Items/Syringe.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/SpriteRotator.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/SpriteRotator.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 3 )
+extents = Vector2( 4, 4 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="HealingProjectile" type="Area2D"]
 script = ExtResource( 1 )
-heal_value = 50
+heal_value = 25
+move_speed = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.219608, 1, 0, 1 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+
+[node name="SpriteRotator" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 3 )
+rotation_speed = 8.0
 
 [connection signal="area_entered" from="." to="." method="_on_HealingProjectile_area_entered"]

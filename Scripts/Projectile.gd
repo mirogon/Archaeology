@@ -19,6 +19,9 @@ func _on_Projectile_body_entered(body):
 		var healthSystem = body.get_node("HealthSystem") as HealthSystem
 		healthSystem.take_damage(hitDamage)
 		moveSpeed = 0
+	elif body is TileMap:
+		$AnimatedSprite.play("Vase_Breaking")
+		moveSpeed = 0
 
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
