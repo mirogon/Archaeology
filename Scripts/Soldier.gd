@@ -21,7 +21,7 @@ func _process(delta):
 func shoot_at_enemy(enemy):
 	var direction: Vector2 = enemy.position - position
 	direction = direction.normalized()
-	var projectile: Projectile = projectile_scene.instance()
+	var projectile = projectile_scene.instance()
 	projectile.position = position
 	projectile.moveDir = direction
 	get_tree().get_root().add_child(projectile)

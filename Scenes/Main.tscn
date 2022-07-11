@@ -13,8 +13,9 @@
 [node name="Player" parent="." instance=ExtResource( 1 )]
 projectileScene = ExtResource( 2 )
 
-[node name="Rat" parent="." instance=ExtResource( 4 )]
-position = Vector2( -386, -62 )
+[node name="Rat2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -350, -73 )
 
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
 position = Vector2( -615, -122 )
+shoot_interval = 10
