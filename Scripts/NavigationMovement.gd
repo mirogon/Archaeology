@@ -4,9 +4,8 @@ export var moveSpeed = 100
 export var mouse_debug_mode = false
 export var animation_name: String
 
+#Injected
 var animated_sprite: AnimatedSprite
-
-#Expects a Navigation2D in the running root scene
 var navigation2D: Navigation2D
 
 var current_destination: Vector2
@@ -14,17 +13,17 @@ var current_path: PoolVector2Array
 var current_path_index: int
 var destination_reached: bool
 
-var active = false
+var initialized = false
+var active = true
 
 func _ready():
-	animated_sprite = get_parent().get_node("AnimatedSprite")
-	
-	navigation2D = get_tree().get_root().get_node("Main/Navigation2D")
-	if(navigation2D):
-		active = true
-		
 	destination_reached = true
 	current_path_index = 0
+
+func initialize(sprite: AnimatedSprite, nav2D: Navigation2D):
+	animated_sprite = sprite
+	navigation2D = nav2D
+	initialized = true
 
 func set_new_destination(dest: Vector2):
 	current_destination = dest
@@ -79,7 +78,7 @@ func mouse_debug_mode_set_position():
 		set_new_destination(parent.get_global_mouse_position())
 		
 func _process(delta):
-	if(!active):
+	if(!active || !initialized):
 		return
 		
 	if(mouse_debug_mode):

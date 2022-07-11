@@ -74,7 +74,7 @@ position = Vector2( 0, -8 )
 z_index = 1
 frames = SubResource( 67 )
 animation = "Rat_Walk"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -83,4 +83,5 @@ shape = SubResource( 68 )
 
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
