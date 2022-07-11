@@ -24,9 +24,6 @@ points = PoolVector2Array( 8, 16, 0, 16, 0, 0, 8, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=52]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=53]
-points = PoolVector2Array( 12, 12, 4, 12, 4, 8, 12, 8 )
-
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
@@ -108,31 +105,13 @@ points = PoolVector2Array( 16, 0, 16, 8, 8, 8, 8, 16, 0, 16, 0, 8, 8, 8, 8, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=82]
 points = PoolVector2Array( 16, 16, 8, 16, 8, 0, 16, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=60]
-points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
+[sub_resource type="ConvexPolygonShape2D" id=83]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=84]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=46]
-8/name = "Stalagmite1"
-8/texture = ExtResource( 1 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 16, 80, 16, 32 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 60 )
-8/shape_one_way = false
-8/shape_one_way_margin = 1.0
-8/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 60 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-8/z_index = 0
 10/name = "Moss_Wall"
 10/texture = ExtResource( 1 )
 10/tex_offset = Vector2( 0, 0 )
@@ -420,27 +399,6 @@ points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 28/z_index = 0
-29/name = "Stalagmite2"
-29/texture = ExtResource( 1 )
-29/tex_offset = Vector2( 0, 0 )
-29/modulate = Color( 1, 1, 1, 1 )
-29/region = Rect2( 0, 80, 16, 32 )
-29/tile_mode = 0
-29/occluder_offset = Vector2( 0, 0 )
-29/navigation_offset = Vector2( 0, 0 )
-29/shape_offset = Vector2( 0, 0 )
-29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-29/shape = SubResource( 53 )
-29/shape_one_way = false
-29/shape_one_way_margin = 1.0
-29/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 53 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-29/z_index = 0
 30/name = "Cave_Auto"
 30/texture = ExtResource( 1 )
 30/tex_offset = Vector2( 0, 0 )
@@ -711,6 +669,76 @@ points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 35/z_index = 0
+36/name = "GlowingStoneTop"
+36/texture = ExtResource( 1 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 80, 16, 16 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shape_offset = Vector2( 0, 0 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+36/shape_one_way = false
+36/shape_one_way_margin = 0.0
+36/shapes = [  ]
+36/z_index = 2
+37/name = "GlowingStoneBottom"
+37/texture = ExtResource( 1 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 0, 96, 16, 16 )
+37/tile_mode = 0
+37/occluder_offset = Vector2( 0, 0 )
+37/navigation_offset = Vector2( 0, 0 )
+37/shape_offset = Vector2( 0, 0 )
+37/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+37/shape = SubResource( 83 )
+37/shape_one_way = false
+37/shape_one_way_margin = 1.0
+37/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 83 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+37/z_index = 0
+38/name = "StoneTop"
+38/texture = ExtResource( 1 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 16, 80, 16, 16 )
+38/tile_mode = 0
+38/occluder_offset = Vector2( 0, 0 )
+38/navigation_offset = Vector2( 0, 0 )
+38/shape_offset = Vector2( 0, 0 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+38/shape_one_way = false
+38/shape_one_way_margin = 0.0
+38/shapes = [  ]
+38/z_index = 2
+39/name = "StoneBottom"
+39/texture = ExtResource( 1 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 16, 96, 16, 16 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape = SubResource( 84 )
+39/shape_one_way = false
+39/shape_one_way_margin = 1.0
+39/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 84 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+39/z_index = 0
 
 [node name="Room" type="Node2D"]
 
@@ -736,7 +764,7 @@ __meta__ = {
 tile_set = SubResource( 46 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -852014, 10, 0, -852013, 11, 0, -852011, 10, 0, -852010, 10, 0, -852009, 10, 0, -852008, 10, 0, -852007, 10, 0, -852006, 10, 0, -852004, 10, 0, -851986, 10, 0, -851985, 10, 0, -851984, 10, 0, -851982, 10, 0, -851981, 10, 0, -786477, 11, 0, -720917, 10, 0, -655380, 19, 0, -655372, 16, 0, -655368, 11, 0, -589871, 17, 0, -589864, 8, 0, -589863, 8, 0, -589857, 9, 0, -589842, 29, 0, -524337, 21, 0, -524334, 20, 0, -524327, 8, 0, -524323, 21, 0, -524311, 11, 0, -524305, 29, 0, -458802, 21, 0, -458799, 19, 0, -458780, 10, 0, -458779, 10, 0, -458778, 10, 0, -458777, 10, 0, -327691, 8, 0, -262179, 16, 0, -262157, 21, 0, -262156, 8, 0, -196642, 16, 0, -196621, 8, 0, -196620, 29, 0, -131114, 8, 0, -65579, 29, 0, -42, 8, 0, -7, 17, 0, -6, 19, 0, -5, 19, 0, 65498, 10, 0, 65531, 19, 0, 131035, 11, 0, 131041, 19, 0, 131065, 20, 0, 131066, 17, 0, 196603, 18, 0, 262126, 10, 0, 262127, 10, 0, 262128, 10, 0, 327649, 20, 0, 327658, 29, 0, 327673, 16, 0, 393193, 8, 0, 458700, 19, 0, 458728, 21, 0, 458731, 21, 0, 458743, 16, 0, 524237, 17, 0, 589774, 19, 0, 655311, 16, 0, 720868, 17, 0, 720869, 18, 0, 786404, 18, 0, 786417, 19, 0, 1114099, 18, 0, 1179635, 19, 0 )
+tile_data = PoolIntArray( -852014, 10, 0, -852013, 11, 0, -852011, 10, 0, -852010, 10, 0, -852009, 10, 0, -852008, 10, 0, -852007, 10, 0, -852006, 10, 0, -852004, 10, 0, -851986, 10, 0, -851985, 10, 0, -851984, 10, 0, -851982, 10, 0, -851981, 10, 0, -786477, 11, 0, -720917, 10, 0, -655380, 19, 0, -655372, 16, 0, -655368, 11, 0, -589871, 17, 0, -589864, 38, 0, -589863, 38, 0, -589857, 9, 0, -589842, 36, 0, -524337, 21, 0, -524334, 20, 0, -524328, 39, 0, -524327, 39, 0, -524323, 21, 0, -524311, 11, 0, -524306, 37, 0, -524305, 36, 0, -458802, 21, 0, -458799, 19, 0, -458780, 10, 0, -458779, 10, 0, -458778, 10, 0, -458777, 10, 0, -458769, 37, 0, -327691, 38, 0, -262179, 16, 0, -262157, 21, 0, -262155, 39, 0, -196642, 16, 0, -196621, 38, 0, -196620, 36, 0, -131114, 38, 0, -131085, 39, 0, -131084, 37, 0, -65579, 36, 0, -65578, 39, 0, -43, 37, 0, -42, 38, 0, -7, 17, 0, -6, 19, 0, -5, 19, 0, 65494, 39, 0, 65498, 10, 0, 65531, 19, 0, 131035, 11, 0, 131041, 19, 0, 131065, 20, 0, 131066, 17, 0, 196603, 18, 0, 262126, 10, 0, 262127, 10, 0, 262128, 10, 0, 327649, 20, 0, 327658, 36, 0, 327673, 16, 0, 393193, 38, 0, 393194, 37, 0, 458700, 19, 0, 458728, 21, 0, 458729, 39, 0, 458731, 21, 0, 458743, 16, 0, 524237, 17, 0, 589774, 19, 0, 655311, 16, 0, 720868, 17, 0, 720869, 18, 0, 786404, 18, 0, 786417, 19, 0, 786421, 36, 0, 851957, 37, 0, 1114099, 18, 0, 1179635, 19, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
