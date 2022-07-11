@@ -4,11 +4,13 @@ class_name Player
 
 export var movementSpeed = 100
 export var projectileScene: PackedScene
+export var healing_projectile_scene: PackedScene
 
 var animatedSprite: AnimatedSprite
 
 var time
 var lastTimeThrownProjectile: float
+var last_time_thrown_heal: float
 
 func _ready():
 	animatedSprite = $AnimatedSprite
@@ -75,12 +77,23 @@ func throw_projectile():
 		get_parent().add_child(new_projectile)
 		lastTimeThrownProjectile = time
 	
+func throw_healing_projectile():
+	if Input.is_mouse_button_pressed(2) && (time - last_time_thrown_heal > 1):
+		var healing_projectile = healing_projectile_scene.instance()
+		healing_projectile.position = position
+		var dir = get_global_mouse_position() - position
+		dir = dir.normalized()
+		healing_projectile.move_dir = dir 
+		get_parent().add_child(healing_projectile)
+		last_time_thrown_heal = time
+	
 func _process(delta):
 	throw_projectile()
+	throw_healing_projectile()
 	time += delta
 
 func _on_HealthSystem_died():
 	print("PLAYER DIED!")
 
-func _on_HealthSystem_took_damage(new_health):
+func _on_HealthSystem_health_update(new_health):
 	$ProgressBar.show()

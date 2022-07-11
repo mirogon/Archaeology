@@ -3,7 +3,7 @@ extends Node
 class_name HealthSystem
 
 signal died
-signal took_damage(new_health)
+signal health_update(new_health)
 
 export var max_health: int = 100
 var current_health
@@ -21,7 +21,7 @@ func take_damage(damage: int):
 		current_health = 0
 		dead = true
 		emit_signal("died")
-	emit_signal("took_damage", current_health)
+	emit_signal("health_update", current_health)
 
 func restore_health(value: int):
 	if dead:
@@ -29,3 +29,4 @@ func restore_health(value: int):
 	current_health += value
 	if current_health > max_health:
 		current_health = max_health
+	emit_signal("health_update", current_health)

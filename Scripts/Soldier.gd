@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Soldier
+
 export var projectile_scene: PackedScene
 export var shoot_interval = 1
 
@@ -49,3 +51,4 @@ func find_enemies():
 				
 func _on_HealthSystem_died():
 	print("Soldier died!")
+

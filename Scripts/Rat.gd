@@ -1,8 +1,14 @@
 extends KinematicBody2D
 
 export var speed = 75
+export var damage_per_attack = 10
+export var attack_interval = 1.0
 var player
 var soldier
+
+var time = 0
+
+var last_time_attacked = 0
 
 func _ready():
 	player = get_tree().get_root().get_node("Main").get_node("Player")
@@ -19,13 +25,16 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.flip_h = true
 	else:
-		$AnimatedSprite.animation = "Rat_Atk"
-		var player_health_system = soldier.get_node("HealthSystem") as HealthSystem
-		player_health_system.take_damage(1)
+		if time - last_time_attacked > attack_interval:
+			$AnimatedSprite.animation = "Rat_Atk"
+			var player_health_system = soldier.get_node("HealthSystem") as HealthSystem
+			player_health_system.take_damage(damage_per_attack)
+			last_time_attacked = time
 
 func _process(delta):
-	pass
+	time += delta
 
 func _on_HealthSystem_died():
 	print("Rat died")
 	queue_free()
+

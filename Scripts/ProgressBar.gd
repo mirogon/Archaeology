@@ -6,5 +6,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_HealthSystem_took_damage(new_health):
+
+func _on_HealthSystem_health_update(new_health):
 	value = new_health

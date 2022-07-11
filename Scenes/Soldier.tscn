@@ -117,7 +117,7 @@ shape = SubResource( 20 )
 position = Vector2( 0, -16 )
 frames = SubResource( 19 )
 animation = "Army_Walk_Up"
-frame = 1
+frame = 3
 playing = true
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]
@@ -132,4 +132,4 @@ margin_bottom = -35.0
 [node name="HealthSystem" parent="." instance=ExtResource( 5 )]
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
-[connection signal="took_damage" from="HealthSystem" to="ProgressBar" method="_on_HealthSystem_took_damage"]
+[connection signal="health_update" from="HealthSystem" to="ProgressBar" method="_on_HealthSystem_health_update"]

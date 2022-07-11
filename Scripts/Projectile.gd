@@ -25,3 +25,7 @@ func _on_Projectile_body_entered(body):
 
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
+
+
+func _on_DespawnTimer_timeout():
+	queue_free()
