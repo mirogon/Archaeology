@@ -19,7 +19,7 @@ var active = false
 func _ready():
 	animated_sprite = get_parent().get_node("AnimatedSprite")
 	
-	navigation2D = get_tree().get_root().get_node("Navigation2D")
+	navigation2D = get_tree().get_root().get_node("Main/Navigation2D")
 	if(navigation2D):
 		active = true
 		
