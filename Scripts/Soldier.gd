@@ -72,6 +72,10 @@ func find_enemies():
 			var child_child = child.get_child(j)
 			if(child_child.is_in_group("Enemy")):
 				enemies.append(child_child)
+			for k in range(child_child.get_child_count()):
+				var child_child_child = child_child.get_child(k)
+				if(child_child_child.is_in_group("Enemy")):
+					enemies.append(child_child_child)
 
 func _on_HealthSystem_died():
 	print("Soldier died")

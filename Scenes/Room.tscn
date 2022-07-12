@@ -1,7 +1,13 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Asstes/Environment/Cave_Set.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Environment/Water.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Ruby.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Medikit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Bandage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
@@ -768,3 +774,55 @@ tile_data = PoolIntArray( -852014, 10, 0, -852013, 11, 0, -852011, 10, 0, -85201
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -135, 104 )
+min_interval_ms = 10000
+max_interval_ms = 200000
+max_spawns = 2
+
+[node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -775, 151 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 2
+
+[node name="Spawner3" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -553, -72 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 2
+
+[node name="Spawner4" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -184, -168 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 1
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Medikit" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( -608, -82 )
+
+[node name="Medikit2" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( -484, 149 )
+
+[node name="Medikit3" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( -192, 317 )
+
+[node name="Bandage" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( -520, 39 )
+
+[node name="Bandage2" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( -207, 41 )
+
+[node name="Coin" parent="Pickups" instance=ExtResource( 4 )]
+position = Vector2( -442, 113 )
+
+[node name="Ruby" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( -309, -61 )
+
+[node name="Snake" parent="." instance=ExtResource( 8 )]
+position = Vector2( -136, 38 )
