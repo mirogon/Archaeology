@@ -41,27 +41,6 @@ position = Vector2( -361, 29 )
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
 position = Vector2( -369, 1 )
 
-[node name="Medikit" parent="." instance=ExtResource( 2 )]
-position = Vector2( -608, -82 )
-
-[node name="Medikit2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -484, 149 )
-
-[node name="Medikit3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -192, 317 )
-
-[node name="Bandage" parent="." instance=ExtResource( 6 )]
-position = Vector2( -520, 39 )
-
-[node name="Bandage2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -207, 41 )
-
-[node name="Ruby" parent="." instance=ExtResource( 7 )]
-position = Vector2( -309, -61 )
-
-[node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( -442, 113 )
-
 [node name="Snake" parent="." instance=ExtResource( 11 )]
 position = Vector2( -136, 38 )
 
@@ -71,9 +50,9 @@ visible = false
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+[node name="TimerLabel" type="Label" parent="UiCanvasLayer"]
 anchor_right = 1.0
 margin_top = 24.0
 margin_bottom = 14.0
@@ -82,11 +61,11 @@ text = "HELLO"
 align = 1
 script = ExtResource( 9 )
 
-[node name="Timer" type="Timer" parent="CanvasLayer"]
+[node name="Timer" type="Timer" parent="UiCanvasLayer"]
 wait_time = 0.1
 autostart = true
 
-[node name="HealResourceLabel" type="Label" parent="CanvasLayer"]
+[node name="HealResourceLabel" type="Label" parent="UiCanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0
@@ -99,7 +78,7 @@ align = 1
 valign = 1
 script = ExtResource( 12 )
 
-[node name="TreasureLabel" type="Label" parent="CanvasLayer"]
+[node name="TreasureLabel" type="Label" parent="UiCanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -313.0
@@ -109,30 +88,55 @@ custom_fonts/font = SubResource( 4 )
 text = "Treasure found: 0"
 script = ExtResource( 13 )
 
-[node name="Spawner" parent="." instance=ExtResource( 14 )]
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Medikit" parent="Pickups" instance=ExtResource( 2 )]
+position = Vector2( -608, -82 )
+
+[node name="Medikit2" parent="Pickups" instance=ExtResource( 2 )]
+position = Vector2( -484, 149 )
+
+[node name="Medikit3" parent="Pickups" instance=ExtResource( 2 )]
+position = Vector2( -192, 317 )
+
+[node name="Bandage" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( -520, 39 )
+
+[node name="Bandage2" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( -207, 41 )
+
+[node name="Coin" parent="Pickups" instance=ExtResource( 8 )]
+position = Vector2( -442, 113 )
+
+[node name="Ruby" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( -309, -61 )
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="Spawner" parent="Spawner" instance=ExtResource( 14 )]
 position = Vector2( -135, 104 )
 min_interval_ms = 10000
 max_interval_ms = 200000
 max_spawns = 2
 
-[node name="Spawner2" parent="." instance=ExtResource( 14 )]
+[node name="Spawner2" parent="Spawner" instance=ExtResource( 14 )]
 position = Vector2( -775, 151 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 2
 
-[node name="Spawner3" parent="." instance=ExtResource( 14 )]
+[node name="Spawner3" parent="Spawner" instance=ExtResource( 14 )]
 position = Vector2( -553, -72 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 2
 
-[node name="Spawner4" parent="." instance=ExtResource( 14 )]
+[node name="Spawner4" parent="Spawner" instance=ExtResource( 14 )]
 position = Vector2( -184, -168 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 1
 
-[connection signal="heal_resource_update" from="Player" to="CanvasLayer/HealResourceLabel" method="_on_Player_heal_resource_update"]
-[connection signal="treasure_update" from="Player" to="CanvasLayer/TreasureLabel" method="_on_Player_treasure_update"]
-[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/TimerLabel" method="_on_Timer_timeout"]
+[connection signal="heal_resource_update" from="Player" to="UiCanvasLayer/HealResourceLabel" method="_on_Player_heal_resource_update"]
+[connection signal="treasure_update" from="Player" to="UiCanvasLayer/TreasureLabel" method="_on_Player_treasure_update"]
+[connection signal="timeout" from="UiCanvasLayer/Timer" to="UiCanvasLayer/TimerLabel" method="_on_Timer_timeout"]
