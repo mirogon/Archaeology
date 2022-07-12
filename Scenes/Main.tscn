@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Medikit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Room.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Rat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Soldier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Bandage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ruby.tscn" type="PackedScene" id=7]
@@ -13,6 +12,7 @@
 [ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/HealResourceLabel.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/TreasureLabel.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -546, -176, -544, -144, -559, -144, -767, -145, -751, -176, -783, 128, -744, 126, -569, 125, -571, 136, -740, 136, -152, -48, -118, -49, -56, -29, -65, -16, -96, -17, -176, -22, -177, -47, -613, -39, -736, -112, -639, -120, -608, -120, -553, -40, -496, 16, -559, -128, -544, -129, -447, -80, -440, -56, -480, 16, -55, 55, -64, 17, -166, 219, -166, 295, -182, 295, -192, 289, -192, 272, -178, 214, -159, 214, -151, 213, -442, 21, -472, 42, -480, 32, -93, -65, -119, -70, -153, -86, -159, -58, -160, -80, -291, -177, -162, -178, -113, -142, -135, -87, -256, -128, -272, -144, -473, 61, -553, 48, -497, 31, -177, -81, -177, -58, -191, -64, -193, -80, -233, -72, -208, -80, -208, -64, -234, 96, -208, -48, -86, 55, -81, 17, -670, 0, -671, -13, -657, -11, -656, 0, -608, -144, -640, -143, -656, -33, -614, 48, -657, 25, -816, 112, -816, 96, -743, 105, -800, 128, -159, 192, -150, 155, -214, 158, -215, 136, -177, 192, -223, 192, -224, 176, -209, 272, -218, 266, -262, 158, -240, 176, -251, 171, -785, -144, -784, -128, -802, -129, -96, 0, -80, -1, -568, 105, -385, 96, -384, 112, -421, 188, -458, 185, -524, 153, -736, -128, -752, -128, -768, -128, -753, -112, -135, -72, -256, -106, -295, -72, -342, -87, -271, -105, -208, -23, -183, 331, -200, 330, -216, 310, -208, 290, -318, 95, -337, 94, -336, 82, -293, 95, -271, -127, -288, -144, -320, -145, -673, -32, -673, -17, -689, -17, -422, 41, -353, 82, -353, 96, -440, 60, -631, 105, -631, 89, -353, 118, -353, 101, -336, 101, -336, 112, -340, 137, -421, 201, -458, 201, -802, -111, -808, -87, -823, -87, -823, -111, -664, 88, -666, 104, -694, 104, -695, 74, -673, 26, -423, 0, -407, -1, -816, 80, -808, 31, -688, 7, -674, 7, -728, 74, -406, -34, -363, -35, -338, -144, -287, -123, -360, -86, -263, 137, -285, 135, -320, 112, -273, -122, -383, -81, -362, -73, -384, -72, -393, -56, -233, 264, -233, 219, -250, 217, -241, 192, -729, 103, -568, 152, -367, 119, -784, -112, -781, -127, -369, 113, -765, 169, -809, 168, -784, 144, -501, 184, -800, 144, -809, 137, -841, 137, -832, 113, -841, 100, -832, 96, -343, -53 )
@@ -36,9 +36,7 @@ font_data = ExtResource( 10 )
 [node name="Room" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-
-[node name="Rat2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -493, -3 )
+position = Vector2( -361, 29 )
 
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
 position = Vector2( -369, 1 )
@@ -46,8 +44,17 @@ position = Vector2( -369, 1 )
 [node name="Medikit" parent="." instance=ExtResource( 2 )]
 position = Vector2( -608, -82 )
 
+[node name="Medikit2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -484, 149 )
+
+[node name="Medikit3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -192, 317 )
+
 [node name="Bandage" parent="." instance=ExtResource( 6 )]
 position = Vector2( -520, 39 )
+
+[node name="Bandage2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -207, 41 )
 
 [node name="Ruby" parent="." instance=ExtResource( 7 )]
 position = Vector2( -309, -61 )
@@ -55,13 +62,11 @@ position = Vector2( -309, -61 )
 [node name="Coin" parent="." instance=ExtResource( 8 )]
 position = Vector2( -442, 113 )
 
-[node name="Rat" parent="." instance=ExtResource( 4 )]
-position = Vector2( -125, -77 )
-
 [node name="Snake" parent="." instance=ExtResource( 11 )]
 position = Vector2( -136, 38 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
@@ -103,6 +108,30 @@ margin_bottom = 14.0
 custom_fonts/font = SubResource( 4 )
 text = "Treasure found: 0"
 script = ExtResource( 13 )
+
+[node name="Spawner" parent="." instance=ExtResource( 14 )]
+position = Vector2( -135, 104 )
+min_interval_ms = 10000
+max_interval_ms = 200000
+max_spawns = 2
+
+[node name="Spawner2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -775, 151 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 2
+
+[node name="Spawner3" parent="." instance=ExtResource( 14 )]
+position = Vector2( -553, -72 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 2
+
+[node name="Spawner4" parent="." instance=ExtResource( 14 )]
+position = Vector2( -184, -168 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 1
 
 [connection signal="heal_resource_update" from="Player" to="CanvasLayer/HealResourceLabel" method="_on_Player_heal_resource_update"]
 [connection signal="treasure_update" from="Player" to="CanvasLayer/TreasureLabel" method="_on_Player_treasure_update"]

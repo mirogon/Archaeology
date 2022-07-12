@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Rat.tscn" type="PackedScene" id=2]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2( 346, 162 )
+script = ExtResource( 1 )
+scene_to_spawn = ExtResource( 2 )
+min_interval_ms = 1000
+max_interval_ms = 2000
