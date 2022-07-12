@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Medikit.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scripts/TimerLabel.gd" type="Script" id=9]
 [ext_resource path="res://Asstes/Fonts/BitPotion.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/HealResourceLabel.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/TreasureLabel.gd" type="Script" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -546, -176, -544, -144, -559, -144, -767, -145, -751, -176, -783, 128, -744, 126, -569, 125, -571, 136, -740, 136, -152, -48, -118, -49, -56, -29, -65, -16, -96, -17, -176, -22, -177, -47, -613, -39, -736, -112, -639, -120, -608, -120, -553, -40, -496, 16, -559, -128, -544, -129, -447, -80, -440, -56, -480, 16, -55, 55, -64, 17, -166, 219, -166, 295, -182, 295, -192, 289, -192, 272, -178, 214, -159, 214, -151, 213, -442, 21, -472, 42, -480, 32, -93, -65, -119, -70, -153, -86, -159, -58, -160, -80, -291, -177, -162, -178, -113, -142, -135, -87, -256, -128, -272, -144, -473, 61, -553, 48, -497, 31, -177, -81, -177, -58, -191, -64, -193, -80, -233, -72, -208, -80, -208, -64, -234, 96, -208, -48, -86, 55, -81, 17, -670, 0, -671, -13, -657, -11, -656, 0, -608, -144, -640, -143, -656, -33, -614, 48, -657, 25, -816, 112, -816, 96, -743, 105, -800, 128, -159, 192, -150, 155, -214, 158, -215, 136, -177, 192, -223, 192, -224, 176, -209, 272, -218, 266, -262, 158, -240, 176, -251, 171, -785, -144, -784, -128, -802, -129, -96, 0, -80, -1, -568, 105, -385, 96, -384, 112, -421, 188, -458, 185, -524, 153, -736, -128, -752, -128, -768, -128, -753, -112, -135, -72, -256, -106, -295, -72, -342, -87, -271, -105, -208, -23, -183, 331, -200, 330, -216, 310, -208, 290, -318, 95, -337, 94, -336, 82, -293, 95, -271, -127, -288, -144, -320, -145, -673, -32, -673, -17, -689, -17, -422, 41, -353, 82, -353, 96, -440, 60, -631, 105, -631, 89, -353, 118, -353, 101, -336, 101, -336, 112, -340, 137, -421, 201, -458, 201, -802, -111, -808, -87, -823, -87, -823, -111, -664, 88, -666, 104, -694, 104, -695, 74, -673, 26, -423, 0, -407, -1, -816, 80, -808, 31, -688, 7, -674, 7, -728, 74, -406, -34, -363, -35, -338, -144, -287, -123, -360, -86, -263, 137, -285, 135, -320, 112, -273, -122, -383, -81, -362, -73, -384, -72, -393, -56, -233, 264, -233, 219, -250, 217, -241, 192, -729, 103, -568, 152, -367, 119, -784, -112, -781, -127, -369, 113, -765, 169, -809, 168, -784, 144, -501, 184, -800, 144, -809, 137, -841, 137, -832, 113, -841, 100, -832, 96, -343, -53 )
@@ -19,6 +21,14 @@ outlines = [ PoolVector2Array( -823, -111, -751, -176, -546, -176, -447, -80, -3
 
 [sub_resource type="DynamicFont" id=2]
 size = 36
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
 font_data = ExtResource( 10 )
 
 [node name="Main" type="Node2D"]
@@ -71,4 +81,29 @@ script = ExtResource( 9 )
 wait_time = 0.1
 autostart = true
 
+[node name="HealResourceLabel" type="Label" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -35.0
+margin_right = 148.0
+margin_bottom = -31.0
+custom_fonts/font = SubResource( 3 )
+text = "Heal Resources: 0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+
+[node name="TreasureLabel" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -313.0
+margin_top = 24.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )
+text = "Treasure found: 0"
+script = ExtResource( 13 )
+
+[connection signal="heal_resource_update" from="Player" to="CanvasLayer/HealResourceLabel" method="_on_Player_heal_resource_update"]
+[connection signal="treasure_update" from="Player" to="CanvasLayer/TreasureLabel" method="_on_Player_treasure_update"]
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/TimerLabel" method="_on_Timer_timeout"]

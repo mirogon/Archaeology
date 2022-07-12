@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 class_name Player
 
+signal heal_resource_update(new_heal_resources)
+signal treasure_update(treasure_found)
+
 export var movementSpeed = 100
 export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
@@ -78,6 +81,7 @@ func throw_healing_projectile():
 		get_parent().add_child(healing_projectile)
 		last_time_thrown_heal = time
 		heal_resources -= 25
+		emit_signal("heal_resource_update", heal_resources)
 	
 func _process(delta):
 	throw_projectile()
@@ -96,10 +100,10 @@ func _on_Area2D_area_entered(area):
 		print("picked up HealthPickup")
 		var health_pickup = area as HealthPickup
 		heal_resources += health_pickup.health_value
-		print("Heal Resources: ", heal_resources)
+		emit_signal("heal_resource_update", heal_resources)
 		area.queue_free()
 	elif area.is_in_group("TreasurePickup"):
 		var treasure = area as TreasurePickup
 		treasure_found += treasure.treasure_value
-		print("Treasure found: ", treasure_found)
+		emit_signal("treasure_update", treasure_found)
 		area.queue_free()
