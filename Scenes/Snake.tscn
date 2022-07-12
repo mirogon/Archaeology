@@ -106,8 +106,8 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 21 )
-animation = "Snake_Atk"
-frame = 10
+animation = "Snake_idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -117,3 +117,4 @@ shape = SubResource( 22 )
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
+[connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]

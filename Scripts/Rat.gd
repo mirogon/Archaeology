@@ -9,6 +9,7 @@ var soldier
 var time = 0
 
 var last_time_attacked = 0
+var last_time_hit = 0
 
 func _ready():
 	player = get_tree().get_root().get_node("Main").get_node("Player")
@@ -33,6 +34,8 @@ func _physics_process(delta):
 
 func _process(delta):
 	time += delta
+	if time - last_time_hit > 0.1:
+		$AnimatedSprite.modulate = Color(1,1,1,1);
 
 func _on_HealthSystem_died():
 	print("Rat died")
@@ -40,3 +43,8 @@ func _on_HealthSystem_died():
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.playing = false
+
+
+func _on_HealthSystem_health_update(new_health):
+	$AnimatedSprite.modulate = Color(1,0,0,1)
+	last_time_hit = time
