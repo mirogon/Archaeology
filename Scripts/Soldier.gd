@@ -14,12 +14,19 @@ var last_time_destination_updated = 0
 var currently_attacking = false
 var last_time_attacked = 0
 
+var scheduled_attack = null
+
 func _ready():
-	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_node("Navigation2D"))
+	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_node("Room/Navigation2D"))
 
 func _process(delta):
 	var focused_enemy = update_enemy_navigation_destination()
 	attack_enemy(focused_enemy)
+			
+	if scheduled_attack:
+		if $AnimatedSprite.frame == 2:
+			scheduled_attack.get_node("HealthSystem").take_damage(25)
+			scheduled_attack = null
 			
 	time += delta
 
@@ -44,8 +51,9 @@ func attack_enemy(enemy):
 					$AnimatedSprite.play("Army_ATK_Right")
 				else:
 					$AnimatedSprite.play("Army_ATK_Left")
-						
-				enemy.get_node("HealthSystem").take_damage(25)
+			
+				scheduled_attack = enemy			
+				#enemy.get_node("HealthSystem").take_damage(25)
 				last_time_attacked = time
 					
 		else:
