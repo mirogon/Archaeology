@@ -824,6 +824,18 @@ scene_to_spawn = ExtResource( 13 )
 min_interval_ms = 30000
 max_interval_ms = 120000
 
+[node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -955, 92 )
+scene_to_spawn = ExtResource( 13 )
+min_interval_ms = 30000
+max_interval_ms = 120000
+
+[node name="BoulderSpawner3" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -961, -120 )
+scene_to_spawn = ExtResource( 13 )
+min_interval_ms = 30000
+max_interval_ms = 120000
+
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Medikit" parent="Pickups" instance=ExtResource( 6 )]

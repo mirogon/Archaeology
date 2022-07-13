@@ -40,8 +40,9 @@ func get_movedir():
 func set_anim(moveDir: Vector2):
 	$AnimatedSprite.playing = true
 	if(moveDir.x == 0 && moveDir.y == 0):
-		$AnimatedSprite.playing = false
+		$AnimatedSprite.animation = "Walk_Down"
 		$AnimatedSprite.frame = 0
+		$AnimatedSprite.playing = false
 	if(moveDir.x > 0):
 		$AnimatedSprite.animation = "Walk_Right"
 		return
