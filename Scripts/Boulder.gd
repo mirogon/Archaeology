@@ -19,3 +19,7 @@ func _on_Boulder_area_entered(area):
 
 	if area is Soldier:
 		area.get_node("HealthSystem").take_damage(hit_damage)
+
+
+func _on_Timer_timeout():
+	self.queue_free()
