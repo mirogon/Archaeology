@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "GunProjectile",
 "language": "GDScript",
-"path": "res://Scripts/GunProjectile.gd"
+"path": "res://Scripts/Other/GunProjectile.gd"
 }, {
 "base": "Area2D",
 "class": "HealthPickup",
 "language": "GDScript",
-"path": "res://Scripts/HealthPickup.gd"
+"path": "res://Scripts/Items/HealthPickup.gd"
 }, {
 "base": "Node",
 "class": "HealthSystem",
 "language": "GDScript",
-"path": "res://Scripts/HealthSystem.gd"
+"path": "res://Scripts/Other/HealthSystem.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://Scripts/Projectile.gd"
+"path": "res://Scripts/Other/Projectile.gd"
 }, {
 "base": "Area2D",
 "class": "Soldier",
@@ -42,12 +42,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "TreasureChest",
 "language": "GDScript",
-"path": "res://Scripts/TreasureChest.gd"
+"path": "res://Scripts/Rooms/TreasureChest.gd"
 }, {
 "base": "Area2D",
 "class": "TreasurePickup",
 "language": "GDScript",
-"path": "res://Scripts/TreasurePickup.gd"
+"path": "res://Scripts/Items/TreasurePickup.gd"
 } ]
 _global_script_class_icons={
 "GunProjectile": "",

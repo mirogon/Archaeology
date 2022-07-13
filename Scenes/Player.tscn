@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Asstes/Character/Character_WalkC.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/HealthSystem.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Projectile.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/HealingProjectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Other/HealthBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Other/Projectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Other/HealingProjectile.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 6, 6 )

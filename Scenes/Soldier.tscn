@@ -1,11 +1,11 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Asstes/Character/Character_Army_Shield.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/NavigationMovement.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Other/NavigationMovement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Other/HealthBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Soldier.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/HealthSystem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GunProjectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Other/GunProjectile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Asstes/Character/Army_ATK.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=20]
