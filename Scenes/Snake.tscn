@@ -94,7 +94,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
-"name": "Snake_idle",
+"name": "Snake_Walk",
 "speed": 12.0
 } ]
 
@@ -109,8 +109,8 @@ animation_name = "Snake"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 z_index = 1
 frames = SubResource( 21 )
-animation = "Snake_idle"
-frame = 6
+animation = "Snake_Walk"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -118,6 +118,3 @@ position = Vector2( 6.5, 3 )
 shape = SubResource( 22 )
 
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]
-
-[connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
-[connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]

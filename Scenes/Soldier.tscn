@@ -161,7 +161,6 @@ shape = SubResource( 20 )
 position = Vector2( 0, -16 )
 frames = SubResource( 19 )
 animation = "Army_ATK_Right"
-frame = 2
 playing = true
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]
