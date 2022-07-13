@@ -110,7 +110,6 @@ animation_name = "Snake"
 z_index = 1
 frames = SubResource( 21 )
 animation = "Snake_Walk"
-frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

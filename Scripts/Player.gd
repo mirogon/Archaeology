@@ -9,6 +9,8 @@ export var movementSpeed = 100
 export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
 
+export var max_heal_resources = 250
+
 var heal_resources = 0
 var treasure_found = 0
 
@@ -97,7 +99,8 @@ func _on_HealthSystem_health_update(new_health):
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("HealthPickup"):
-		print("picked up HealthPickup")
+		if heal_resources >= max_heal_resources:
+			return
 		var health_pickup = area as HealthPickup
 		heal_resources += health_pickup.health_value
 		emit_signal("heal_resource_update", heal_resources)
