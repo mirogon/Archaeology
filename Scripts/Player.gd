@@ -92,7 +92,7 @@ func _process(delta):
 	throw_healing_projectile()
 	time += delta
 	
-	if Input.is_key_pressed(KEY_F):
+	if Input.is_action_just_pressed("action"):
 		if near_chest:
 			near_chest.open_chest()
 			near_chest = null
