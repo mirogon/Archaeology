@@ -50,6 +50,7 @@ func _process(delta):
 
 func on_died():
 	queue_free()
+	get_tree().get_root().get_node("Main").enemy_died()
 	
 func on_health_update(new_health):
 	$AnimatedSprite.modulate = Color(1,0,0,1)

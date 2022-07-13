@@ -1,20 +1,7 @@
 extends Label
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_tree().get_root().get_node("Main").connect("treasure_update", self, "on_treasure_update")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Player_treasure_update(treasure_found):
-	text = "Treasure found: " + String(treasure_found)
+func on_treasure_update(treasure_found):
+	text = String(treasure_found)
