@@ -18,6 +18,8 @@ var time
 var last_time_thrown_projectile: float
 var last_time_thrown_heal: float
 
+var near_chest = null
+
 func _ready():
 	$ProgressBar.hide()
 	time = 0
@@ -89,6 +91,11 @@ func _process(delta):
 	throw_projectile()
 	throw_healing_projectile()
 	time += delta
+	
+	if Input.is_key_pressed(KEY_F):
+		if near_chest:
+			near_chest.open_chest()
+			near_chest = null
 
 func _on_HealthSystem_died():
 	print("PLAYER DIED!")
@@ -110,3 +117,10 @@ func _on_Area2D_area_entered(area):
 		treasure_found += treasure.treasure_value
 		emit_signal("treasure_update", treasure_found)
 		area.queue_free()
+	elif area.is_in_group("TreasureChest"):
+		near_chest = area as TreasureChest
+
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("TreasureChest"):
+		near_chest = null

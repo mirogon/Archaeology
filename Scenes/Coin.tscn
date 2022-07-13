@@ -40,6 +40,7 @@ animations = [ {
 
 [node name="Coin" type="Area2D" groups=["TreasurePickup"]]
 script = ExtResource( 2 )
+treasure_value = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -47,5 +48,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
 animation = "coin"
-frame = 5
+frame = 4
 playing = true

@@ -46,6 +46,22 @@ region = Rect2( 48, 64, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 64, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 32 )
+
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 96, 16, 32 )
@@ -66,22 +82,6 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 16, 32 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
@@ -94,14 +94,14 @@ animations = [ {
 "name": "Walk_Right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
-"loop": true,
-"name": "Walk_Left",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
 "loop": true,
 "name": "Walk_Up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "Walk_Left",
 "speed": 5.0
 } ]
 
@@ -125,7 +125,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 3
+frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
@@ -141,3 +141,4 @@ shape = SubResource( 45 )
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
 [connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Asstes/Environment/Cave_Set.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Environment/Water.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Scenes/Medikit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Bandage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Scarab.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/treasure_skull.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/TreasureChest.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
@@ -786,25 +789,32 @@ __meta__ = {
 position = Vector2( -135, 104 )
 min_interval_ms = 10000
 max_interval_ms = 200000
-max_spawns = 2
+max_spawns = 0
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( -775, 151 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 2
+max_spawns = 0
 
 [node name="Spawner3" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( -553, -72 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 2
+max_spawns = 0
 
 [node name="Spawner4" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( -184, -168 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 1
+max_spawns = 0
+
+[node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( -104, 72 )
+scene_to_spawn = ExtResource( 9 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 4
 
 [node name="Pickups" type="Node" parent="."]
 
@@ -829,10 +839,20 @@ position = Vector2( -442, 113 )
 [node name="Ruby" parent="Pickups" instance=ExtResource( 5 )]
 position = Vector2( -309, -61 )
 
+[node name="treasure_skull" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( -96, 43 )
+
+[node name="treasure_skull2" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( -117, -30 )
+
 [node name="Snake" parent="." instance=ExtResource( 8 )]
 position = Vector2( -136, 38 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 85 )
+
+[node name="Chest" parent="." instance=ExtResource( 11 )]
+position = Vector2( -216, -169 )

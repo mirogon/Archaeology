@@ -36,7 +36,7 @@ animations = [ {
 
 [node name="Ruby" type="Area2D" groups=["TreasurePickup"]]
 script = ExtResource( 2 )
-treasure_value = 25
+treasure_value = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 7 )
@@ -44,5 +44,5 @@ shape = SubResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "ruby"
-frame = 4
+frame = 2
 playing = true
