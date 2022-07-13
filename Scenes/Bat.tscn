@@ -1,6 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Asstes/Enemies/Bat.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6, 5 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -58,9 +61,11 @@ animations = [ {
 [node name="Bat" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-animation = "Bat_ATK"
-frame = 3
+animation = "Bat_fly"
+frame = 2
 playing = true

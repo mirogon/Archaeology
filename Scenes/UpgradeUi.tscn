@@ -20,6 +20,9 @@ corner_radius_bottom_left = 1
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -960.0
+margin_bottom = -540.0
+rect_scale = Vector2( 4, 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -190,10 +193,10 @@ margin_left = 124.0
 margin_right = 131.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer11"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer11"]
 margin_right = 7.0
 margin_bottom = 7.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
 margin_top = 12.0
@@ -202,118 +205,118 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LifeUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2"]
+[node name="AtkUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2"]
 margin_right = 131.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_right = 8.0
 margin_bottom = 8.0
 
-[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer"]
+[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer"]
 margin_right = 8.0
 margin_bottom = 8.0
 texture = ExtResource( 8 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 12.0
 margin_right = 22.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer2"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer2"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 26.0
 margin_right = 36.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer3"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer3"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 40.0
 margin_right = 50.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer4"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer4"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 54.0
 margin_right = 64.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer5"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer5"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 68.0
 margin_right = 78.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer6"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer6"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 82.0
 margin_right = 92.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer7"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer7"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 96.0
 margin_right = 106.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer8"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer8"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 110.0
 margin_right = 120.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer9"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer9"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer11" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade"]
+[node name="CenterContainer12" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_left = 124.0
 margin_right = 131.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/LifeUpgrade/CenterContainer11"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade/CenterContainer12"]
 margin_right = 7.0
 margin_bottom = 7.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
 margin_top = 24.0
@@ -322,118 +325,118 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LifeUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3"]
+[node name="SpeedUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3"]
 margin_right = 131.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_right = 8.0
 margin_bottom = 8.0
 
-[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer"]
+[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer"]
 margin_right = 8.0
 margin_bottom = 8.0
 texture = ExtResource( 6 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 12.0
 margin_right = 22.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer2"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer2"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 26.0
 margin_right = 36.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer3"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer3"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 40.0
 margin_right = 50.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer4"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer4"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 54.0
 margin_right = 64.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer5"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer5"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 68.0
 margin_right = 78.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer6"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer6"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 82.0
 margin_right = 92.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer7"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer7"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 96.0
 margin_right = 106.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer8"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer8"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 110.0
 margin_right = 120.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer9"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer9"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer11" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade"]
+[node name="CenterContainer12" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_left = 124.0
 margin_right = 131.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/LifeUpgrade/CenterContainer11"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade/CenterContainer12"]
 margin_right = 7.0
 margin_bottom = 7.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 36.0
@@ -469,116 +472,116 @@ margin_bottom = 15.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LifeUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer"]
+[node name="HealthResourceUpgrade" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer"]
 margin_top = 3.0
 margin_right = 131.0
 margin_bottom = 11.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_right = 8.0
 margin_bottom = 8.0
 
-[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer"]
+[node name="heart" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer"]
 margin_right = 8.0
 margin_bottom = 8.0
 texture = ExtResource( 9 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 12.0
 margin_right = 22.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer2"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer2"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 26.0
 margin_right = 36.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer3"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer3"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 40.0
 margin_right = 50.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer4"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer4"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 54.0
 margin_right = 64.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer5"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer5"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer6" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 68.0
 margin_right = 78.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer6"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer6"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer7" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 82.0
 margin_right = 92.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer7"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer7"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer8" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 96.0
 margin_right = 106.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer8"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer8"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer9" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 110.0
 margin_right = 120.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer9"]
+[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer9"]
 margin_top = 2.0
 margin_right = 10.0
 margin_bottom = 6.0
 texture = ExtResource( 4 )
 
-[node name="CenterContainer11" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
+[node name="CenterContainer12" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade"]
 margin_left = 124.0
 margin_right = 131.0
 margin_bottom = 8.0
 
-[node name="heart2" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade/CenterContainer11"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealthResourceUpgrade/CenterContainer12"]
 margin_right = 7.0
 margin_bottom = 7.0
-texture = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
