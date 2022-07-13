@@ -108,7 +108,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 5, 13.5 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( -482, -44 )
 script = ExtResource( 2 )
 projectileScene = ExtResource( 5 )
@@ -125,7 +125,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 2
+frame = 1
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
@@ -140,5 +140,6 @@ shape = SubResource( 45 )
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
 [connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]
+[connection signal="health_update" from="HealthSystem" to="ProgressBar" method="_on_HealthSystem_health_update"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

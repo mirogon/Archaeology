@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Ui.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/HealthResourceBar.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Soldier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HealthResourceBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Boulder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/TimerLabel.gd" type="Script" id=9]
 [ext_resource path="res://Asstes/Fonts/BitPotion.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/TreasureLabel.gd" type="Script" id=13]
@@ -79,6 +80,10 @@ valign = 1
 
 [node name="HealthResourceBar" parent="UiCanvasLayer" instance=ExtResource( 6 )]
 script = ExtResource( 4 )
+
+[node name="Boulder" parent="." instance=ExtResource( 7 )]
+position = Vector2( -919, 32 )
+hit_damage = 80
 
 [connection signal="heal_resource_update" from="Player" to="UiCanvasLayer/HealthResourceBar" method="_on_Player_heal_resource_update"]
 [connection signal="treasure_update" from="Player" to="UiCanvasLayer/TreasureLabel" method="_on_Player_treasure_update"]
