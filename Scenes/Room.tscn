@@ -847,7 +847,7 @@ position = Vector2( -96, 43 )
 position = Vector2( -117, -30 )
 
 [node name="Snake" parent="." instance=ExtResource( 8 )]
-position = Vector2( -136, 38 )
+position = Vector2( -137, 38 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 visible = false

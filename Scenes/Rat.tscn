@@ -83,3 +83,4 @@ position = Vector2( 0, -5.5 )
 shape = SubResource( 68 )
 
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]
+max_health = 65
