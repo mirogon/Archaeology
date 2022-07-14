@@ -4,7 +4,7 @@ signal treasure_update(new_treasure)
 signal enemies_died(enemies_died)
 signal restart_game()
 
-var room = load("res://Scenes/Rooms/Room.tscn")
+var room_scene = load("res://Scenes/Rooms/Room.tscn")
 var loaded_room
 
 var enemies_died = 0
@@ -15,10 +15,8 @@ func _ready():
 	randomize()
 	
 func restart_game():
-	print("restart game")
-
 	loaded_room.queue_free()
-	loaded_room = room.instance()
+	loaded_room = room_scene.instance()
 	add_child(loaded_room)
 	
 	$Player.restart_game()

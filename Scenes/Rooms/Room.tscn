@@ -866,9 +866,6 @@ position = Vector2( -96, 43 )
 [node name="treasure_skull2" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( -117, -30 )
 
-[node name="Snake" parent="." instance=ExtResource( 8 )]
-position = Vector2( -137, 38 )
-
 [node name="Navigation2D" type="Navigation2D" parent="."]
 visible = false
 
@@ -882,3 +879,8 @@ coin_scene = ExtResource( 4 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( -786, -10 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( -137, 38 )

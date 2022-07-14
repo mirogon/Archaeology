@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Asstes/Enemies/goblin.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Enemies/Enemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11, 6 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 32, 32 )
+extents = Vector2( 6, 6.5 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -25,27 +19,40 @@ region = Rect2( 32, 0, 32, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "Goblin_ATK",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "Goblin_walk",
+"name": "Goblin_Walk",
 "speed": 12.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Goblin_Atk",
+"speed": 10.0
 } ]
 
 [node name="Goblin" type="KinematicBody2D"]
+script = ExtResource( 3 )
+animation_name = "Goblin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 9 )
+position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 8, -9 )
 frames = SubResource( 7 )
-animation = "Goblin_walk"
-frame = 2
+animation = "Goblin_Walk"
+frame = 1
 playing = true
+
+[node name="HealthSystem" parent="." instance=ExtResource( 2 )]

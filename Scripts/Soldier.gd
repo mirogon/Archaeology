@@ -87,19 +87,14 @@ func find_nearest_enemy():
 	
 func find_enemies():
 	enemies.clear()
-	var root_child_count = get_tree().get_root().get_child_count()
-	for i in range(root_child_count):
-		var child = get_tree().get_root().get_child(i)
-		if(child.is_in_group("Enemy")):
-			enemies.append(child)
-		for j in range(child.get_child_count()):
-			var child_child = child.get_child(j)
-			if(child_child.is_in_group("Enemy")):
-				enemies.append(child_child)
-			for k in range(child_child.get_child_count()):
-				var child_child_child = child_child.get_child(k)
-				if(child_child_child.is_in_group("Enemy")):
-					enemies.append(child_child_child)
+	var main = get_tree().get_root().get_node("Main")
+	var room = null
+	for i in range(main.get_child_count()):
+		if main.get_child(i).is_in_group("Room"):
+			room = main.get_child(i)
+
+	for i in range(room.get_node("Enemies").get_child_count()):
+		enemies.append(room.get_node("Enemies").get_child(i))
 
 func _on_HealthSystem_died():
 	print("Soldier died")

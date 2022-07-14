@@ -80,6 +80,7 @@ func spawn_healing_area():
 			ha.position = get_global_mouse_position()
 			get_tree().get_root().add_child(ha)
 			last_time_healing_area = time
+			heal_resources -= 25
 	
 func throw_healing_projectile():
 	if(heal_resources < 25):

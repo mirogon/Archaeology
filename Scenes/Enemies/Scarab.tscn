@@ -73,7 +73,7 @@ shape = SubResource( 1 )
 z_index = 5
 frames = SubResource( 12 )
 animation = "Scarab_Atk"
-frame = 4
+frame = 3
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]

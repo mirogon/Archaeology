@@ -1,5 +1,7 @@
 extends Node2D
 
+#Depending on ../../Enemies node
+
 export var scene_to_spawn: PackedScene
 export var min_interval_ms: int
 export var max_interval_ms: int
@@ -29,5 +31,5 @@ func _process(delta):
 func spawn():
 	var instance = scene_to_spawn.instance()
 	instance.position = position
-	get_parent().get_parent().add_child(instance)
+	get_parent().get_parent().get_node("Enemies").add_child(instance)
 	spawns += 1
