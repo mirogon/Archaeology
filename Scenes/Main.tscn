@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Ui/Ui.gd" type="Script" id=2]
@@ -8,14 +8,7 @@
 [ext_resource path="res://Scenes/Ui/HealthResourceBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Ui/MainUi.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Asstes/Fonts/BitPotion.ttf" type="DynamicFontData" id=10]
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 241
-font_data = ExtResource( 10 )
+[ext_resource path="res://Scenes/Ui/UpgradeUi.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -33,26 +26,13 @@ z_index = 4
 [node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 2 )
 
-[node name="Dead" type="Panel" parent="UiCanvasLayer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_styles/panel = SubResource( 5 )
-
-[node name="DeadLabel" type="Label" parent="UiCanvasLayer"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 6 )
-text = "DED"
-align = 1
-valign = 1
-
 [node name="HealthResourceBar" parent="UiCanvasLayer" instance=ExtResource( 6 )]
 script = ExtResource( 4 )
 
 [node name="MainUi" parent="UiCanvasLayer" instance=ExtResource( 8 )]
+
+[node name="UpgradeUi" parent="UiCanvasLayer" instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="heal_resource_update" from="Player" to="UiCanvasLayer/HealthResourceBar" method="_on_Player_heal_resource_update"]
 [connection signal="treasure_update" from="Player" to="." method="_on_Player_treasure_update"]

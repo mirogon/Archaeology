@@ -16,15 +16,13 @@ func _ready():
 #	pass
 
 func on_soldier_died():
-	$Dead.visible = true
-	$DeadLabel.visible = true
+	$UpgradeUi.visible = true
 	$MainUi.visible = false
 	$HealthResourceBar.visible = false
 	get_tree().paused = true
 
 func on_player_died():
-	$Dead.visible = true
-	$DeadLabel.visible = true
+	$UpgradeUi.visible = true
 	$MainUi.visible = false
 	$HealthResourceBar.visible = false
 	get_tree().paused = true
