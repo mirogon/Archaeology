@@ -878,7 +878,7 @@ item_spawn_movement = ExtResource( 12 )
 coin_scene = ExtResource( 4 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
-position = Vector2( -786, -10 )
+position = Vector2( -160, 32 )
 
 [node name="Enemies" type="Node" parent="."]
 
