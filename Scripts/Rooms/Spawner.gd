@@ -29,5 +29,5 @@ func _process(delta):
 func spawn():
 	var instance = scene_to_spawn.instance()
 	instance.position = position
-	get_tree().get_root().add_child(instance)
+	get_parent().get_parent().add_child(instance)
 	spawns += 1

@@ -15,6 +15,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func restart_game():
+	$UpgradeUi.visible = false
+	$MainUi.visible = true
+	$HealthResourceBar.visible = true
+
 func on_soldier_died():
 	$UpgradeUi.visible = true
 	$MainUi.visible = false

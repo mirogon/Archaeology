@@ -13,6 +13,11 @@ func _ready():
 	current_health = max_health
 	dead = false
 
+func reset():
+	current_health = max_health
+	dead = false
+	emit_signal("health_update", current_health)
+
 func take_damage(damage: int):
 	if(current_health == 0):
 		return

@@ -19,8 +19,28 @@ var scheduled_attack = null
 func _ready():
 	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_node("Room/Navigation2D"))
 
+func restart_game():
+	time = 0
+	last_time_attacked = 0
+	last_time_destination_updated = 0
+	enemies = Array()
+	focused_enemy = null
+	enemies.clear()
+	$HealthSystem.reset()
+	
+	var main = get_tree().get_root().get_node("Main")
+	var room = null
+	for i in range(main.get_child_count()):
+		if main.get_child(i).is_in_group("Room"):
+			room = main.get_child(i)
+			
+	$NavigationMovement.initialize($AnimatedSprite, room.get_node("Navigation2D"))
+
 func _process(delta):
-	var focused_enemy = update_enemy_navigation_destination()
+	focused_enemy = null
+	if time - last_time_destination_updated > 0.5:
+		focused_enemy = update_enemy_navigation_destination()
+		last_time_destination_updated = time
 	attack_enemy(focused_enemy)
 			
 	if scheduled_attack:
@@ -31,14 +51,11 @@ func _process(delta):
 	time += delta
 
 func update_enemy_navigation_destination():
-	var focused_enemy = null
-	if time - last_time_destination_updated > 0.5:
-		last_time_destination_updated = time
-		find_enemies()
-		if(enemies.size() > 0):
-			focused_enemy = find_nearest_enemy()
-			if !currently_attacking:
-				$NavigationMovement.set_new_destination(focused_enemy.position)
+	find_enemies()
+	if(enemies.size() > 0):
+		focused_enemy = find_nearest_enemy()
+		if !currently_attacking:
+			$NavigationMovement.set_new_destination(focused_enemy.position)
 	return focused_enemy
 
 func attack_enemy(enemy):
@@ -53,7 +70,6 @@ func attack_enemy(enemy):
 					$AnimatedSprite.play("Army_ATK_Left")
 			
 				scheduled_attack = enemy			
-				#enemy.get_node("HealthSystem").take_damage(25)
 				last_time_attacked = time
 					
 		else:

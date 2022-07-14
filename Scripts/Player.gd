@@ -24,6 +24,12 @@ var near_chest = null
 func _ready():
 	$ProgressBar.hide()
 	time = 0
+	
+func restart_game():
+	heal_resources = 0
+	treasure_found = 0
+	$HealthSystem.reset()
+	
 
 func get_movedir():
 	var moveDir: Vector2 = Vector2(0,0)

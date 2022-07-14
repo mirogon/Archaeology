@@ -24,6 +24,8 @@ func initialize(sprite: AnimatedSprite, nav2D: Navigation2D):
 	animated_sprite = sprite
 	navigation2D = nav2D
 	initialized = true
+	destination_reached = true
+	current_path_index = 0
 
 func set_new_destination(dest: Vector2):
 	current_destination = dest
@@ -38,7 +40,6 @@ func get_new_path():
 
 func increment_path_index():
 	current_path_index += 1
-	print("increment")
 	if(current_path_index >= current_path.size()):
 		destination_reached = true
 		current_path_index -= 1

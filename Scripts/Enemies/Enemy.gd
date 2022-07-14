@@ -58,4 +58,3 @@ func on_health_update(new_health):
 
 func on_animation_finished():
 	$AnimatedSprite.playing = false
-	print("WORKS")
