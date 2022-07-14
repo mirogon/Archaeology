@@ -8,6 +8,7 @@ signal treasure_update(treasure_found)
 export var movementSpeed = 100
 export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
+export var healing_area_scene: PackedScene
 
 export var max_heal_resources = 250
 
@@ -15,7 +16,7 @@ var heal_resources = 0
 var treasure_found = 0
 
 var time
-var last_time_thrown_projectile: float
+var last_time_healing_area: float
 var last_time_thrown_heal: float
 
 var near_chest = null
@@ -64,32 +65,39 @@ func movement():
 func _physics_process(delta):
 	move_and_slide(movement() * movementSpeed)
 			
-func throw_projectile():
-	if Input.is_mouse_button_pressed(1) && (time - last_time_thrown_projectile) > 1:
-		var new_projectile = projectileScene.instance() as Projectile
-		new_projectile.position = position
-		var dir = get_global_mouse_position() - position
-		dir = dir.normalized()
-		new_projectile.moveDir = dir 
-		get_parent().add_child(new_projectile)
-		last_time_thrown_projectile = time
+func spawn_healing_area():
+	if heal_resources < 25:
+		return
+	if Input.is_key_pressed(KEY_1):
+		if time - last_time_healing_area > 1:
+			var ha = healing_area_scene.instance()
+			ha.position = get_global_mouse_position()
+			get_tree().get_root().add_child(ha)
+			last_time_healing_area = time
 	
 func throw_healing_projectile():
 	if(heal_resources < 25):
 		return
-	if Input.is_mouse_button_pressed(2) && (time - last_time_thrown_heal > 1):
+	if Input.is_key_pressed(KEY_2) && (time - last_time_thrown_heal > 1):
 		var healing_projectile = healing_projectile_scene.instance()
+		var healing_projectile2 = healing_projectile_scene.instance()
 		healing_projectile.position = position
+		healing_projectile2.position = position
 		var dir = get_global_mouse_position() - position
 		dir = dir.normalized()
 		healing_projectile.move_dir = dir 
+		healing_projectile2.move_dir = dir
+		healing_projectile.move_dir_offset = -1
+		healing_projectile2.move_dir_offset = 1
+		
 		get_parent().add_child(healing_projectile)
+		get_parent().add_child(healing_projectile2)
 		last_time_thrown_heal = time
 		heal_resources -= 25
 		emit_signal("heal_resource_update", heal_resources)
 	
 func _process(delta):
-	throw_projectile()
+	spawn_healing_area()
 	throw_healing_projectile()
 	time += delta
 	

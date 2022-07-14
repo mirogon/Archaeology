@@ -61,6 +61,7 @@ animations = [ {
 } ]
 
 [node name="Scarab" type="KinematicBody2D" groups=["Enemy"]]
+z_index = 2
 script = ExtResource( 1 )
 animation_name = "Scarab"
 
@@ -69,8 +70,10 @@ position = Vector2( -0.5, -0.5 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = 2
 frames = SubResource( 12 )
 animation = "Scarab_Atk"
+frame = 1
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
