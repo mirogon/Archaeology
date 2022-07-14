@@ -129,7 +129,6 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
