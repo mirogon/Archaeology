@@ -11,21 +11,25 @@
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 6, 6 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 16, 32 )
+region = Rect2( 0, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 1 )
-region = Rect2( 16, 32, 16, 32 )
+region = Rect2( 16, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 16, 32 )
+region = Rect2( 32, 64, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 1 )
-region = Rect2( 48, 32, 16, 32 )
+region = Rect2( 48, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 64, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
@@ -47,6 +51,22 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 16, 32 )
+
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 32 )
@@ -63,31 +83,11 @@ region = Rect2( 32, 0, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 64, 16, 32 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
-"name": "Walk_Down",
+"name": "Walk_Right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
@@ -95,14 +95,14 @@ animations = [ {
 "name": "Walk_Left",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "Walk_Down",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
 "loop": true,
 "name": "Walk_Up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "Walk_Right",
 "speed": 5.0
 } ]
 
@@ -129,12 +129,12 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 1
+frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
 
-[node name="ProgressBar" parent="." instance=ExtResource( 4 )]
+[node name="HealthBar" parent="." instance=ExtResource( 4 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -144,6 +144,6 @@ shape = SubResource( 45 )
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
 [connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]
-[connection signal="health_update" from="HealthSystem" to="ProgressBar" method="_on_HealthSystem_health_update"]
+[connection signal="health_update" from="HealthSystem" to="HealthBar" method="_on_HealthSystem_health_update"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

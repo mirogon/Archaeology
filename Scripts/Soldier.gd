@@ -4,6 +4,7 @@ class_name Soldier
 
 export var projectile_scene: PackedScene
 export var attack_interval = 1.5
+export var damage_per_hit = 25
 
 var enemies: Array
 var focused_enemy
@@ -43,9 +44,9 @@ func _process(delta):
 		last_time_destination_updated = time
 	attack_enemy(focused_enemy)
 			
-	if scheduled_attack:
+	if scheduled_attack && is_instance_valid(scheduled_attack):
 		if $AnimatedSprite.frame == 2:
-			scheduled_attack.get_node("HealthSystem").take_damage(25)
+			scheduled_attack.get_node("HealthSystem").take_damage(damage_per_hit)
 			scheduled_attack = null
 			
 	time += delta

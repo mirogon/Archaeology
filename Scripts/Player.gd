@@ -22,7 +22,7 @@ var last_time_thrown_heal: float
 var near_chest = null
 
 func _ready():
-	$ProgressBar.hide()
+	$HealthBar.hide()
 	time = 0
 	
 func restart_game():
@@ -117,8 +117,7 @@ func _on_HealthSystem_died():
 	print("PLAYER DIED!")
 
 func _on_HealthSystem_health_update(new_health):
-	$ProgressBar.show()
-
+	$HealthBar.show()
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("HealthPickup"):
