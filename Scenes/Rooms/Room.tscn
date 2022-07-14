@@ -693,7 +693,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 36/shape_one_way = false
 36/shape_one_way_margin = 0.0
 36/shapes = [  ]
-36/z_index = 2
+36/z_index = 5
 37/name = "GlowingStoneBottom"
 37/texture = ExtResource( 1 )
 37/tex_offset = Vector2( 0, 0 )
@@ -728,7 +728,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 38/shape_one_way = false
 38/shape_one_way_margin = 0.0
 38/shapes = [  ]
-38/z_index = 2
+38/z_index = 5
 39/name = "StoneBottom"
 39/texture = ExtResource( 1 )
 39/tex_offset = Vector2( 0, 0 )
@@ -777,6 +777,7 @@ __meta__ = {
 }
 
 [node name="Prop_Layer" type="TileMap" parent="."]
+z_index = 2
 tile_set = SubResource( 46 )
 cell_size = Vector2( 16, 16 )
 format = 1
