@@ -10,6 +10,7 @@ signal upgraded_player_heal_resource
 
 signal restart_game
 signal loaded_savegame(upgrade_state)
+signal treasure_stored(sum_treasure)
 
 var room_scene = load("res://Scenes/Rooms/Room.tscn")
 var loaded_room
@@ -37,6 +38,7 @@ func _process(delta):
 	
 func on_game_over():
 	treasure_stored += $Player.treasure_found
+	emit_signal("treasure_stored", treasure_stored)
 	save_game()
 	
 func go_to_next_room():
