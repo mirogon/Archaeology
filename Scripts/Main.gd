@@ -25,17 +25,16 @@ var rooms_visited = 0
 
 func _ready():
 	load_game()
-	loaded_room = $Room
+	set_loaded_room($Room)
 	player_and_soldier_to_start()	
 	randomize()
 	
 	$Soldier.get_node("HealthSystem").connect("died", self, "on_game_over")
 	$Player.get_node("HealthSystem").connect("died", self, "on_game_over")
 
-func _process(delta):
-	if Input.is_key_pressed(KEY_P) && rooms_visited == 0:
-		go_to_next_room()
-		++rooms_visited
+func set_loaded_room(new_room):
+	loaded_room = new_room
+	new_room.connect("entered_room_traverser", self, "go_to_next_room")
 	
 func on_game_over():
 	treasure_stored += $Player.treasure_found
@@ -47,14 +46,15 @@ func go_to_next_room():
 		if get_child(i).is_in_group("Room"):
 			get_child(i).queue_free()
 	
-	loaded_room = room2_scene.instance()
-	add_child(loaded_room)
+	set_loaded_room(room2_scene.instance()) 
+	call_deferred("add_child", loaded_room)
+	#add_child(loaded_room)
 	player_and_soldier_to_start()
 	$Soldier.get_node("NavigationMovement").initialize($Soldier.get_node("AnimatedSprite"), loaded_room.get_node("Navigation2D"))
 	
 func restart_game():
 	loaded_room.queue_free()
-	loaded_room = room_scene.instance()
+	set_loaded_room(room_scene.instance())
 	add_child(loaded_room)
 	
 	$Player.restart_game()

@@ -1346,6 +1346,7 @@ position = Vector2( -797, 159 )
 position = Vector2( -681, -165 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 103 )
