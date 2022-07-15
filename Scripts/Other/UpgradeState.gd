@@ -9,6 +9,17 @@ var soldier_damage_upgrade_state: int = 0
 var soldier_speed_upgrade_state: int = 0
 var player_heal_resource_upgrade_state: int = 0
 
+func get_upgrade_state(upgrade_name):
+	match upgrade_name:
+		"soldier_health": 
+			return soldier_health_upgrade_state
+		"soldier_damage": 
+			return soldier_damage_upgrade_state
+		"soldier_speed":
+			return soldier_speed_upgrade_state
+		"player_heal_resource":
+			return player_heal_resource_upgrade_state
+
 func from_save_state(save_data):
 	soldier_health_upgrade_state = save_data["soldier_health_upgrade_state"]
 	soldier_damage_upgrade_state = save_data["soldier_damage_upgrade_state"]

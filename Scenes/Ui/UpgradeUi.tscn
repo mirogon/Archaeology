@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Asstes/UI/Upgrade_Screen/Screen_frame_flat.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/UI/Upgrade_Screen/Soldier_Icon.png" type="Texture" id=2]
@@ -15,9 +15,6 @@
 [ext_resource path="res://Asstes/UI/Upgrade_Screen/Plus_Pressed.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/Ui/UpgradeContainer.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/Ui/UpgradeUi.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/Ui/UpgradeSoldierDamageUi.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/Ui/UpgradeSoldierSpeedUi.gd" type="Script" id=17]
-[ext_resource path="res://Scripts/Ui/UpgradePlayerHealthResourceUi.gd" type="Script" id=18]
 [ext_resource path="res://Asstes/UI/tresure.png" type="Texture" id=19]
 [ext_resource path="res://Asstes/Fonts/BitPotion.ttf" type="DynamicFontData" id=20]
 
@@ -115,6 +112,7 @@ margin_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 14 )
+upgrade_name = "soldier_health"
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade"]
 margin_right = 8.0
@@ -236,7 +234,8 @@ margin_right = 131.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 16 )
+script = ExtResource( 14 )
+upgrade_name = "soldier_damage"
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade"]
 margin_right = 8.0
@@ -358,7 +357,8 @@ margin_right = 131.0
 margin_bottom = 8.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 17 )
+script = ExtResource( 14 )
+upgrade_name = "soldier_speed"
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade"]
 margin_right = 8.0
@@ -508,7 +508,8 @@ margin_right = 131.0
 margin_bottom = 11.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 18 )
+script = ExtResource( 14 )
+upgrade_name = "player_heal_resource"
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealResourceUpgrade"]
 margin_right = 8.0
@@ -641,8 +642,4 @@ margin_bottom = 65.25
 custom_fonts/font = SubResource( 2 )
 text = "99"
 
-[connection signal="upgrade_soldier_health_button_pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/LifeUpgrade" to="." method="_on_LifeUpgrade_upgrade_soldier_health_button_pressed"]
-[connection signal="upgrade_soldier_damage_button_pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer2/AtkUpgrade" to="." method="_on_AtkUpgrade_upgrade_soldier_damage_button_pressed"]
-[connection signal="upgrade_soldier_speed_button_pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/CenterContainer3/SpeedUpgrade" to="." method="_on_SpeedUpgrade_upgrade_soldier_speed_button_pressed"]
-[connection signal="upgrade_player_heal_resource_button_pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/CenterContainer/HealResourceUpgrade" to="." method="_on_HealResourceUpgrade_upgrade_player_heal_resource_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
