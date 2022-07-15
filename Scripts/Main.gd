@@ -98,6 +98,14 @@ func load_game():
 	upgrade_state.from_save_state(data)
 	treasure_stored = data["treasure"]
 	emit_signal("loaded_savegame", upgrade_state)
+	
+	apply_upgrades(upgrade_state)
+
+func apply_upgrades(upgrade_state):
+	$Soldier.get_node("HealthSystem").max_health = 100 + 100 * 0.25 * upgrade_state.soldier_health_upgrade_state
+	$Soldier.damage_per_hit = 25 + 5 * upgrade_state.soldier_damage_upgrade_state
+	$Soldier.get_node("NavigationMovement").moveSpeed = 75 + 75 * 0.15 * upgrade_state.soldier_speed_upgrade_state
+	$Player.max_heal_resources = 250 + 25 * upgrade_state.player_heal_resource_upgrade_state
 
 func _on_Player_treasure_update(treasure_found):
 	emit_signal("treasure_update", treasure_found)
