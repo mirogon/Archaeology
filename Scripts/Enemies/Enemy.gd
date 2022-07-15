@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export var moves = true
-export var speed = 75
-export var damage_per_attack = 10
-export var attack_interval = 1.0
+export var moves: bool = true
+export var speed: int = 75
+export var damage_per_attack: int = 10
+export var attack_interval: float = 1.0
 export var animation_name: String
 
 export var coin_scene: PackedScene
@@ -12,13 +12,13 @@ export var ruby_scene: PackedScene
 export var coin_drop_chance: int
 export var ruby_drop_chance: int
 
-var player
-var soldier
+var player: Player
+var soldier: Soldier
 
-var time = 0
+var time: float = 0
 
-var last_time_attacked = 0
-var last_time_hit = 0
+var last_time_attacked: float = 0
+var last_time_hit: float = 0
 
 
 func _ready():
@@ -30,25 +30,28 @@ func _ready():
 	$AnimatedSprite.connect("animation_finished", self, "on_animation_finished")
 	
 func _physics_process(delta):
-	attack(soldier)
+	if position.distance_to(soldier.position) > 15:
+		walk(soldier)
+	else:
+		attack(soldier)
 
 func attack(target):
-	if position.distance_to(target.position) > 15:
-		var dir = (target.position - position).normalized()
-		if moves:
-			move_and_slide(dir * speed)
-		$AnimatedSprite.play(animation_name + "_Walk")
-		
-		if position.x > target.position.x:
-			$AnimatedSprite.flip_h = false
-		else:
-			$AnimatedSprite.flip_h = true
+	if time - last_time_attacked > attack_interval:
+		$AnimatedSprite.play(animation_name + "_Atk")
+		var target_health_system: HealthSystem = target.get_node("HealthSystem") as HealthSystem
+		target_health_system.take_damage(damage_per_attack)
+		last_time_attacked = time
+
+func walk(target):
+	var dir: Vector2 = (target.position - position).normalized()
+	if moves:
+		move_and_slide(dir * speed)
+	$AnimatedSprite.play(animation_name + "_Walk")
+	
+	if position.x > target.position.x:
+		$AnimatedSprite.flip_h = false
 	else:
-		if time - last_time_attacked > attack_interval:
-			$AnimatedSprite.play(animation_name + "_Atk")
-			var target_health_system = target.get_node("HealthSystem") as HealthSystem
-			target_health_system.take_damage(damage_per_attack)
-			last_time_attacked = time
+		$AnimatedSprite.flip_h = true
 
 func _process(delta):
 	time += delta
@@ -65,14 +68,12 @@ func on_died():
 func drop_item(item_scene, drop_chance):
 	if !item_scene:
 		return
-	var random_num = randi() % 100
+	var random_num: int = randi() % 100
 	if random_num <= drop_chance:
-		var item = item_scene.instance()
+		var item: Node2D = item_scene.instance()
 		item.position = position
 		get_parent().get_parent().add_child(item)
 
-
-	
 func on_health_update(new_health):
 	$AnimatedSprite.modulate = Color(1,0,0,1)
 	last_time_hit = time

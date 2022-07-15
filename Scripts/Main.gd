@@ -14,14 +14,14 @@ signal treasure_stored(sum_treasure)
 
 var room_scene = load("res://Scenes/Rooms/Room.tscn")
 var room2_scene = load("res://Scenes/Rooms/Room2.tscn")
-var loaded_room
+var loaded_room: Node
 
-var enemies_died = 0
-var treasure_stored = 0
+var enemies_died: int = 0
+var treasure_stored: int = 0
 
-var upgrade_state = UpgradeState.new()
+var upgrade_state: UpgradeState = UpgradeState.new()
 
-var rooms_visited = 0
+var rooms_visited: int = 0
 
 func _ready():
 	load_game()
@@ -103,7 +103,7 @@ func _on_Player_treasure_update(treasure_found):
 	emit_signal("treasure_update", treasure_found)
 
 func _on_UpgradeUi_upgrade_soldier_health_button_pressed():
-	var r = upgrade_state.upgrade_soldier_health(treasure_stored)
+	var r: int = upgrade_state.upgrade_soldier_health(treasure_stored)
 	if r == -1:
 		return
 	treasure_stored -= r
@@ -113,7 +113,7 @@ func _on_UpgradeUi_upgrade_soldier_health_button_pressed():
 	save_game()
 
 func _on_UpgradeUi_upgrade_soldier_damage_button_pressed():
-	var r = upgrade_state.upgrade_soldier_damage(treasure_stored)
+	var r: int = upgrade_state.upgrade_soldier_damage(treasure_stored)
 	if r == -1:
 		return
 	treasure_stored -= r
@@ -123,7 +123,7 @@ func _on_UpgradeUi_upgrade_soldier_damage_button_pressed():
 	save_game()
 
 func _on_UpgradeUi_upgrade_soldier_speed_button_pressed():
-	var r = upgrade_state.upgrade_soldier_speed(treasure_stored)
+	var r: int = upgrade_state.upgrade_soldier_speed(treasure_stored)
 	if r == -1:
 		return
 	treasure_stored -= r
@@ -133,7 +133,7 @@ func _on_UpgradeUi_upgrade_soldier_speed_button_pressed():
 	save_game()
 
 func _on_UpgradeUi_upgrade_player_heal_resource_button_pressed():
-	var r = upgrade_state.upgrade_player_heal_resource(treasure_stored)
+	var r: int = upgrade_state.upgrade_player_heal_resource(treasure_stored)
 	if r == -1:
 		return
 	treasure_stored -= r

@@ -1,7 +1,7 @@
 extends Node
 
-export var moveSpeed = 100
-export var mouse_debug_mode = false
+export var moveSpeed: int = 100
+export var mouse_debug_mode: bool = false
 export var animation_name: String
 
 #Injected
@@ -13,8 +13,8 @@ var current_path: PoolVector2Array
 var current_path_index: int
 var destination_reached: bool
 
-var initialized = false
-var active = true
+var initialized: bool = false
+var active: bool = true
 
 func _ready():
 	destination_reached = true
@@ -46,8 +46,8 @@ func increment_path_index():
 		animated_sprite.playing = false
 
 func get_current_path_point_destination():
-	var distance_vector = current_path[current_path_index] - get_parent().position
-	var distance_value = abs(distance_vector.length())
+	var distance_vector: Vector2 = current_path[current_path_index] - get_parent().position
+	var distance_value: float = abs(distance_vector.length())
 	
 	if(distance_value < 2):
 		increment_path_index()
@@ -80,5 +80,5 @@ func _process(delta):
 	if(destination_reached):
 		return
 	
-	var current_path_point_destination = get_current_path_point_destination()
+	var current_path_point_destination: Vector2 = get_current_path_point_destination()
 	move_closer_to(current_path_point_destination, moveSpeed * delta)

@@ -2,20 +2,19 @@ extends Area2D
 
 class_name Soldier
 
-export var projectile_scene: PackedScene
-export var attack_interval = 1.5
-export var damage_per_hit = 25
+export var attack_interval: float = 1.5
+export var damage_per_hit: int = 25
 
 var enemies: Array
-var focused_enemy
+var focused_enemy: Node2D
 
-var time = 0
-var last_time_destination_updated = 0
+var time: float = 0
+var last_time_destination_updated: float = 0
 
-var currently_attacking = false
-var last_time_attacked = 0
+var currently_attacking: bool = false
+var last_time_attacked: float = 0
 
-var scheduled_attack = null
+var scheduled_attack: Node2D = null
 
 func _ready():
 	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_node("Room/Navigation2D"))
@@ -29,8 +28,8 @@ func restart_game():
 	enemies.clear()
 	$HealthSystem.reset()
 	
-	var main = get_tree().get_root().get_node("Main")
-	var room = null
+	var main: Node = get_tree().get_root().get_node("Main")
+	var room: Node = null
 	for i in range(main.get_child_count()):
 		if main.get_child(i).is_in_group("Room"):
 			room = main.get_child(i)
@@ -42,7 +41,9 @@ func _process(delta):
 	if time - last_time_destination_updated > 0.5:
 		focused_enemy = update_enemy_navigation_destination()
 		last_time_destination_updated = time
-	attack_enemy(focused_enemy)
+		
+	if focused_enemy && is_instance_valid(focused_enemy):
+		attack_enemy(focused_enemy)
 			
 	if scheduled_attack && is_instance_valid(scheduled_attack):
 		if $AnimatedSprite.frame == 2:
@@ -60,27 +61,28 @@ func update_enemy_navigation_destination():
 	return focused_enemy
 
 func attack_enemy(enemy):
-	if enemy:
-		if position.distance_to(enemy.position) < 10:
-			$NavigationMovement.active = false
-			currently_attacking = true
-			if time - last_time_attacked > attack_interval:
-				if (enemy.position - position).x > 0:
-					$AnimatedSprite.play("Army_ATK_Right")
-				else:
-					$AnimatedSprite.play("Army_ATK_Left")
-			
-				scheduled_attack = enemy			
-				last_time_attacked = time
-					
+	if position.distance_to(enemy.position) < 10:
+		schedule_attack(enemy)
+	else:
+		$NavigationMovement.active = true
+		currently_attacking = false
+	
+func schedule_attack(enemy):
+	$NavigationMovement.active = false
+	currently_attacking = true
+	if time - last_time_attacked > attack_interval:
+		if (enemy.position - position).x > 0:
+			$AnimatedSprite.play("Army_ATK_Right")
 		else:
-			$NavigationMovement.active = true
-			currently_attacking = false
+			$AnimatedSprite.play("Army_ATK_Left")
+			
+		scheduled_attack = enemy
+		last_time_attacked = time
 	
 func find_nearest_enemy():
 	if(!enemies || enemies.size() == 0):
 		return
-	var closest_enemy = enemies[0]
+	var closest_enemy: Node2D = enemies[0]
 	for i in range(enemies.size()):
 		if enemies[i].position.distance_to(position) < closest_enemy.position.distance_to(position):
 			closest_enemy = enemies[i]
@@ -88,10 +90,10 @@ func find_nearest_enemy():
 	
 func find_enemies():
 	enemies.clear()
-	var main = get_tree().get_root().get_node("Main")
+	var main: Node = get_tree().get_root().get_node("Main")
 	if !main:
 		return
-	var room = null
+	var room: Node = null
 	for i in range(main.get_child_count()):
 		if main.get_child(i).is_in_group("Room"):
 			room = main.get_child(i)
@@ -100,7 +102,7 @@ func find_enemies():
 		enemies.append(room.get_node("Enemies").get_child(i))
 
 func _on_HealthSystem_died():
-	print("Soldier died")
+	pass
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Army_ATK_Right" || $AnimatedSprite.animation == "Army_ATK_Left":

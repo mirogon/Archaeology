@@ -1,12 +1,8 @@
 extends Area2D
 
-export var heal_value = 5
-export var move_speed = 100
+export var heal_value: int = 5
+export var move_speed: int = 100
 var move_dir: Vector2
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func _process(delta):
 	position += move_dir * delta * move_speed

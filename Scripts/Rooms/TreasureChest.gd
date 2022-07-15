@@ -5,15 +5,15 @@ class_name TreasureChest
 export var item_spawn_movement: PackedScene
 export var coin_scene: PackedScene
 export var ruby_scene: PackedScene
-export var min_coin_spawns = 2
-export var max_coin_spawns = 6
-export var min_ruby_spawns = 1
-export var max_ruby_spawns = 3
+export var min_coin_spawns: int = 2
+export var max_coin_spawns: int = 6
+export var min_ruby_spawns: int = 1
+export var max_ruby_spawns: int = 3
 
-var open = false
+var open: int = false
 
-var time = 0
-var time_opened = 0
+var time: float = 0
+var time_opened: float = 0
 
 func _ready():
 	$OpenTimer.connect("timeout", self, "on_opentimer_timeout")
@@ -30,9 +30,9 @@ func spawn_items():
 	spawn_item(ruby_scene, min_ruby_spawns, max_ruby_spawns)
 
 func spawn_item(item_scene, min_spawns, max_spawns):
-	var spawns = (randi() % (max_spawns-min_spawns)) + min_spawns
+	var spawns: int = (randi() % (max_spawns-min_spawns)) + min_spawns
 	for i in range(spawns):
-		var item = item_scene.instance()
+		var item: Node = item_scene.instance()
 		item.position = position
 		item.add_child(item_spawn_movement.instance())
 		get_parent().get_node("Pickups").add_child(item)

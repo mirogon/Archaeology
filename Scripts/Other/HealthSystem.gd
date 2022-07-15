@@ -6,8 +6,8 @@ signal died
 signal health_update(new_health)
 
 export var max_health: int = 100
-var current_health
-var dead
+var current_health: int
+var dead: bool
 
 func _ready():
 	current_health = max_health

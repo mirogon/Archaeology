@@ -5,17 +5,17 @@ extends Node2D
 export var scene_to_spawn: PackedScene
 export var min_interval_ms: int
 export var max_interval_ms: int
-export var max_spawns = 99
+export var max_spawns: int = 99
 
-var current_interval = 0
-var time_interval = 0
-var spawns = 0
+var current_interval: float = 0
+var time_interval: float = 0
+var spawns: int = 0
 
 func _ready():
 	current_interval = random_interval(min_interval_ms, max_interval_ms)
 
 func random_interval(min_interval, max_interval):
-	var r = rand_range(min_interval, max_interval)
+	var r: float = rand_range(min_interval, max_interval)
 	var interval_sec: float = r/1000
 	return interval_sec
 
@@ -29,7 +29,7 @@ func _process(delta):
 		spawn()
 
 func spawn():
-	var instance = scene_to_spawn.instance()
+	var instance: Node = scene_to_spawn.instance()
 	instance.position = position
 	get_parent().get_parent().get_node("Enemies").add_child(instance)
 	spawns += 1

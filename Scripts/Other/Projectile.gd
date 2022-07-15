@@ -2,9 +2,8 @@ extends Area2D
 
 class_name Projectile
 
-export var hit_damage = 10
-export var move_speed = 150
-
+export var hit_damage: int = 10
+export var move_speed: int = 150
 var moveDir: Vector2
 
 func _ready():
@@ -16,7 +15,7 @@ func _process(delta):
 func _on_Projectile_body_entered(body):
 	if body.is_in_group("Enemy"):
 		$AnimatedSprite.play("Vase_Breaking")
-		var healthSystem = body.get_node("HealthSystem") as HealthSystem
+		var healthSystem: HealthSystem = body.get_node("HealthSystem") as HealthSystem
 		healthSystem.take_damage(hit_damage)
 		move_speed = 0
 	elif body is TileMap:

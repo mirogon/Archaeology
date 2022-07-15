@@ -2,7 +2,7 @@ extends Node2D
 
 signal entered_room_traverser
 
-var traversed = false
+var traversed: bool = false
 
 func _ready():
 	$RoomTraverser.connect("area_entered", self, "on_room_traverser_entered")

@@ -5,22 +5,22 @@ class_name Player
 signal heal_resource_update(new_heal_resources)
 signal treasure_update(treasure_found)
 
-export var movementSpeed = 100
+export var movementSpeed: int = 100
 export var projectileScene: PackedScene
 export var healing_projectile_scene: PackedScene
 export var healing_area_scene: PackedScene
 
-export var max_heal_resources = 250
+export var max_heal_resources: int = 250
 
-var heal_resources = 0
-var treasure_found = 0
+var heal_resources: int = 0
+var treasure_found: int = 0
 
-var time
+var time: float
 var last_time_healing_area: float
 var last_time_thrown_heal: float
 
-var near_chest = null
-var near_vase = null
+var near_chest: TreasureChest = null
+var near_vase: Node2D = null
 
 func _ready():
 	$HealthBar.hide()
@@ -30,7 +30,6 @@ func restart_game():
 	heal_resources = 0
 	treasure_found = 0
 	$HealthSystem.reset()
-	
 
 func get_movedir():
 	var moveDir: Vector2 = Vector2(0,0)
@@ -77,36 +76,36 @@ func spawn_healing_area():
 		return
 	if Input.is_key_pressed(KEY_1):
 		if time - last_time_healing_area > 1:
-			var ha = healing_area_scene.instance()
+			var ha: Node2D = healing_area_scene.instance()
 			ha.position = get_global_mouse_position()
 			get_tree().get_root().add_child(ha)
 			last_time_healing_area = time
 			heal_resources -= 25
 	
-func throw_healing_projectile():
+func throw_healing_bones():
 	if(heal_resources < 25):
 		return
 	if Input.is_key_pressed(KEY_2) && (time - last_time_thrown_heal > 1):
-		var healing_projectile = healing_projectile_scene.instance()
-		var healing_projectile2 = healing_projectile_scene.instance()
-		healing_projectile.position = position
-		healing_projectile2.position = position
-		var dir = get_global_mouse_position() - position
-		dir = dir.normalized()
-		healing_projectile.move_dir = dir 
-		healing_projectile2.move_dir = dir
-		healing_projectile.move_dir_offset = -1
-		healing_projectile2.move_dir_offset = 1
-		
-		get_parent().add_child(healing_projectile)
-		get_parent().add_child(healing_projectile2)
+		var healing_bone_1 = create_healing_bone(-1)
+		var healing_bone_2 = create_healing_bone(1)
+		get_parent().add_child(healing_bone_1)
+		get_parent().add_child(healing_bone_2)
 		last_time_thrown_heal = time
 		heal_resources -= 25
 		emit_signal("heal_resource_update", heal_resources)
 	
+func create_healing_bone(move_dir_offset):
+	var healing_bone: Node2D = healing_projectile_scene.instance()
+	healing_bone.position = position
+	var dir: Vector2 = get_global_mouse_position() - position
+	dir = dir.normalized()
+	healing_bone.move_dir = dir
+	healing_bone.move_dir_offset = move_dir_offset
+	return healing_bone
+	
 func _process(delta):
 	spawn_healing_area()
-	throw_healing_projectile()
+	throw_healing_bones()
 	time += delta
 	
 	if Input.is_action_just_pressed("action"):
@@ -118,21 +117,16 @@ func _process(delta):
 			near_vase = null
 
 func _on_HealthSystem_died():
-	print("PLAYER DIED!")
+	pass
 
 func _on_HealthSystem_health_update(new_health):
 	$HealthBar.show()
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("HealthPickup"):
-		if heal_resources >= max_heal_resources:
-			return
-		var health_pickup = area as HealthPickup
-		heal_resources += health_pickup.health_value
-		emit_signal("heal_resource_update", heal_resources)
-		area.queue_free()
+		pick_up_health_pickup(area)
 	elif area.is_in_group("TreasurePickup"):
-		var treasure = area as TreasurePickup
+		var treasure: TreasurePickup = area as TreasurePickup
 		treasure_found += treasure.treasure_value
 		emit_signal("treasure_update", treasure_found)
 		area.queue_free()
@@ -141,6 +135,13 @@ func _on_Area2D_area_entered(area):
 	elif area is Vase:
 		near_vase = area as Vase
 
+func pick_up_health_pickup(pickup):
+		if heal_resources >= max_heal_resources:
+			return
+		var health_pickup: HealthPickup = pickup as HealthPickup
+		heal_resources += health_pickup.health_value
+		emit_signal("heal_resource_update", heal_resources)
+		pickup.queue_free()
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("TreasureChest"):

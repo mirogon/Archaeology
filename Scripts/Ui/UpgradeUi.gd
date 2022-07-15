@@ -15,10 +15,8 @@ func on_treasure_stored(sum):
 func _on_LifeUpgrade_upgrade_soldier_health_button_pressed():
 	emit_signal("upgrade_soldier_health_button_pressed")
 
-
 func _on_AtkUpgrade_upgrade_soldier_damage_button_pressed():
 	emit_signal("upgrade_soldier_damage_button_pressed")
-
 
 func _on_SpeedUpgrade_upgrade_soldier_speed_button_pressed():
 	emit_signal("upgrade_soldier_speed_button_pressed")
