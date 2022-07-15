@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Asstes/Enemies/Scarab.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Items/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Asstes/Audio/Enemies/sfx_damage_hit8.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 4.5 )
@@ -70,6 +71,7 @@ coin_scene = ExtResource( 4 )
 ruby_scene = ExtResource( 5 )
 coin_drop_chance = 60
 ruby_drop_chance = 40
+attack_frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, -0.5 )
@@ -79,7 +81,10 @@ shape = SubResource( 1 )
 z_index = 5
 frames = SubResource( 12 )
 animation = "Scarab_Atk"
-frame = 3
-playing = true
+frame = 4
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0

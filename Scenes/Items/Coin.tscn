@@ -49,5 +49,4 @@ shape = SubResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
 animation = "coin"
-frame = 2
 playing = true

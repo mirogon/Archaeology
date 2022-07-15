@@ -52,4 +52,8 @@ func _on_HealingBone_area_entered(area):
 	if area is Soldier:
 		var s: Soldier = area as Soldier
 		s.get_node("HealthSystem").restore_health(heal_value)
+		var healing_bone_sound = s.get_node("HealingBoneSound")
+		if healing_bone_sound:
+			healing_bone_sound.play()
+		s.get_node("HealingBoneSound").play()
 		queue_free()

@@ -37,6 +37,7 @@ func set_loaded_room(new_room):
 	new_room.connect("entered_room_traverser", self, "go_to_next_room")
 	
 func on_game_over():
+	$GameOverSound.play()
 	treasure_stored += $Player.treasure_found
 	emit_signal("treasure_stored", treasure_stored)
 	save_game()
@@ -103,6 +104,7 @@ func load_game():
 
 func apply_upgrades(upgrade_state):
 	$Soldier.get_node("HealthSystem").max_health = 100 + 100 * 0.25 * upgrade_state.soldier_health_upgrade_state
+	$Soldier.get_node("HealthSystem").current_health = $Soldier.get_node("HealthSystem").max_health
 	$Soldier.damage_per_hit = 25 + 5 * upgrade_state.soldier_damage_upgrade_state
 	$Soldier.get_node("NavigationMovement").moveSpeed = 75 + 75 * 0.15 * upgrade_state.soldier_speed_upgrade_state
 	$Player.max_heal_resources = 250 + 25 * upgrade_state.player_heal_resource_upgrade_state

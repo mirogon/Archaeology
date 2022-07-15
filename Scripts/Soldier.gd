@@ -49,6 +49,8 @@ func _process(delta):
 		if $AnimatedSprite.frame == 2:
 			scheduled_attack.get_node("HealthSystem").take_damage(damage_per_hit)
 			scheduled_attack = null
+			$AttackSound.set_random_sound()
+			$AttackSound.play()
 			
 	time += delta
 
@@ -63,9 +65,11 @@ func update_enemy_navigation_destination():
 func attack_enemy(enemy):
 	if position.distance_to(enemy.position) < 10:
 		schedule_attack(enemy)
+		$FootstepSound.stop()
 	else:
 		$NavigationMovement.active = true
 		currently_attacking = false
+		$FootstepSound.start()
 	
 func schedule_attack(enemy):
 	$NavigationMovement.active = false

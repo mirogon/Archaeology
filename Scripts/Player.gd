@@ -25,7 +25,8 @@ var near_vase: Node2D = null
 func _ready():
 	$HealthBar.hide()
 	time = 0
-	
+
+		
 func restart_game():
 	heal_resources = 0
 	treasure_found = 0
@@ -49,7 +50,12 @@ func set_anim(moveDir: Vector2):
 	if(moveDir.x == 0 && moveDir.y == 0):
 		$AnimatedSprite.animation = "Walk_Down"
 		$AnimatedSprite.frame = 0
-		$AnimatedSprite.playing = false
+		$AnimatedSprite.playing = false	
+		$FootstepSound.stop()
+		return
+		
+	$FootstepSound.start()
+		
 	if(moveDir.x > 0):
 		$AnimatedSprite.animation = "Walk_Right"
 		return
@@ -112,9 +118,12 @@ func _process(delta):
 		if near_chest:
 			near_chest.open_chest()
 			near_chest = null
+			$ChestSound.play()
 		if near_vase:
 			near_vase.break_vase()
 			near_vase = null
+			$VaseSound.set_random_sound()
+			$VaseSound.play()
 
 func _on_HealthSystem_died():
 	pass
@@ -125,11 +134,13 @@ func _on_HealthSystem_health_update(new_health):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("HealthPickup"):
 		pick_up_health_pickup(area)
+		$HealthPickupSound.play()
 	elif area.is_in_group("TreasurePickup"):
 		var treasure: TreasurePickup = area as TreasurePickup
 		treasure_found += treasure.treasure_value
 		emit_signal("treasure_update", treasure_found)
 		area.queue_free()
+		$CoinSound.play()
 	elif area.is_in_group("TreasureChest"):
 		near_chest = area as TreasureChest
 	elif area is Vase:

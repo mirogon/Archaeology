@@ -30,7 +30,7 @@ animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": false,
 "name": "Chest_Open",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [node name="Chest" type="Area2D" groups=["TreasureChest"]]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Asstes/Environment/Circle.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Other/HealingArea.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Other/HealingArea.gd" type="Script" id=2]
+[ext_resource path="res://Asstes/Audio/Player/wind2.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/LoopingSound.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0713
@@ -35,6 +37,12 @@ autostart = true
 [node name="AliveTimer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 4 )
+sounds = [ ExtResource( 3 ) ]
+loop_delay = 3.0
 
 [connection signal="area_entered" from="." to="." method="_on_HealingArea_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_HealingArea_area_exited"]

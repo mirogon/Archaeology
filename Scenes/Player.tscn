@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Asstes/Character/Character_WalkC.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -7,6 +7,15 @@
 [ext_resource path="res://Scenes/Other/Projectile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Other/HealingBone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Other/HealingArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Asstes/Audio/Player/sfx_coin_double1.wav" type="AudioStream" id=8]
+[ext_resource path="res://Asstes/Audio/Player/sfx_coin_single5.wav" type="AudioStream" id=9]
+[ext_resource path="res://Asstes/Audio/Player/sfx_movement_footsteps1a.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/LoopingSound.gd" type="Script" id=11]
+[ext_resource path="res://Asstes/Audio/Player/sfx_movement_footsteps1b.wav" type="AudioStream" id=12]
+[ext_resource path="res://Asstes/Audio/Player/sfx_sounds_interaction16.wav" type="AudioStream" id=13]
+[ext_resource path="res://Scripts/RandomSound.gd" type="Script" id=14]
+[ext_resource path="res://Asstes/Audio/Vase/sfx_sounds_impact7.wav" type="AudioStream" id=15]
+[ext_resource path="res://Asstes/Audio/Vase/sfx_sounds_impact6.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 6, 6 )
@@ -30,6 +39,22 @@ region = Rect2( 48, 64, 16, 32 )
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 1 )
 region = Rect2( 64, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 1 )
@@ -67,43 +92,27 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 32, 16, 32 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
 "frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
 "name": "Walk_Right",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
-"loop": true,
-"name": "Walk_Up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
-"loop": true,
-"name": "Walk_Left",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Walk_Down",
-"speed": 5.0
+"speed": 6.0
+}, {
+"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "Walk_Up",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "Walk_Left",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=45]
@@ -140,6 +149,25 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -0.5 )
 shape = SubResource( 45 )
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="HealthPickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="FootstepSound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 11 )
+sounds = [ ExtResource( 10 ), ExtResource( 12 ) ]
+loop_delay = 0.3
+
+[node name="ChestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="VaseSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource( 14 )
+sounds = [ ExtResource( 16 ), ExtResource( 15 ) ]
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
 [connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]

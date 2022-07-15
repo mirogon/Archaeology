@@ -12,6 +12,8 @@ export var ruby_scene: PackedScene
 export var coin_drop_chance: int
 export var ruby_drop_chance: int
 
+export var attack_frame: int = 3
+
 var player: Player
 var soldier: Soldier
 
@@ -20,6 +22,7 @@ var time: float = 0
 var last_time_attacked: float = 0
 var last_time_hit: float = 0
 
+var scheduled_attack: Node2D = null
 
 func _ready():
 	player = get_tree().get_root().get_node("Main").get_node("Player")
@@ -34,12 +37,19 @@ func _physics_process(delta):
 		walk(soldier)
 	else:
 		attack(soldier)
-
+		
+	if scheduled_attack && $AnimatedSprite.frame == attack_frame:
+		var target_health_system: HealthSystem = scheduled_attack.get_node("HealthSystem") as HealthSystem
+		target_health_system.take_damage(damage_per_attack)
+		scheduled_attack = null
+		if $AttackSound:
+			$AttackSound.play()
+		
 func attack(target):
 	if time - last_time_attacked > attack_interval:
 		$AnimatedSprite.play(animation_name + "_Atk")
-		var target_health_system: HealthSystem = target.get_node("HealthSystem") as HealthSystem
-		target_health_system.take_damage(damage_per_attack)
+		scheduled_attack = target
+
 		last_time_attacked = time
 
 func walk(target):
