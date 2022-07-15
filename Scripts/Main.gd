@@ -13,6 +13,7 @@ signal loaded_savegame(upgrade_state)
 signal treasure_stored(sum_treasure)
 
 var room_scene = load("res://Scenes/Rooms/Room.tscn")
+var room2_scene = load("res://Scenes/Rooms/Room2.tscn")
 var loaded_room
 
 var enemies_died = 0
@@ -46,7 +47,7 @@ func go_to_next_room():
 		if get_child(i).is_in_group("Room"):
 			get_child(i).queue_free()
 	
-	loaded_room = room_scene.instance()
+	loaded_room = room2_scene.instance()
 	add_child(loaded_room)
 	player_and_soldier_to_start()
 	$Soldier.get_node("NavigationMovement").initialize($Soldier.get_node("AnimatedSprite"), loaded_room.get_node("Navigation2D"))
