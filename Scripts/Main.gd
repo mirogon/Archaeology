@@ -48,7 +48,6 @@ func go_to_next_room():
 	
 	set_loaded_room(room2_scene.instance()) 
 	call_deferred("add_child", loaded_room)
-	#add_child(loaded_room)
 	player_and_soldier_to_start()
 	$Soldier.get_node("NavigationMovement").initialize($Soldier.get_node("AnimatedSprite"), loaded_room.get_node("Navigation2D"))
 	

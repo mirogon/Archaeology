@@ -20,6 +20,7 @@ var last_time_healing_area: float
 var last_time_thrown_heal: float
 
 var near_chest = null
+var near_vase = null
 
 func _ready():
 	$HealthBar.hide()
@@ -112,6 +113,9 @@ func _process(delta):
 		if near_chest:
 			near_chest.open_chest()
 			near_chest = null
+		if near_vase:
+			near_vase.break_vase()
+			near_vase = null
 
 func _on_HealthSystem_died():
 	print("PLAYER DIED!")
@@ -134,8 +138,12 @@ func _on_Area2D_area_entered(area):
 		area.queue_free()
 	elif area.is_in_group("TreasureChest"):
 		near_chest = area as TreasureChest
+	elif area is Vase:
+		near_vase = area as Vase
 
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("TreasureChest"):
 		near_chest = null
+	if area is Vase:
+		near_vase = null

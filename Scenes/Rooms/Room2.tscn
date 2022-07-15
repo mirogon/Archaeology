@@ -1352,7 +1352,7 @@ visible = false
 navpoly = SubResource( 103 )
 
 [node name="Chest" parent="." instance=ExtResource( 11 )]
-position = Vector2( -216, -169 )
+position = Vector2( -200, -201 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( -776, -11 )
