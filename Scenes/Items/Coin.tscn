@@ -39,6 +39,7 @@ animations = [ {
 } ]
 
 [node name="Coin" type="Area2D" groups=["TreasurePickup"]]
+z_index = 6
 script = ExtResource( 1 )
 treasure_value = 1
 
@@ -48,5 +49,5 @@ shape = SubResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 8 )
 animation = "coin"
-frame = 5
+frame = 2
 playing = true

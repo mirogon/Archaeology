@@ -89,6 +89,8 @@ func find_nearest_enemy():
 func find_enemies():
 	enemies.clear()
 	var main = get_tree().get_root().get_node("Main")
+	if !main:
+		return
 	var room = null
 	for i in range(main.get_child_count()):
 		if main.get_child(i).is_in_group("Room"):
