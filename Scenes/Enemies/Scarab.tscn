@@ -1,31 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Asstes/Enemies/Scarab.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Items/Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 4.5 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 32, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
@@ -47,23 +29,47 @@ region = Rect2( 96, 16, 32, 16 )
 atlas = ExtResource( 2 )
 region = Rect2( 128, 16, 32, 16 )
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 32, 16 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "Scarab_Walk",
-"speed": 18.0
-}, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "Scarab_Atk",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Scarab_Walk",
+"speed": 18.0
 } ]
 
 [node name="Scarab" type="KinematicBody2D" groups=["Enemy"]]
 z_index = 2
 script = ExtResource( 1 )
 animation_name = "Scarab"
+coin_scene = ExtResource( 4 )
+ruby_scene = ExtResource( 5 )
+coin_drop_chance = 60
+ruby_drop_chance = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, -0.5 )

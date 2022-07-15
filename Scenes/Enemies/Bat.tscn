@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Asstes/Enemies/Bat.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemies/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Items/Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 6, 5 )
@@ -63,6 +65,10 @@ animations = [ {
 [node name="Bat" type="KinematicBody2D"]
 script = ExtResource( 2 )
 animation_name = "Bat"
+coin_scene = ExtResource( 4 )
+ruby_scene = ExtResource( 5 )
+coin_drop_chance = 50
+ruby_drop_chance = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -71,7 +77,7 @@ shape = SubResource( 12 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
 animation = "Bat_Atk"
-frame = 4
+frame = 6
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]

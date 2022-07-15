@@ -6,6 +6,12 @@ export var damage_per_attack = 10
 export var attack_interval = 1.0
 export var animation_name: String
 
+export var coin_scene: PackedScene
+export var ruby_scene: PackedScene
+
+export var coin_drop_chance: int
+export var ruby_drop_chance: int
+
 var player
 var soldier
 
@@ -13,6 +19,7 @@ var time = 0
 
 var last_time_attacked = 0
 var last_time_hit = 0
+
 
 func _ready():
 	player = get_tree().get_root().get_node("Main").get_node("Player")
@@ -51,6 +58,20 @@ func _process(delta):
 func on_died():
 	queue_free()
 	get_tree().get_root().get_node("Main").enemy_died()
+	
+	drop_item(coin_scene, coin_drop_chance)
+	drop_item(ruby_scene, ruby_drop_chance)
+
+func drop_item(item_scene, drop_chance):
+	if !item_scene:
+		return
+	var random_num = randi() % 100
+	if random_num <= drop_chance:
+		var item = item_scene.instance()
+		item.position = position
+		get_parent().get_parent().add_child(item)
+
+
 	
 func on_health_update(new_health):
 	$AnimatedSprite.modulate = Color(1,0,0,1)

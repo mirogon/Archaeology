@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Asstes/Enemies/Rat_Atk.png" type="Texture" id=2]
 [ext_resource path="res://Asstes/Enemies/Rat.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Other/HealthSystem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Items/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 2 )
@@ -70,6 +72,10 @@ z_index = 2
 script = ExtResource( 1 )
 speed = 65
 animation_name = "Rat"
+coin_scene = ExtResource( 5 )
+ruby_scene = ExtResource( 6 )
+coin_drop_chance = 80
+ruby_drop_chance = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
