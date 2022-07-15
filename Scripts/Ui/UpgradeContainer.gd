@@ -23,6 +23,9 @@ func on_upgraded():
 		get_child(upgrade_level).get_child(0).modulate = Color(0.94,0.95,0.32,1)
 
 func on_loaded_savegame(upgrade_state: UpgradeState):
+	for i in range(max_upgrade_level):
+		get_child(i+1).get_child(0).modulate = 	Color(1,1,1,1)
+	
 	upgrade_level = upgrade_state.get_upgrade_state(upgrade_name)
 	for i in range(upgrade_level):
 		get_child(i+1).get_child(0).modulate = 	Color(0.94,0.95,0.32,1)

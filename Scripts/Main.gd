@@ -149,3 +149,10 @@ func _on_UpgradeUi_upgrade_player_heal_resource_button_pressed():
 	emit_signal("treasure_stored", treasure_stored)
 	$Player.max_heal_resources = 250 + 25 * upgrade_state.player_heal_resource_upgrade_state
 	save_game()
+
+
+func _on_UpgradeUi_reset_upgrades_button_pressed():
+	upgrade_state = UpgradeState.new()
+	apply_upgrades(upgrade_state)
+	emit_signal("loaded_savegame", upgrade_state)
+	save_game()

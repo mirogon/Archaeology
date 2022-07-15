@@ -39,6 +39,7 @@ visible = false
 
 [connection signal="heal_resource_update" from="Player" to="UiCanvasLayer/HealthResourceBar" method="_on_Player_heal_resource_update"]
 [connection signal="treasure_update" from="Player" to="." method="_on_Player_treasure_update"]
+[connection signal="reset_upgrades_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_reset_upgrades_button_pressed"]
 [connection signal="upgrade_player_heal_resource_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_player_heal_resource_button_pressed"]
 [connection signal="upgrade_soldier_damage_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_soldier_damage_button_pressed"]
 [connection signal="upgrade_soldier_health_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_soldier_health_button_pressed"]
