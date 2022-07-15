@@ -103,25 +103,41 @@ func _on_Player_treasure_update(treasure_found):
 	emit_signal("treasure_update", treasure_found)
 
 func _on_UpgradeUi_upgrade_soldier_health_button_pressed():
-	if upgrade_state.upgrade_soldier_health():
-		emit_signal("upgraded_soldier_health")
-		$Soldier.get_node("HealthSystem").max_health = 100 + 100 * 0.25 * upgrade_state.soldier_health_upgrade_state
-		save_game()
+	var r = upgrade_state.upgrade_soldier_health(treasure_stored)
+	if r == -1:
+		return
+	treasure_stored -= r
+	emit_signal("upgraded_soldier_health")
+	emit_signal("treasure_stored", treasure_stored)
+	$Soldier.get_node("HealthSystem").max_health = 100 + 100 * 0.25 * upgrade_state.soldier_health_upgrade_state
+	save_game()
 
 func _on_UpgradeUi_upgrade_soldier_damage_button_pressed():
-	if upgrade_state.upgrade_soldier_damage():
-		emit_signal("upgraded_soldier_damage")
-		$Soldier.damage_per_hit = 25 + 5 * upgrade_state.soldier_damage_upgrade_state
-		save_game()
+	var r = upgrade_state.upgrade_soldier_damage(treasure_stored)
+	if r == -1:
+		return
+	treasure_stored -= r
+	emit_signal("upgraded_soldier_damage")
+	emit_signal("treasure_stored", treasure_stored)
+	$Soldier.damage_per_hit = 25 + 5 * upgrade_state.soldier_damage_upgrade_state
+	save_game()
 
 func _on_UpgradeUi_upgrade_soldier_speed_button_pressed():
-	if upgrade_state.upgrade_soldier_speed():
-		emit_signal("upgraded_soldier_speed")
-		$Soldier.get_node("NavigationMovement").moveSpeed = 75 + 75 * 0.15 * upgrade_state.soldier_speed_upgrade_state
-		save_game()
+	var r = upgrade_state.upgrade_soldier_speed(treasure_stored)
+	if r == -1:
+		return
+	treasure_stored -= r
+	emit_signal("upgraded_soldier_speed")
+	emit_signal("treasure_stored", treasure_stored)
+	$Soldier.get_node("NavigationMovement").moveSpeed = 75 + 75 * 0.15 * upgrade_state.soldier_speed_upgrade_state
+	save_game()
 
 func _on_UpgradeUi_upgrade_player_heal_resource_button_pressed():
-	if upgrade_state.upgrade_player_heal_resource():
-		emit_signal("upgraded_player_heal_resource")
-		$Player.max_heal_resources = 250 + 25 * upgrade_state.player_heal_resource_upgrade_state
-		save_game()
+	var r = upgrade_state.upgrade_player_heal_resource(treasure_stored)
+	if r == -1:
+		return
+	treasure_stored -= r
+	emit_signal("upgraded_player_heal_resource")
+	emit_signal("treasure_stored", treasure_stored)
+	$Player.max_heal_resources = 250 + 25 * upgrade_state.player_heal_resource_upgrade_state
+	save_game()

@@ -16,26 +16,41 @@ func from_save_state(save_data):
 	soldier_speed_upgrade_state = save_data["soldier_speed_upgrade_state"]
 	player_heal_resource_upgrade_state = save_data["player_heal_resource_upgrade_state"]
 	
-func upgrade_soldier_health():
+func upgrade_soldier_health(treasure):
+	var price = calculate_price(soldier_health_upgrade_state)
+	if price > treasure:
+		return -1
 	if soldier_health_upgrade_state >= 8:
-		return false
+		return -1
 	soldier_health_upgrade_state += 1
-	return true
+	return price
 
-func upgrade_soldier_damage():
+func upgrade_soldier_damage(treasure):
+	var price = calculate_price(soldier_damage_upgrade_state)
+	if price > treasure:
+		return -1
 	if soldier_damage_upgrade_state >= 8:
-		return false
+		return -1
 	soldier_damage_upgrade_state += 1
-	return true
+	return price
 
-func upgrade_soldier_speed():
+func upgrade_soldier_speed(treasure):
+	var price = calculate_price(soldier_speed_upgrade_state)
+	if price > treasure:
+		return -1
 	if soldier_speed_upgrade_state >= 8:
-		return false
+		return -1
 	soldier_speed_upgrade_state += 1
-	return true
+	return price
 
-func upgrade_player_heal_resource():
+func upgrade_player_heal_resource(treasure):
+	var price = calculate_price(player_heal_resource_upgrade_state)
+	if price > treasure:
+		return -1
 	if player_heal_resource_upgrade_state >= 8:
-		return false
+		return -1
 	player_heal_resource_upgrade_state += 1
-	return true
+	return price
+
+func calculate_price(current_upgrade_state):
+	return 10 + 10 * current_upgrade_state
