@@ -120,7 +120,7 @@ extents = Vector2( 5, 13.5 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( -482, -44 )
-z_index = 1
+z_index = 4
 script = ExtResource( 2 )
 projectileScene = ExtResource( 5 )
 healing_projectile_scene = ExtResource( 6 )
@@ -138,6 +138,7 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
+frame = 3
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]

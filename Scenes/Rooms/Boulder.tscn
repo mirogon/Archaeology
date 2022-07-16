@@ -51,13 +51,13 @@ animations = [ {
 radius = 13.0112
 
 [node name="Boulder" type="Area2D"]
+z_index = 6
 script = ExtResource( 2 )
 hit_damage = 80
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 10 )
 animation = "Boulder_Roll"
-frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

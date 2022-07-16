@@ -44,6 +44,7 @@ animations = [ {
 } ]
 
 [node name="Goblin" type="KinematicBody2D"]
+z_index = 5
 script = ExtResource( 3 )
 animation_name = "Goblin"
 coin_scene = ExtResource( 4 )
@@ -60,6 +61,7 @@ shape = SubResource( 1 )
 position = Vector2( 8, -9 )
 frames = SubResource( 7 )
 animation = "Goblin_Walk"
+frame = 2
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 2 )]

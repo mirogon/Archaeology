@@ -64,6 +64,7 @@ animations = [ {
 } ]
 
 [node name="Bat" type="KinematicBody2D"]
+z_index = 5
 script = ExtResource( 2 )
 animation_name = "Bat"
 coin_scene = ExtResource( 4 )

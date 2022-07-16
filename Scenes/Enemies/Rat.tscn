@@ -69,7 +69,7 @@ animations = [ {
 extents = Vector2( 7, 5.5 )
 
 [node name="Rat" type="KinematicBody2D" groups=["Enemy"]]
-z_index = 2
+z_index = 5
 script = ExtResource( 1 )
 speed = 65
 animation_name = "Rat"
@@ -80,9 +80,9 @@ ruby_drop_chance = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
-z_index = 5
 frames = SubResource( 67 )
 animation = "Rat_Walk"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

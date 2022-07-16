@@ -9,6 +9,7 @@
 radius = 28.0713
 
 [node name="HealingArea" type="Area2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

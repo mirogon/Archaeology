@@ -155,7 +155,7 @@ animations = [ {
 
 [node name="Soldier" type="Area2D" groups=["Soldier"]]
 position = Vector2( 0, -1 )
-z_index = 1
+z_index = 4
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -167,7 +167,6 @@ position = Vector2( 0, -16 )
 z_index = 1
 frames = SubResource( 19 )
 animation = "Army_ATK_Right"
-frame = 3
 playing = true
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 2 )]

@@ -52,6 +52,7 @@ animations = [ {
 } ]
 
 [node name="Vase" type="Area2D"]
+z_index = 3
 script = ExtResource( 2 )
 coin_scene = ExtResource( 3 )
 coin_drop_chance = 80
