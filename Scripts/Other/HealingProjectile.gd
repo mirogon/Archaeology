@@ -6,4 +6,4 @@ func _on_Syringe_area_entered(area):
 	if area.is_in_group("Soldier"):
 		var health_system: HealthSystem = area.get_node("HealthSystem")
 		health_system.restore_health(heal_value)
-		var orbiting_thing = get_parent() as OrbitingProjectiles
+		queue_free()

@@ -110,9 +110,20 @@ func create_healing_bone(move_dir_offset):
 	healing_bone.move_dir_offset = move_dir_offset
 	return healing_bone
 	
+func start_orbiting_projectiles():
+	if heal_resources < 50:
+		return
+	if Input.is_key_pressed(KEY_3):
+		var r: bool = $OrbitingProjectiles.start()
+		if r:
+			heal_resources -= 50
+			emit_signal("heal_resource_update", heal_resources)
+	
 func _process(delta):
 	spawn_healing_area()
 	throw_healing_bones()
+	start_orbiting_projectiles()
+	
 	time += delta
 	
 	if Input.is_action_just_pressed("action"):

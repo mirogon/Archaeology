@@ -57,6 +57,22 @@ region = Rect2( 32, 0, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 16, 32 )
+
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 96, 16, 32 )
@@ -77,22 +93,6 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 32, 16, 32 )
-
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
 "frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
@@ -105,14 +105,14 @@ animations = [ {
 "name": "Walk_Up",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
-"loop": true,
-"name": "Walk_Left",
-"speed": 6.0
-}, {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Walk_Down",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "Walk_Left",
 "speed": 6.0
 } ]
 
@@ -139,7 +139,6 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
