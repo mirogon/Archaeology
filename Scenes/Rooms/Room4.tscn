@@ -1219,12 +1219,11 @@ points = PoolVector2Array( 32, 84, 16, 84, 16, 64, 32, 64 )
 59/z_index = 0
 
 [sub_resource type="NavigationPolygon" id=103]
-vertices = PoolVector2Array( -20, -14, -116, 146, -138, 108, -139, -37, -23, -197, -372, -200, -230, -38, -372, -81, -453, 200, -450, 287, -823, 281, -728, 108, -629, 108, -472, 110, -111, 382, -304, 383, -299, 204, -228, 109, -373, 110, -1013, 150, -1014, -66, -789, -63, -728, -38, -790, -197, -585, -197, -581, -79, -631, -38, -375, -40, -469, -40 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 12, 13 ), PoolIntArray( 2, 1, 14, 15, 16, 17 ), PoolIntArray( 18, 6, 17, 16, 8 ), PoolIntArray( 13, 18, 8 ), PoolIntArray( 10, 19, 20, 21, 22, 11 ), PoolIntArray( 21, 23, 24, 25, 26, 22 ), PoolIntArray( 6, 18, 27, 7 ), PoolIntArray( 25, 7, 27, 28 ), PoolIntArray( 28, 13, 12, 26, 25 ) ]
-outlines = [ PoolVector2Array( -1014, -66, -789, -63, -790, -197, -585, -197, -581, -79, -372, -81, -372, -200, -23, -197, -20, -14, -116, 146, -111, 382, -304, 383, -299, 204, -453, 200, -450, 287, -823, 281, -1013, 150 ), PoolVector2Array( -728, -38, -631, -38, -629, 108, -728, 108 ), PoolVector2Array( -469, -40, -375, -40, -373, 110, -472, 110 ), PoolVector2Array( -230, -38, -139, -37, -138, 108, -228, 109 ) ]
+vertices = PoolVector2Array( -286, -351, -287, 306, -321, -46, -324, -158, -463, -66, -462, 53, -478, -45, -479, -160, -399, 50, -380, -45, -449, 320, -382, -157, -368, -207, -400, -66, -368, -367, -462, -205, -844, -44, -847, -159, -605, -157, -603, -9, -779, 80, -1248, -399, -1248, -464, -1004, -464, -1005, -399, -1086, -398, -1182, -398, -1519, 402, -1519, 177, -1325, 179, -1325, 272, -779, 402, -1005, 270, -1007, 99, -45, 304, -45, 417, -623, 421, -575, -416, -12, -418, -12, -352, -461, -367, -1217, 66, -1408, 65, -1407, -112, -1184, -111, -1217, 99, -1085, -48, -448, 83, -573, -8, -623, 322, -447, 262, -539, -45, -541, -159 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 2, 1, 10 ), PoolIntArray( 3, 11, 12, 0 ), PoolIntArray( 9, 8, 13, 11 ), PoolIntArray( 0, 12, 14 ), PoolIntArray( 7, 15, 12, 11, 4 ), PoolIntArray( 16, 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 24, 25, 26 ), PoolIntArray( 27, 28, 29, 30 ), PoolIntArray( 31, 27, 30, 32 ), PoolIntArray( 20, 31, 32, 33, 16 ), PoolIntArray( 1, 34, 35, 36, 10 ), PoolIntArray( 37, 38, 39, 0, 14 ), PoolIntArray( 37, 14, 40 ), PoolIntArray( 41, 42, 43, 44 ), PoolIntArray( 33, 45, 41, 44, 46 ), PoolIntArray( 26, 25, 46, 44 ), PoolIntArray( 33, 46, 16 ), PoolIntArray( 47, 20, 19, 48, 5 ), PoolIntArray( 36, 49, 10 ), PoolIntArray( 8, 10, 50 ), PoolIntArray( 8, 50, 47 ), PoolIntArray( 5, 8, 47 ), PoolIntArray( 6, 5, 48, 51 ), PoolIntArray( 51, 48, 37, 52 ), PoolIntArray( 52, 37, 40, 15, 7 ), PoolIntArray( 4, 11, 13 ) ]
+outlines = [ PoolVector2Array( -1085, -48, -844, -44, -847, -159, -605, -157, -603, -9, -573, -8, -575, -416, -12, -418, -12, -352, -286, -351, -287, 306, -45, 304, -45, 417, -623, 421, -623, 322, -449, 320, -447, 262, -448, 83, -779, 80, -779, 402, -1519, 402, -1519, 177, -1325, 179, -1325, 272, -1005, 270, -1007, 99, -1217, 99, -1217, 66, -1408, 65, -1407, -112, -1184, -111, -1182, -398, -1248, -399, -1248, -464, -1004, -464, -1005, -399, -1086, -398 ), PoolVector2Array( -463, -66, -400, -66, -399, 50, -462, 53 ), PoolVector2Array( -382, -157, -324, -158, -321, -46, -380, -45 ), PoolVector2Array( -541, -159, -479, -160, -478, -45, -539, -45 ), PoolVector2Array( -461, -367, -368, -367, -368, -207, -462, -205 ) ]
 
-[node name="Room" type="Node2D" groups=["Room"]]
-position = Vector2( -1845, -545 )
+[node name="Room2" type="Node2D" groups=["Room"]]
 __meta__ = {
 "_edit_horizontal_guides_": [ -609.0 ]
 }
@@ -1258,102 +1257,10 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Spawner" type="Node" parent="."]
-
-[node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -1101, 368 )
-min_interval_ms = 10000
-max_interval_ms = 200000
-max_spawns = 1
-
-[node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -352, 334 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 1
-
-[node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -1480, 46 )
-scene_to_spawn = ExtResource( 9 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 4
-
-[node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -1632, 22 )
-scene_to_spawn = ExtResource( 13 )
-min_interval_ms = 30000
-max_interval_ms = 120000
-
-[node name="Pickups" type="Node" parent="."]
-
-[node name="Medikit2" parent="Pickups" instance=ExtResource( 6 )]
-position = Vector2( -1626, 267 )
-
-[node name="Medikit3" parent="Pickups" instance=ExtResource( 6 )]
-position = Vector2( -734, -93 )
-
-[node name="Medikit4" parent="Pickups" instance=ExtResource( 6 )]
-position = Vector2( -963, -96 )
-
-[node name="Bandage2" parent="Pickups" instance=ExtResource( 7 )]
-position = Vector2( -1319, 340 )
-
-[node name="Bandage3" parent="Pickups" instance=ExtResource( 7 )]
-position = Vector2( -502, -361 )
-
-[node name="treasure_skull" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -414, 336 )
-
-[node name="treasure_skull2" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -397, -391 )
-
-[node name="treasure_skull3" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -724, -372 )
-
-[node name="treasure_skull4" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -952, -119 )
-
-[node name="treasure_skull6" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -661, 339 )
-
-[node name="Vase" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1542, 194 )
-
-[node name="Vase2" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1536, 214 )
-
-[node name="Vase3" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1556, 211 )
-
-[node name="Vase4" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1635, 189 )
-
-[node name="Vase5" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1650, 209 )
-
-[node name="Vase6" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1679, 269 )
-
-[node name="Vase7" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -1530, -97 )
-
-[node name="Vase8" parent="Pickups" instance=ExtResource( 14 )]
-position = Vector2( -250, 407 )
-
-[node name="treasure_skull8" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( -288, 315 )
-
-[node name="Coin" parent="Pickups" instance=ExtResource( 15 )]
-position = Vector2( -313, 408 )
-
-[node name="Chest" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( -603, -206 )
-
 [node name="Navigation2D" type="Navigation2D" parent="."]
-visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 1670, 552 )
 navpoly = SubResource( 103 )
 
 [node name="Chest" parent="." instance=ExtResource( 11 )]
@@ -1368,11 +1275,6 @@ position = Vector2( -20, 11 )
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( 542, 110 )
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( -397, 327 )
-
 [node name="Vase" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1386, 137 )
 
@@ -1381,3 +1283,100 @@ position = Vector2( 1354, 509 )
 
 [node name="Medikit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1084, 962 )
+
+[node name="Spawner" type="Node2D" parent="."]
+
+[node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 744, 913 )
+min_interval_ms = 10000
+max_interval_ms = 200000
+max_spawns = 1
+
+[node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 1493, 879 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 1
+
+[node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 365, 591 )
+scene_to_spawn = ExtResource( 9 )
+min_interval_ms = 10000
+max_interval_ms = 20000
+max_spawns = 4
+
+[node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 213, 567 )
+scene_to_spawn = ExtResource( 13 )
+min_interval_ms = 30000
+max_interval_ms = 120000
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1448, 872 )
+
+[node name="Pickups2" type="Node2D" parent="."]
+
+[node name="Medikit2" parent="Pickups2" instance=ExtResource( 6 )]
+position = Vector2( 219, 812 )
+
+[node name="Medikit3" parent="Pickups2" instance=ExtResource( 6 )]
+position = Vector2( 1111, 452 )
+
+[node name="Medikit4" parent="Pickups2" instance=ExtResource( 6 )]
+position = Vector2( 882, 449 )
+
+[node name="Bandage2" parent="Pickups2" instance=ExtResource( 7 )]
+position = Vector2( 526, 885 )
+
+[node name="Bandage3" parent="Pickups2" instance=ExtResource( 7 )]
+position = Vector2( 1343, 184 )
+
+[node name="treasure_skull" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 1431, 881 )
+
+[node name="treasure_skull2" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 1448, 154 )
+
+[node name="treasure_skull3" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 1121, 173 )
+
+[node name="treasure_skull4" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 893, 426 )
+
+[node name="treasure_skull6" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 1184, 884 )
+
+[node name="Vase" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 303, 739 )
+
+[node name="Vase2" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 309, 759 )
+
+[node name="Vase3" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 289, 756 )
+
+[node name="Vase4" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 210, 734 )
+
+[node name="Vase5" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 195, 754 )
+
+[node name="Vase6" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 166, 814 )
+
+[node name="Vase7" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 315, 448 )
+
+[node name="Vase8" parent="Pickups2" instance=ExtResource( 14 )]
+position = Vector2( 1595, 952 )
+
+[node name="treasure_skull8" parent="Pickups2" instance=ExtResource( 10 )]
+position = Vector2( 1557, 860 )
+
+[node name="Coin" parent="Pickups2" instance=ExtResource( 15 )]
+position = Vector2( 1532, 953 )
+
+[node name="Chest" parent="Pickups2" instance=ExtResource( 11 )]
+position = Vector2( 1242, 339 )
