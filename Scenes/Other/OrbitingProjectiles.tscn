@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Other/OrbitingProjectiles.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Items/Syringe.tscn" type="PackedScene" id=2]
+
+[node name="OrbitingProjectiles" type="Node2D"]
+script = ExtResource( 1 )
+orbiting_scene = ExtResource( 2 )

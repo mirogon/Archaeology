@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Asstes/Character/Character_WalkC.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scripts/RandomSound.gd" type="Script" id=14]
 [ext_resource path="res://Asstes/Audio/Vase/sfx_sounds_impact7.wav" type="AudioStream" id=15]
 [ext_resource path="res://Asstes/Audio/Vase/sfx_sounds_impact6.wav" type="AudioStream" id=16]
+[ext_resource path="res://Scenes/Other/OrbitingProjectiles.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 6, 6 )
@@ -39,22 +40,6 @@ region = Rect2( 48, 64, 16, 32 )
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 1 )
 region = Rect2( 64, 64, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 32, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 1 )
@@ -92,16 +77,27 @@ region = Rect2( 48, 96, 16, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 96, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 16, 32 )
+
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
 "frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
 "name": "Walk_Right",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
-"loop": true,
-"name": "Walk_Down",
 "speed": 6.0
 }, {
 "frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
@@ -112,6 +108,11 @@ animations = [ {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "Walk_Left",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "Walk_Down",
 "speed": 6.0
 } ]
 
@@ -138,7 +139,7 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 2
+frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]
@@ -169,6 +170,10 @@ stream = ExtResource( 13 )
 [node name="VaseSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 14 )
 sounds = [ ExtResource( 16 ), ExtResource( 15 ) ]
+
+[node name="OrbitingProjectiles" parent="." instance=ExtResource( 17 )]
+orbiting_radius = 40
+orbiting_speed = 150
 
 [connection signal="died" from="HealthSystem" to="." method="_on_HealthSystem_died"]
 [connection signal="health_update" from="HealthSystem" to="." method="_on_HealthSystem_health_update"]
