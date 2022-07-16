@@ -1,7 +1,6 @@
-extends KinematicBody2D
+extends Node2D
 
 export var moves: bool = true
-export var speed: int = 75
 export var damage_per_attack: int = 10
 export var attack_interval: float = 1.0
 export var animation_name: String
@@ -23,6 +22,7 @@ var last_time_attacked: float = 0
 var last_time_hit: float = 0
 
 var scheduled_attack: Node2D = null
+var last_time_destination_set: float = 0
 
 func _ready():
 	player = get_tree().get_root().get_node("Main").get_node("Player")
@@ -32,9 +32,13 @@ func _ready():
 	$HealthSystem.connect("health_update", self, "on_health_update")
 	$AnimatedSprite.connect("animation_finished", self, "on_animation_finished")
 	
+	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_parent().get_node("Navigation2D"))
+	$NavigationMovement.set_animations = false
+	
 func _physics_process(delta):
-	if position.distance_to(soldier.position) > 15:
+	if position.distance_to(soldier.position) > 15 && time - last_time_destination_set >= 0.5:
 		walk(soldier)
+		
 	else:
 		attack(soldier)
 		
@@ -49,13 +53,12 @@ func attack(target):
 	if time - last_time_attacked > attack_interval:
 		$AnimatedSprite.play(animation_name + "_Atk")
 		scheduled_attack = target
-
+		print("attack")
 		last_time_attacked = time
 
 func walk(target):
-	var dir: Vector2 = (target.position - position).normalized()
 	if moves:
-		move_and_slide(dir * speed)
+		$NavigationMovement.set_new_destination(target.position)
 	$AnimatedSprite.play(animation_name + "_Walk")
 	
 	if position.x > target.position.x:
