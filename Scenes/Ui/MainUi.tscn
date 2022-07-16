@@ -117,53 +117,59 @@ text = "0"
 script = ExtResource( 3 )
 
 [node name="SKILLS_UNFINISHED_AND_UGLY" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 408.0
-margin_top = 672.0
-margin_right = 424.0
-margin_bottom = 688.0
+[node name="Label" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
+margin_left = 231.0
+margin_top = 684.0
+margin_right = 655.0
+margin_bottom = 715.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+text = "1 - "
+align = 1
+
+[node name="TextureRect" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY/Label"]
+margin_left = 228.0
+margin_top = -1.0
+margin_right = 244.0
+margin_bottom = 15.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 366.0
-margin_top = 670.0
-margin_right = 412.0
-margin_bottom = 701.0
+[node name="Label2" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
+margin_left = 427.0
+margin_top = 683.0
+margin_right = 851.0
+margin_bottom = 714.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
-text = "1 - "
+text = "2 - "
+align = 1
 
-[node name="TextureRect2" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 683.0
-margin_top = 671.0
-margin_right = 699.0
-margin_bottom = 711.0
+[node name="TextureRect2" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY/Label2"]
+margin_left = 225.0
+margin_top = 3.0
+margin_right = 241.0
+margin_bottom = 43.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
-[node name="Label2" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 643.0
-margin_top = 669.0
-margin_right = 691.0
-margin_bottom = 700.0
-custom_fonts/font = SubResource( 3 )
-text = "2 - "
-
-[node name="TextureRect3" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 881.0
-margin_top = 681.0
-margin_right = 897.0
-margin_bottom = 721.0
-rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 9 )
-
 [node name="Label3" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 837.0
-margin_top = 670.0
-margin_right = 885.0
-margin_bottom = 701.0
+margin_left = 622.0
+margin_top = 682.0
+margin_right = 1046.0
+margin_bottom = 713.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "3 - "
+align = 1
+
+[node name="TextureRect3" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY/Label3"]
+margin_left = 229.0
+margin_top = 10.0
+margin_right = 245.0
+margin_bottom = 50.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )

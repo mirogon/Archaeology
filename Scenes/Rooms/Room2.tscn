@@ -1366,4 +1366,4 @@ position = Vector2( -776, -11 )
 position = Vector2( -39, -7 )
 
 [node name="RoomTraverser" parent="." instance=ExtResource( 12 )]
-position = Vector2( -156, 366 )
+position = Vector2( -120, -230 )
