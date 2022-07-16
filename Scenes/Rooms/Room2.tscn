@@ -1367,5 +1367,3 @@ position = Vector2( -39, -7 )
 
 [node name="RoomTraverser" parent="." instance=ExtResource( 12 )]
 position = Vector2( -156, 366 )
-
-[connection signal="area_entered" from="RoomTraverser" to="." method="_on_RoomTraverser_area_entered"]
