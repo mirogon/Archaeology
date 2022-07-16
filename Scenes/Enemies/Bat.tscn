@@ -66,6 +66,8 @@ animations = [ {
 
 [node name="Bat" type="KinematicBody2D"]
 z_index = 5
+collision_layer = 4
+collision_mask = 4
 script = ExtResource( 2 )
 animation_name = "Bat"
 coin_scene = ExtResource( 4 )

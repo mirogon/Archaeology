@@ -1256,31 +1256,31 @@ __meta__ = {
 [node name="Spawner" type="Node" parent="."]
 
 [node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -135, 104 )
+position = Vector2( -135, 134 )
 min_interval_ms = 10000
 max_interval_ms = 200000
 max_spawns = 1
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -775, 158 )
+position = Vector2( -933, 93 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 1
 
 [node name="Spawner3" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -553, -72 )
+position = Vector2( -710, -136 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 1
 
 [node name="Spawner4" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -184, -168 )
+position = Vector2( -283, 322 )
 min_interval_ms = 10000
 max_interval_ms = 20000
 max_spawns = 1
 
 [node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -104, 72 )
+position = Vector2( -469, 264 )
 scene_to_spawn = ExtResource( 9 )
 min_interval_ms = 10000
 max_interval_ms = 20000

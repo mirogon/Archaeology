@@ -66,6 +66,8 @@ animations = [ {
 
 [node name="Scarab" type="KinematicBody2D" groups=["Enemy"]]
 z_index = 5
+collision_layer = 4
+collision_mask = 4
 script = ExtResource( 1 )
 animation_name = "Scarab"
 coin_scene = ExtResource( 4 )
