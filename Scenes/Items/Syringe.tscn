@@ -25,6 +25,7 @@ animations = [ {
 [node name="Syringe" type="Area2D" groups=["HealthPickup"]]
 z_index = 3
 script = ExtResource( 2 )
+heal_value = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

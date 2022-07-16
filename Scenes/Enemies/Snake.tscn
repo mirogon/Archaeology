@@ -122,6 +122,7 @@ attack_frame = 7
 z_index = 1
 frames = SubResource( 21 )
 animation = "Snake_Walk"
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -64,7 +64,7 @@ shape = SubResource( 1 )
 position = Vector2( 8, -9 )
 frames = SubResource( 7 )
 animation = "Goblin_Walk"
-frame = 1
+frame = 2
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 2 )]

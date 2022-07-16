@@ -36,7 +36,7 @@ func _ready():
 	$NavigationMovement.set_animations = false
 	
 func _physics_process(delta):
-	if position.distance_to(soldier.position) > 15 && time - last_time_destination_set >= 0.5:
+	if position.distance_to(soldier.position) > 5 && time - last_time_destination_set >= 0.5:
 		walk(soldier)
 		
 	else:
