@@ -1291,7 +1291,7 @@ max_interval_ms = 120000
 position = Vector2( -1626, 267 )
 
 [node name="Medikit3" parent="Pickups" instance=ExtResource( 6 )]
-position = Vector2( -534, 346 )
+position = Vector2( -734, -93 )
 
 [node name="Medikit4" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( -963, -96 )
@@ -1372,3 +1372,12 @@ position = Vector2( 542, 110 )
 
 [node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( -397, 327 )
+
+[node name="Vase" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1386, 137 )
+
+[node name="treasure_skull" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1354, 509 )
+
+[node name="Medikit" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1084, 962 )
