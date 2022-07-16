@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Other/HealingBone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Other/HealingArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Asstes/Audio/Player/sfx_coin_double1.wav" type="AudioStream" id=8]
-[ext_resource path="res://Asstes/Audio/Player/sfx_coin_single5.wav" type="AudioStream" id=9]
+[ext_resource path="res://Asstes/Audio/Player/sfx_coin_double7.wav" type="AudioStream" id=9]
 [ext_resource path="res://Asstes/Audio/Player/sfx_movement_footsteps1a.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/LoopingSound.gd" type="Script" id=11]
 [ext_resource path="res://Asstes/Audio/Player/sfx_movement_footsteps1b.wav" type="AudioStream" id=12]
@@ -138,7 +138,7 @@ zoom = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 26 )
 animation = "Walk_Right"
-frame = 3
+frame = 4
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 3 )]

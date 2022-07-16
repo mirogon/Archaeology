@@ -78,7 +78,7 @@ func _physics_process(delta):
 	move_and_slide(movement() * movementSpeed)
 			
 func spawn_healing_area():
-	if heal_resources < 25:
+	if heal_resources < 50:
 		return
 	if Input.is_key_pressed(KEY_1):
 		if time - last_time_healing_area > 1:
@@ -86,7 +86,8 @@ func spawn_healing_area():
 			ha.position = get_global_mouse_position()
 			get_tree().get_root().add_child(ha)
 			last_time_healing_area = time
-			heal_resources -= 25
+			heal_resources -= 50
+			emit_signal("heal_resource_update", heal_resources)
 	
 func throw_healing_bones():
 	if(heal_resources < 25):
@@ -134,7 +135,6 @@ func _on_HealthSystem_health_update(new_health):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("HealthPickup"):
 		pick_up_health_pickup(area)
-		$HealthPickupSound.play()
 	elif area.is_in_group("TreasurePickup"):
 		var treasure: TreasurePickup = area as TreasurePickup
 		treasure_found += treasure.treasure_value
@@ -153,6 +153,7 @@ func pick_up_health_pickup(pickup):
 		heal_resources += health_pickup.health_value
 		emit_signal("heal_resource_update", heal_resources)
 		pickup.queue_free()
+		$HealthPickupSound.play()
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("TreasureChest"):

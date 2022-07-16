@@ -3,6 +3,9 @@ extends Area2D
 export var hit_damage: int = 100
 export var move_speed: int = 200
 
+func _ready():
+	$Sound.start()
+
 func _process(delta):
 	position += Vector2(move_speed * delta, 0)
 
@@ -16,3 +19,11 @@ func _on_Boulder_area_entered(area):
 
 func _on_Timer_timeout():
 	self.queue_free()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	$Sound.stop()
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	$Sound.start()

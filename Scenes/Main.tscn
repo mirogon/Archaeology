@@ -18,11 +18,9 @@ script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -361, 29 )
-z_index = 4
 
 [node name="Soldier" parent="." instance=ExtResource( 5 )]
 position = Vector2( -369, 1 )
-z_index = 4
 
 [node name="UiCanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2

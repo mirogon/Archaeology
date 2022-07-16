@@ -82,7 +82,6 @@ ruby_drop_chance = 20
 position = Vector2( 0, -8 )
 frames = SubResource( 67 )
 animation = "Rat_Walk"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

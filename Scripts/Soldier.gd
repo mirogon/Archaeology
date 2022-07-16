@@ -103,7 +103,8 @@ func find_enemies():
 			room = main.get_child(i)
 
 	for i in range(room.get_node("Enemies").get_child_count()):
-		enemies.append(room.get_node("Enemies").get_child(i))
+		if room.get_node("Enemies").get_child(i).is_in_group("Enemy"):
+			enemies.append(room.get_node("Enemies").get_child(i))
 
 func _on_HealthSystem_died():
 	pass
