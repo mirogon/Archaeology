@@ -16,6 +16,9 @@ func on_treasure_stored(sum):
 	$TreasureLabel.text = String(sum)
 
 func upgrade_button_pressed(upgrade_name):
+	
+	$UpgradeSound.play()
+	
 	match upgrade_name:
 		"soldier_health":
 			emit_signal("upgrade_soldier_health_button_pressed")

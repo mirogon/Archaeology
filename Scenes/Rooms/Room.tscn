@@ -823,9 +823,8 @@ max_spawns = 4
 [node name="BoulderSpawner" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( -1200, -26 )
 scene_to_spawn = ExtResource( 13 )
-min_interval_ms = 1
-max_interval_ms = 1999
-max_spawns = 1
+min_interval_ms = 30000
+max_interval_ms = 120000
 
 [node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( -1202, 84 )
