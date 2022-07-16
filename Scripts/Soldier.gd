@@ -16,8 +16,11 @@ var last_time_attacked: float = 0
 
 var scheduled_attack: Node2D = null
 
+var player: Player = null
+
 func _ready():
 	$NavigationMovement.initialize($AnimatedSprite, get_parent().get_node("Room/Navigation2D"))
+	player = get_tree().get_root().get_node("Main").get_node("Player")
 
 func restart_game():
 	time = 0
@@ -88,7 +91,7 @@ func find_nearest_enemy():
 		return
 	var closest_enemy: Node2D = enemies[0]
 	for i in range(enemies.size()):
-		if enemies[i].position.distance_to(position) < closest_enemy.position.distance_to(position):
+		if enemies[i].position.distance_to(player.position) < closest_enemy.position.distance_to(player.position):
 			closest_enemy = enemies[i]
 	return closest_enemy
 	
