@@ -4,11 +4,12 @@ var tenth_seconds: int = 0
 
 func _ready():
 	get_tree().get_root().get_node("Main").connect("restart_game", self, "restart_game")
+	get_tree().get_root().get_node("Main").get_node("GameTimer").connect("timeout", self, "on_gametimer_timeout")
 
 func restart_game():
 	tenth_seconds = 0
 
-func _on_Timer_timeout():
+func on_gametimer_timeout():
 	tenth_seconds += 1
 	var minutes: int = tenth_seconds / 600
 	var minutes_string: String = create_minutes_string(minutes)

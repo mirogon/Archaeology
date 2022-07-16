@@ -22,7 +22,6 @@ func _process(delta):
 	if time - last_time_played >= loop_delay:
 		set_random_sound()
 		play()
-		print("SOUND " + String(time))
 		last_time_played = time
 
 func set_random_sound():

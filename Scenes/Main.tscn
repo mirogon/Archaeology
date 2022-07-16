@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Ui/Ui.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Ui/MainUi.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Ui/UpgradeUi.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Asstes/Audio/Other/sfx_deathscream_human2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/Ui/ScoreScreen.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -36,9 +37,17 @@ pause_mode = 2
 pause_mode = 2
 visible = false
 
+[node name="ScoreScreen" parent="UiCanvasLayer" instance=ExtResource( 11 )]
+pause_mode = 2
+visible = false
+
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 10 )
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [connection signal="heal_resource_update" from="Player" to="UiCanvasLayer/HealthResourceBar" method="_on_Player_heal_resource_update"]
 [connection signal="treasure_update" from="Player" to="." method="_on_Player_treasure_update"]
@@ -47,3 +56,4 @@ stream = ExtResource( 10 )
 [connection signal="upgrade_soldier_damage_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_soldier_damage_button_pressed"]
 [connection signal="upgrade_soldier_health_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_soldier_health_button_pressed"]
 [connection signal="upgrade_soldier_speed_button_pressed" from="UiCanvasLayer/UpgradeUi" to="." method="_on_UpgradeUi_upgrade_soldier_speed_button_pressed"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

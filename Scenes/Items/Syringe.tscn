@@ -32,7 +32,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
 animation = "syringe"
-frame = 1
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_Syringe_area_entered"]

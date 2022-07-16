@@ -18,10 +18,13 @@ var loaded_room: Node
 
 var enemies_died: int = 0
 var treasure_stored: int = 0
+var treasure_this_run: int = 0
 
 var upgrade_state: UpgradeState = UpgradeState.new()
 
 var rooms_visited: int = 0
+
+var tenth_seconds: int = 0
 
 func _ready():
 	load_game()
@@ -31,7 +34,7 @@ func _ready():
 	
 	$Soldier.get_node("HealthSystem").connect("died", self, "on_game_over")
 	$Player.get_node("HealthSystem").connect("died", self, "on_game_over")
-
+	
 func set_loaded_room(new_room):
 	loaded_room = new_room
 	new_room.connect("entered_room_traverser", self, "go_to_next_room")
@@ -40,6 +43,9 @@ func on_game_over():
 	$GameOverSound.play()
 	treasure_stored += $Player.treasure_found
 	emit_signal("treasure_stored", treasure_stored)
+	get_tree().paused = true
+	$UiCanvasLayer/ScoreScreen.initialize(tenth_seconds, enemies_died, treasure_this_run, 0) # time_survived, enemies_killed, treasure_collected, rooms_visited):
+	$UiCanvasLayer/ScoreScreen.visible = true
 	save_game()
 	
 func go_to_next_room():
@@ -111,6 +117,7 @@ func apply_upgrades(upgrade_state):
 
 func _on_Player_treasure_update(treasure_found):
 	emit_signal("treasure_update", treasure_found)
+	treasure_this_run = treasure_found
 
 func _on_UpgradeUi_upgrade_soldier_health_button_pressed():
 	var r: int = upgrade_state.upgrade_soldier_health(treasure_stored)
@@ -158,3 +165,7 @@ func _on_UpgradeUi_reset_upgrades_button_pressed():
 	apply_upgrades(upgrade_state)
 	emit_signal("loaded_savegame", upgrade_state)
 	save_game()
+
+
+func _on_GameTimer_timeout():
+	tenth_seconds += 1

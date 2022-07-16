@@ -106,6 +106,9 @@ func find_enemies():
 		if room.get_node("Enemies").get_child(i).is_in_group("Enemy"):
 			enemies.append(room.get_node("Enemies").get_child(i))
 
+func play_heal_sound():
+	$HealingBoneSound.play()
+
 func _on_HealthSystem_died():
 	pass
 
