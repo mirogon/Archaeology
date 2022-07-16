@@ -1396,3 +1396,4 @@ position = Vector2( 371, 984 )
 position = Vector2( 403, 826 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
+position = Vector2( -70, 760 )
