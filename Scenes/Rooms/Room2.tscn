@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Asstes/Environment/Cave_Set.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Environment/Water.png" type="Texture" id=2]
@@ -11,7 +11,9 @@
 [ext_resource path="res://Scenes/Enemies/Scarab.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Items/TreasureSkull.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Rooms/TreasureChest.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Rooms/RoomTraverser.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Rooms/Boulder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Rooms/Room.gd" type="Script" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
@@ -1221,6 +1223,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3, 6, 7 ), PoolI
 outlines = [ PoolVector2Array( -1014, -66, -789, -63, -790, -197, -585, -197, -581, -79, -372, -81, -372, -200, -23, -197, -20, -14, -116, 146, -111, 382, -304, 383, -299, 204, -453, 200, -450, 287, -823, 281, -1013, 150 ), PoolVector2Array( -728, -38, -631, -38, -629, 108, -728, 108 ), PoolVector2Array( -469, -40, -375, -40, -373, 110, -472, 110 ), PoolVector2Array( -230, -38, -139, -37, -138, 108, -228, 109 ) ]
 
 [node name="Room" type="Node2D" groups=["Room"]]
+script = ExtResource( 14 )
 
 [node name="Floor_Layer" type="TileMap" parent="."]
 tile_set = SubResource( 46 )
@@ -1361,3 +1364,8 @@ position = Vector2( -776, -11 )
 
 [node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( -39, -7 )
+
+[node name="RoomTraverser" parent="." instance=ExtResource( 12 )]
+position = Vector2( -156, 366 )
+
+[connection signal="area_entered" from="RoomTraverser" to="." method="_on_RoomTraverser_area_entered"]

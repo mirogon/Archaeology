@@ -12,8 +12,11 @@ signal restart_game
 signal loaded_savegame(upgrade_state)
 signal treasure_stored(sum_treasure)
 
+export var rooms: Array
+var room_index = 0
+
 var room_scene = load("res://Scenes/Rooms/Room.tscn")
-var room2_scene = load("res://Scenes/Rooms/Room2.tscn")
+
 var loaded_room: Node
 
 var enemies_died: int = 0
@@ -22,7 +25,7 @@ var treasure_this_run: int = 0
 
 var upgrade_state: UpgradeState = UpgradeState.new()
 
-var rooms_visited: int = 0
+var rooms_visited: int = 1
 
 var tenth_seconds: int = 0
 
@@ -44,7 +47,7 @@ func on_game_over():
 	treasure_stored += $Player.treasure_found
 	emit_signal("treasure_stored", treasure_stored)
 	get_tree().paused = true
-	$UiCanvasLayer/ScoreScreen.initialize(tenth_seconds, enemies_died, treasure_this_run, 0) # time_survived, enemies_killed, treasure_collected, rooms_visited):
+	$UiCanvasLayer/ScoreScreen.initialize(tenth_seconds, enemies_died, treasure_this_run, rooms_visited) # time_survived, enemies_killed, treasure_collected, rooms_visited):
 	$UiCanvasLayer/ScoreScreen.visible = true
 	save_game()
 	
@@ -53,10 +56,12 @@ func go_to_next_room():
 		if get_child(i).is_in_group("Room"):
 			get_child(i).queue_free()
 	
-	set_loaded_room(room2_scene.instance()) 
+	set_loaded_room(rooms[room_index].instance()) 
 	call_deferred("add_child", loaded_room)
-	player_and_soldier_to_start()
+	call_deferred("player_and_soldier_to_start")
 	$Soldier.get_node("NavigationMovement").initialize($Soldier.get_node("AnimatedSprite"), loaded_room.get_node("Navigation2D"))
+	room_index += 1
+	rooms_visited += 1
 	
 func restart_game():
 	loaded_room.queue_free()
@@ -74,8 +79,8 @@ func restart_game():
 	get_tree().paused = false
 
 func player_and_soldier_to_start():
-	$Player.position = loaded_room.get_node("PlayerStart").position
-	$Soldier.position = loaded_room.get_node("PlayerStart").position
+	$Player.position = loaded_room.get_node("PlayerStart").global_position
+	$Soldier.position = loaded_room.get_node("PlayerStart").global_position
 	
 func enemy_died():
 	enemies_died += 1
