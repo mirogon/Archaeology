@@ -92,7 +92,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Archaeology"
+config/name="ArchaeologistGoneRogue"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
