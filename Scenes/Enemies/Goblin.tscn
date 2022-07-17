@@ -49,6 +49,7 @@ z_index = 5
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 3 )
+damage_per_attack = 12
 animation_name = "Goblin"
 coin_scene = ExtResource( 4 )
 ruby_scene = ExtResource( 5 )
@@ -64,7 +65,6 @@ shape = SubResource( 1 )
 position = Vector2( 8, -9 )
 frames = SubResource( 7 )
 animation = "Goblin_Walk"
-frame = 2
 playing = true
 
 [node name="HealthSystem" parent="." instance=ExtResource( 2 )]

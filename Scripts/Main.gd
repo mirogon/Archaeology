@@ -29,6 +29,9 @@ var rooms_visited: int = 1
 
 var tenth_seconds: int = 0
 
+var last_time_next_room: float = 0
+var time: float = 0
+
 func _ready():
 	load_game()
 	set_loaded_room($Room)
@@ -37,6 +40,9 @@ func _ready():
 	
 	$Soldier.get_node("HealthSystem").connect("died", self, "on_game_over")
 	$Player.get_node("HealthSystem").connect("died", self, "on_game_over")
+	
+func _process(delta):
+	time += delta
 	
 func set_loaded_room(new_room):
 	loaded_room = new_room
@@ -52,6 +58,8 @@ func on_game_over():
 	save_game()
 	
 func go_to_next_room():
+	if time - last_time_next_room < 5:
+		return
 	for i in range(get_child_count()):
 		if get_child(i).is_in_group("Room"):
 			get_child(i).queue_free()
@@ -62,6 +70,7 @@ func go_to_next_room():
 	$Soldier.get_node("NavigationMovement").initialize($Soldier.get_node("AnimatedSprite"), loaded_room.get_node("Navigation2D"))
 	room_index += 1
 	rooms_visited += 1
+	last_time_next_room = time
 	
 func restart_game():
 	loaded_room.queue_free()

@@ -111,7 +111,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 1 )
 moves = false
-damage_per_attack = 5
+damage_per_attack = 7
 attack_interval = 1.25
 animation_name = "Snake"
 coin_scene = ExtResource( 5 )
@@ -125,7 +125,7 @@ position = Vector2( -8, -8 )
 z_index = 1
 frames = SubResource( 21 )
 animation = "Snake_Walk"
-frame = 6
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
