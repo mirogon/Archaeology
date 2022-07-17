@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Asstes/Environment/Cave_Set.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Environment/Water.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Scenes/Rooms/RoomTraverser.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Vase.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Rooms/Spawner.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Enemies/Bat.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Enemies/Goblin.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Enemies/Snake.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
@@ -1332,29 +1335,91 @@ __meta__ = {
 
 [node name="Spawner" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 201, 219 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner7" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 268, -105 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 309, 603 )
+scene_to_spawn = ExtResource( 16 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner3" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 637, 487 )
+scene_to_spawn = ExtResource( 16 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner4" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 588, 619 )
+scene_to_spawn = ExtResource( 17 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner5" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 875, 362 )
+scene_to_spawn = ExtResource( 17 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner6" parent="Spawner" instance=ExtResource( 15 )]
 position = Vector2( 1322, -409 )
+scene_to_spawn = ExtResource( 17 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Medikit" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( 886, 338 )
+
+[node name="Medikit3" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1048, 178 )
+
+[node name="Medikit4" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1332, -112 )
+
+[node name="Medikit5" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 567, -111 )
+
+[node name="Medikit6" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1006, 52 )
+
+[node name="Medikit7" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 353, -82 )
+
+[node name="Medikit8" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 446, 66 )
+
+[node name="Medikit9" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 231, 228 )
+
+[node name="Medikit10" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 231, 228 )
+
+[node name="Medikit11" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 318, 549 )
+
+[node name="Medikit12" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 661, 675 )
+
+[node name="Medikit13" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 556, 594 )
+
+[node name="Medikit14" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 434, 535 )
 
 [node name="Ruby" parent="Pickups" instance=ExtResource( 12 )]
 position = Vector2( 772, 689 )
@@ -1398,24 +1463,6 @@ position = Vector2( 1410, -169 )
 [node name="treasure_skull3" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1300, -421 )
 
-[node name="Chest" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 470, 586 )
-
-[node name="Chest6" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 162, 180 )
-
-[node name="Chest3" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 733, 660 )
-
-[node name="Chest4" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 835, 339 )
-
-[node name="Chest5" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 1350, -428 )
-
-[node name="Chest2" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 287, -148 )
-
 [node name="Vase10" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 1015, 117 )
 
@@ -1427,6 +1474,30 @@ position = Vector2( 1012, -36 )
 
 [node name="treasure_skull4" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 697, 472 )
+
+[node name="treasure_skull5" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 599, 527 )
+
+[node name="treasure_skull6" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 739, 241 )
+
+[node name="treasure_skull7" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 456, 335 )
+
+[node name="treasure_skull8" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 532, -37 )
+
+[node name="treasure_skull9" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1031, 203 )
+
+[node name="treasure_skull10" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1191, -110 )
+
+[node name="treasure_skull11" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1433, -127 )
+
+[node name="treasure_skull12" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1359, -369 )
 
 [node name="Bandage" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 540, 528 )
@@ -1451,8 +1522,44 @@ navpoly = SubResource( 103 )
 
 [node name="Enemies" type="Node" parent="."]
 
+[node name="Snake" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 493, -200 )
+
+[node name="Snake2" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 233, 176 )
+
+[node name="Snake3" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 391, 486 )
+
+[node name="Snake4" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 989, 308 )
+
+[node name="Snake5" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 1419, -417 )
+
+[node name="Snake6" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 481, 376 )
+
 [node name="RoomTraverser" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1463, -450 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( 129, 199 )
+
+[node name="Chest" parent="." instance=ExtResource( 11 )]
+position = Vector2( 484, 586 )
+
+[node name="Chest6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 162, 180 )
+
+[node name="Chest3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 733, 660 )
+
+[node name="Chest4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 838, 338 )
+
+[node name="Chest5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1350, -428 )
+
+[node name="Chest2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 287, -148 )

@@ -63,4 +63,4 @@ func upgrade_player_heal_resource(treasure):
 	return price
 
 func calculate_price(current_upgrade_state):
-	return 50 + 50 * current_upgrade_state
+	return 25 + 25 * current_upgrade_state

@@ -36,7 +36,7 @@ func _ready():
 	$NavigationMovement.set_animations = false
 	
 func _physics_process(delta):
-	if position.distance_to(soldier.position) > 6 && time - last_time_destination_set >= 0.5:
+	if position.distance_to(soldier.position) > 8 && time - last_time_destination_set >= 0.5:
 		walk(soldier)
 		
 	else:
@@ -53,7 +53,6 @@ func attack(target):
 	if time - last_time_attacked > attack_interval:
 		$AnimatedSprite.play(animation_name + "_Atk")
 		scheduled_attack = target
-		print("attack")
 		last_time_attacked = time
 
 func walk(target):
