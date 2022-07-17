@@ -1450,9 +1450,6 @@ position = Vector2( 1557, 860 )
 [node name="Coin" parent="Pickups" instance=ExtResource( 15 )]
 position = Vector2( 1532, 953 )
 
-[node name="Chest" parent="Pickups" instance=ExtResource( 11 )]
-position = Vector2( 1242, 339 )
-
 [node name="Ruby" parent="Pickups" instance=ExtResource( 12 )]
 position = Vector2( 1350, 933 )
 
@@ -1482,3 +1479,6 @@ position = Vector2( 1222, 605 )
 
 [node name="RoomTraverser" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1640, 108 )
+
+[node name="Chest5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1242, 339 )
