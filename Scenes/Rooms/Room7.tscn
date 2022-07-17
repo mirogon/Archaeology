@@ -1306,46 +1306,40 @@ __meta__ = {
 [node name="Spawner" type="Node" parent="."]
 
 [node name="Spawner" parent="Spawner" instance=ExtResource( 13 )]
-position = Vector2( 293, 1007 )
+position = Vector2( 293, 1010 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 11
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 13 )]
 position = Vector2( -139, 763 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 20000
 max_interval_ms = 40000
-max_spawns = 11
 
 [node name="Spawner3" parent="Spawner" instance=ExtResource( 13 )]
 position = Vector2( 549, 473 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 11
 
 [node name="Spawner4" parent="Spawner" instance=ExtResource( 13 )]
 position = Vector2( 1110, 311 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 20000
 max_interval_ms = 40000
-max_spawns = 11
 
 [node name="Spawner5" parent="Spawner" instance=ExtResource( 13 )]
 position = Vector2( 1655, 313 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 11
 
 [node name="Spawner6" parent="Spawner" instance=ExtResource( 13 )]
 position = Vector2( 1277, -213 )
 scene_to_spawn = ExtResource( 16 )
 min_interval_ms = 20000
 max_interval_ms = 40000
-max_spawns = 11
 
 [node name="Pickups" type="Node" parent="."]
 
