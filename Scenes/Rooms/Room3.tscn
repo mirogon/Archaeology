@@ -1264,57 +1264,58 @@ navpoly = SubResource( 103 )
 [node name="Chest" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2211, 598 )
 
+[node name="Chest2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2241, 212 )
+
+[node name="Chest3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1481, 612 )
+
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( 1320, 557 )
 
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2( 1845, 545 )
 
 [node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 542, -230 )
-min_interval_ms = 10000
-max_interval_ms = 200000
-max_spawns = 1
+position = Vector2( 2376, 316 )
+scene_to_spawn = ExtResource( 9 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 390, 280 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 1
+position = Vector2( 2224, 826 )
+scene_to_spawn = ExtResource( 9 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner3" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 353, 283 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 1
-
-[node name="Spawner4" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -610, 55 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 1
-
-[node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 494, -188 )
+position = Vector2( 2187, 829 )
 scene_to_spawn = ExtResource( 9 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 4
+max_spawns = 5
+
+[node name="Spawner4" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 1224, 601 )
+min_interval_ms = 20000
+max_interval_ms = 30000
+max_spawns = 5
 
 [node name="BoulderSpawner" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -708, -5 )
+position = Vector2( 755, 581 )
 scene_to_spawn = ExtResource( 13 )
 min_interval_ms = 30000
 max_interval_ms = 120000
 
 [node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -100, -278 )
+position = Vector2( 807, 952 )
 scene_to_spawn = ExtResource( 13 )
 min_interval_ms = 30000
 max_interval_ms = 120000
 
 [node name="BoulderSpawner3" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( -314, -322 )
+position = Vector2( 747, 166 )
 scene_to_spawn = ExtResource( 13 )
 min_interval_ms = 30000
 max_interval_ms = 120000
@@ -1322,7 +1323,7 @@ max_interval_ms = 120000
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="Medikit" parent="Pickups" instance=ExtResource( 6 )]
-position = Vector2( 1383, -54 )
+position = Vector2( 1565, 494 )
 
 [node name="Medikit2" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( 1545, 593 )
@@ -1355,7 +1356,7 @@ position = Vector2( 1992, 250 )
 position = Vector2( 2248, 762 )
 
 [node name="treasure_skull5" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( 1448, 36 )
+position = Vector2( 1894, 285 )
 
 [node name="treasure_skull6" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1964, 402 )
@@ -1384,6 +1385,24 @@ position = Vector2( 1411, 638 )
 
 [node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 2204, 765 )
+
+[node name="Snake2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2334, 316 )
+
+[node name="Snake3" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2395, 157 )
+
+[node name="Snake4" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1685, 447 )
+
+[node name="Snake7" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2123, 578 )
+
+[node name="Snake5" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1441, 646 )
+
+[node name="Snake6" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1356, 470 )
 
 [node name="RoomTraverser" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2413, 107 )

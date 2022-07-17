@@ -11,6 +11,18 @@
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 6, 5 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 16, 16, 16 )
@@ -39,36 +51,25 @@ region = Rect2( 80, 16, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 96, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 16 )
-
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "Bat_Atk",
-"speed": 11.0
-}, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Bat_Walk",
 "speed": 7.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Bat_Atk",
+"speed": 11.0
 } ]
 
-[node name="Bat" type="KinematicBody2D"]
+[node name="Bat" type="KinematicBody2D" groups=["Enemy"]]
 z_index = 5
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 2 )
+damage_per_attack = 5
 animation_name = "Bat"
 coin_scene = ExtResource( 4 )
 ruby_scene = ExtResource( 5 )
@@ -92,3 +93,5 @@ stream = ExtResource( 6 )
 volume_db = -5.0
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 7 )]
+moveSpeed = 110
+animation_name = "Bat"

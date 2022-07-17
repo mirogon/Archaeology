@@ -111,6 +111,8 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 1 )
 moves = false
+damage_per_attack = 5
+attack_interval = 1.25
 animation_name = "Snake"
 coin_scene = ExtResource( 5 )
 ruby_scene = ExtResource( 6 )
@@ -119,14 +121,15 @@ ruby_drop_chance = 20
 attack_frame = 7
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -8, -8 )
 z_index = 1
 frames = SubResource( 21 )
 animation = "Snake_Walk"
-frame = 7
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.5, 3 )
+position = Vector2( 0, -4 )
 shape = SubResource( 22 )
 
 [node name="HealthSystem" parent="." instance=ExtResource( 4 )]

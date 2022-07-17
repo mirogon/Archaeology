@@ -8,7 +8,6 @@
 [ext_resource path="res://Scenes/Items/Medikit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Items/Bandage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Enemies/Snake.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Enemies/Scarab.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Items/TreasureSkull.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Rooms/TreasureChest.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=12]
@@ -17,6 +16,7 @@
 [ext_resource path="res://Scenes/Items/Coin.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scripts/Rooms/Room.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/Rooms/RoomTraverser.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Enemies/Bat.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 12, 8, 4, 8, 4, 4, 12, 4 )
@@ -174,8 +174,8 @@ points = PoolVector2Array( 20, 12, 8, 12, 8, 8, 20, 8 )
 [sub_resource type="ConvexPolygonShape2D" id=101]
 points = PoolVector2Array( 12, -8, 8, -8, 8, -8, 12, -8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=102]
-points = PoolVector2Array( 32, 84, 16, 84, 16, 64, 32, 64 )
+[sub_resource type="ConvexPolygonShape2D" id=104]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=46]
 10/name = "Moss_Wall"
@@ -1189,10 +1189,10 @@ points = PoolVector2Array( 32, 84, 16, 84, 16, 64, 32, 64 )
 "shape": SubResource( 101 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 0, 0 ),
+"autotile_coord": Vector2( 1, 4 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 102 ),
+"shape": SubResource( 104 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 58/z_index = 0
@@ -1263,17 +1263,20 @@ __meta__ = {
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-position = Vector2( 1670, 552 )
+position = Vector2( 1670, 551 )
 navpoly = SubResource( 103 )
 
 [node name="Chest" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1012, 389 )
 
-[node name="Ruby" parent="Chest" instance=ExtResource( 12 )]
-position = Vector2( 350, 559 )
+[node name="Chest2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1242, 594 )
 
-[node name="treasure_skull" parent="Chest" instance=ExtResource( 10 )]
-position = Vector2( -20, 11 )
+[node name="Chest3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 254, 726 )
+
+[node name="Chest4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1602, 852 )
 
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2( 542, 110 )
@@ -1281,35 +1284,53 @@ position = Vector2( 542, 110 )
 [node name="Vase" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1386, 137 )
 
-[node name="treasure_skull" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1354, 509 )
-
 [node name="Medikit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1084, 962 )
 
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="Spawner" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 744, 913 )
-min_interval_ms = 10000
-max_interval_ms = 200000
-max_spawns = 1
+position = Vector2( 857, 903 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="Spawner2" parent="Spawner" instance=ExtResource( 3 )]
 position = Vector2( 1493, 879 )
 min_interval_ms = 10000
 max_interval_ms = 20000
-max_spawns = 1
+max_spawns = 5
 
 [node name="Spawner5" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 365, 591 )
-scene_to_spawn = ExtResource( 9 )
-min_interval_ms = 10000
-max_interval_ms = 20000
-max_spawns = 4
+position = Vector2( 361, 601 )
+scene_to_spawn = ExtResource( 18 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
+
+[node name="Spawner6" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 328, 811 )
+scene_to_spawn = ExtResource( 18 )
+min_interval_ms = 20000
+max_interval_ms = 30000
+max_spawns = 5
+
+[node name="Spawner7" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 1546, 153 )
+scene_to_spawn = ExtResource( 18 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
+
+[node name="Spawner8" parent="Spawner" instance=ExtResource( 3 )]
+position = Vector2( 1174, 170 )
+scene_to_spawn = ExtResource( 18 )
+min_interval_ms = 20000
+max_interval_ms = 40000
+max_spawns = 5
 
 [node name="BoulderSpawner2" parent="Spawner" instance=ExtResource( 3 )]
-position = Vector2( 213, 567 )
+position = Vector2( -503, 543 )
 scene_to_spawn = ExtResource( 13 )
 min_interval_ms = 30000
 max_interval_ms = 120000
@@ -1319,70 +1340,145 @@ max_interval_ms = 120000
 [node name="Snake" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 1448, 872 )
 
-[node name="Pickups2" type="Node2D" parent="."]
+[node name="Snake2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 306, 793 )
 
-[node name="Medikit2" parent="Pickups2" instance=ExtResource( 6 )]
+[node name="Snake3" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 695, 943 )
+
+[node name="Snake4" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1033, 396 )
+
+[node name="Snake5" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1223, 136 )
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Medikit2" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( 219, 812 )
 
-[node name="Medikit3" parent="Pickups2" instance=ExtResource( 6 )]
+[node name="Medikit5" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 789, 619 )
+
+[node name="Medikit6" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 545, 560 )
+
+[node name="Medikit7" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 524, 324 )
+
+[node name="Medikit8" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 920, 484 )
+
+[node name="Medikit9" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1145, 248 )
+
+[node name="Medikit10" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1464, 172 )
+
+[node name="Medikit11" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1319, 578 )
+
+[node name="Medikit12" parent="Pickups" instance=ExtResource( 6 )]
+position = Vector2( 1289, 787 )
+
+[node name="Medikit3" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( 1111, 452 )
 
-[node name="Medikit4" parent="Pickups2" instance=ExtResource( 6 )]
+[node name="Medikit4" parent="Pickups" instance=ExtResource( 6 )]
 position = Vector2( 882, 449 )
 
-[node name="Bandage2" parent="Pickups2" instance=ExtResource( 7 )]
+[node name="Bandage2" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 526, 885 )
 
-[node name="Bandage3" parent="Pickups2" instance=ExtResource( 7 )]
+[node name="Bandage3" parent="Pickups" instance=ExtResource( 7 )]
 position = Vector2( 1343, 184 )
 
-[node name="treasure_skull" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1431, 881 )
 
-[node name="treasure_skull2" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull2" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1448, 154 )
 
-[node name="treasure_skull3" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull3" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1121, 173 )
 
-[node name="treasure_skull4" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull4" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 893, 426 )
 
-[node name="treasure_skull6" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull12" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 817, 727 )
+
+[node name="treasure_skull13" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 465, 581 )
+
+[node name="treasure_skull14" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 315, 889 )
+
+[node name="treasure_skull15" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 315, 889 )
+
+[node name="treasure_skull6" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1184, 884 )
 
-[node name="Vase" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 303, 739 )
 
-[node name="Vase2" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase2" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 309, 759 )
 
-[node name="Vase3" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase3" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 289, 756 )
 
-[node name="Vase4" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase4" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 210, 734 )
 
-[node name="Vase5" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase5" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 195, 754 )
 
-[node name="Vase6" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase6" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 166, 814 )
 
-[node name="Vase7" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase7" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 315, 448 )
 
-[node name="Vase8" parent="Pickups2" instance=ExtResource( 14 )]
+[node name="Vase8" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 1595, 952 )
 
-[node name="treasure_skull8" parent="Pickups2" instance=ExtResource( 10 )]
+[node name="treasure_skull8" parent="Pickups" instance=ExtResource( 10 )]
 position = Vector2( 1557, 860 )
 
-[node name="Coin" parent="Pickups2" instance=ExtResource( 15 )]
+[node name="Coin" parent="Pickups" instance=ExtResource( 15 )]
 position = Vector2( 1532, 953 )
 
-[node name="Chest" parent="Pickups2" instance=ExtResource( 11 )]
+[node name="Chest" parent="Pickups" instance=ExtResource( 11 )]
 position = Vector2( 1242, 339 )
+
+[node name="Ruby" parent="Pickups" instance=ExtResource( 12 )]
+position = Vector2( 1350, 933 )
+
+[node name="treasure_skull5" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 234, 737 )
+
+[node name="Ruby2" parent="Pickups" instance=ExtResource( 12 )]
+position = Vector2( 1372, 932 )
+
+[node name="treasure_skull7" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1582, 863 )
+
+[node name="Ruby3" parent="Pickups" instance=ExtResource( 12 )]
+position = Vector2( 1362, 948 )
+
+[node name="treasure_skull9" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1354, 509 )
+
+[node name="treasure_skull10" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 992, 400 )
+
+[node name="Ruby4" parent="Pickups" instance=ExtResource( 12 )]
+position = Vector2( 1552, 946 )
+
+[node name="treasure_skull11" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 1222, 605 )
 
 [node name="RoomTraverser" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1640, 108 )

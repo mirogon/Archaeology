@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Asstes/Environment/Cave_Set.png" type="Texture" id=1]
 [ext_resource path="res://Asstes/Environment/Water.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Items/TreasureSkull.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Rooms/TreasureChest.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Items/Ruby.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Rooms/Spawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Vase.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
@@ -170,8 +171,8 @@ points = PoolVector2Array( 20, 12, 8, 12, 8, 8, 20, 8 )
 [sub_resource type="ConvexPolygonShape2D" id=101]
 points = PoolVector2Array( 12, -8, 8, -8, 8, -8, 12, -8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=102]
-points = PoolVector2Array( 32, 84, 16, 84, 16, 64, 32, 64 )
+[sub_resource type="ConvexPolygonShape2D" id=104]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=46]
 10/name = "Moss_Wall"
@@ -1185,10 +1186,10 @@ points = PoolVector2Array( 32, 84, 16, 84, 16, 64, 32, 64 )
 "shape": SubResource( 101 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 0, 0 ),
+"autotile_coord": Vector2( 1, 4 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 102 ),
+"shape": SubResource( 104 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 58/z_index = 0
@@ -1299,6 +1300,24 @@ __meta__ = {
 
 [node name="Spawner" type="Node" parent="."]
 
+[node name="Spawner" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 233, 568 )
+
+[node name="Spawner2" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 248, 539 )
+
+[node name="Spawner3" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 794, 314 )
+
+[node name="Spawner4" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 1252, 362 )
+
+[node name="Spawner5" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 1050, -177 )
+
+[node name="Spawner6" parent="Spawner" instance=ExtResource( 13 )]
+position = Vector2( 295, -231 )
+
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Bandage" parent="Pickups" instance=ExtResource( 7 )]
@@ -1313,8 +1332,17 @@ position = Vector2( 1083, -160 )
 [node name="Chest" parent="Pickups" instance=ExtResource( 11 )]
 position = Vector2( 1143, -219 )
 
+[node name="Chest5" parent="Pickups" instance=ExtResource( 11 )]
+position = Vector2( 396, -316 )
+
 [node name="Chest2" parent="Pickups" instance=ExtResource( 11 )]
 position = Vector2( 1094, -201 )
+
+[node name="Chest3" parent="Pickups" instance=ExtResource( 11 )]
+position = Vector2( 1244, 322 )
+
+[node name="Chest4" parent="Pickups" instance=ExtResource( 11 )]
+position = Vector2( 283, 336 )
 
 [node name="Vase" parent="Pickups" instance=ExtResource( 14 )]
 position = Vector2( 1135, -4 )
@@ -1353,6 +1381,7 @@ position = Vector2( 853, 288 )
 position = Vector2( 789, 173 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 103 )

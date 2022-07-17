@@ -9,22 +9,6 @@
 [ext_resource path="res://Asstes/Audio/Enemies/sfx_damage_hit8.wav" type="AudioStream" id=7]
 [ext_resource path="res://Scenes/Other/NavigationMovement.tscn" type="PackedScene" id=8]
 
-[sub_resource type="AtlasTexture" id=63]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=64]
-atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=65]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=66]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
@@ -53,27 +37,45 @@ region = Rect2( 80, 0, 16, 16 )
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
 [sub_resource type="SpriteFrames" id=67]
 animations = [ {
-"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
-"loop": true,
-"name": "Rat_Walk",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
 "loop": true,
 "name": "Rat_Atk",
 "speed": 11.0
+}, {
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
+"loop": true,
+"name": "Rat_Walk",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=68]
 extents = Vector2( 7, 5.5 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=["Enemy"]]
+[node name="Rat" type="KinematicBody2D" groups=["Enemy"]]
 z_index = 5
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 1 )
+damage_per_attack = 3
+attack_interval = 0.75
 animation_name = "Rat"
 coin_scene = ExtResource( 5 )
 ruby_scene = ExtResource( 6 )
@@ -84,7 +86,7 @@ ruby_drop_chance = 20
 position = Vector2( 0, -8 )
 frames = SubResource( 67 )
 animation = "Rat_Walk"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -99,4 +101,4 @@ stream = ExtResource( 7 )
 volume_db = -5.0
 
 [node name="NavigationMovement" parent="." instance=ExtResource( 8 )]
-moveSpeed = 65
+moveSpeed = 80
