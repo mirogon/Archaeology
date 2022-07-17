@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/Ui/TimerLabel.gd" type="Script" id=6]
 [ext_resource path="res://Asstes/UI/HealingArea.png" type="Texture" id=7]
 [ext_resource path="res://Asstes/Items/Bone.png" type="Texture" id=8]
-[ext_resource path="res://Asstes/Items/Syringe.png" type="Texture" id=9]
+[ext_resource path="res://Asstes/UI/syringeCircle.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -140,9 +140,9 @@ texture = ExtResource( 7 )
 
 [node name="Label2" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
 margin_left = 427.0
-margin_top = 683.0
+margin_top = 681.0
 margin_right = 851.0
-margin_bottom = 714.0
+margin_bottom = 712.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "2 - "
@@ -157,19 +157,19 @@ rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
 [node name="Label3" type="Label" parent="SKILLS_UNFINISHED_AND_UGLY"]
-margin_left = 622.0
-margin_top = 682.0
-margin_right = 1046.0
-margin_bottom = 713.0
+margin_left = 614.0
+margin_top = 681.0
+margin_right = 1038.0
+margin_bottom = 712.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "3 - "
 align = 1
 
 [node name="TextureRect3" type="TextureRect" parent="SKILLS_UNFINISHED_AND_UGLY/Label3"]
-margin_left = 229.0
-margin_top = 10.0
-margin_right = 245.0
-margin_bottom = 50.0
+margin_left = 230.0
+margin_top = -12.0
+margin_right = 254.0
+margin_bottom = 28.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
